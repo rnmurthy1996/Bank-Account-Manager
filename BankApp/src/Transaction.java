@@ -1,3 +1,4 @@
+
 /**
  * This Class is used to for account transactions.
  * 
@@ -12,7 +13,7 @@ public class Transaction {
 	String place;
 	String Vendor;
 	String product;
-
+	
 	// Constructor
 	public Transaction(String transactionType, int amount, int date, String place, String vendor, String product) {
 
@@ -22,6 +23,10 @@ public class Transaction {
 		this.place = place;
 		this.Vendor = vendor;
 		this.product = product;
+		
 	}
+	
+
+	
 
 }
