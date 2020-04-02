@@ -10,8 +10,26 @@ class UnitTesting {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void test1() {
+		//fail("Not yet implemented");
+		
+		Account one = new Account (123,"sri",456, 2013, "checking", "password", 5000.0);
+		
+		one.deposit(500);
+		one.withdraw(20);
+		
+		assertEquals(one.getBalance() , 5480 );
+		
+	}
+	@Test
+	void test2() {
+		//fail("Not yet implemented");
+		AccountReader list = new AccountReader();
+		list.readAccountcsv();
+		Account account = list.accountlist.get(0);
+		
+		assertEquals(account.getBalance() , 6000 );
+		
 	}
 
 }

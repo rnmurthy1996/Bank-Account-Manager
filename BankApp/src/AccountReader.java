@@ -22,7 +22,7 @@ public class AccountReader {
 	void readAccountcsv() {
 		
 		try {
-			File f = new File ("Accounts.txt");
+			File f = new File ("accountdata.csv");
 			Scanner fileScanner = new Scanner(f);
 			
 			while(fileScanner.hasNextLine())
@@ -30,8 +30,8 @@ public class AccountReader {
 				
 				String line = fileScanner.next();
 				
-				String [] lineArray = line.split("<>");
-				
+				String [] lineArray = line.split(",");
+				System.out.println(lineArray[0]);
 				int accountNumber = Integer.parseInt(lineArray[0]);
 				String name = lineArray[1];
 				int cvv = Integer.parseInt(lineArray[2]);
@@ -43,6 +43,7 @@ public class AccountReader {
 				Account account = new Account( accountNumber , name , cvv , expiryDate , type , password , balance);
 				
 				accountlist.add(account);
+				System.out.println(accountlist.get(0).getBalance());
 			}
 			
 		} catch (FileNotFoundException e) {
