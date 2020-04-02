@@ -31,7 +31,7 @@ public class AccountReader {
 				String line = fileScanner.next();
 				
 				String [] lineArray = line.split(",");
-				System.out.println(lineArray[0]);
+				//System.out.println(lineArray[0]);
 				int accountNumber = Integer.parseInt(lineArray[0]);
 				String name = lineArray[1];
 				int cvv = Integer.parseInt(lineArray[2]);
@@ -43,7 +43,7 @@ public class AccountReader {
 				Account account = new Account( accountNumber , name , cvv , expiryDate , type , password , balance);
 				
 				accountlist.add(account);
-				System.out.println(accountlist.get(0).getBalance());
+				//System.out.println(accountlist.get(0).getBalance());
 			}
 			
 		} catch (FileNotFoundException e) {

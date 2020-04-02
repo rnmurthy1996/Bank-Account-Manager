@@ -31,5 +31,17 @@ class UnitTesting {
 		assertEquals(account.getBalance() , 6000 );
 		
 	}
+	
+	@Test
+	void test3() {
+		//fail("Not yet implemented");
+		TransactionReader tr = new TransactionReader();
+		tr.readTransaction(new Transaction(50 ,2029,"walmart","bodywash"));
+		tr.readTransaction(new Transaction(50 ,2029,"amazon","soap"));
+		tr.printTransactions(5, 0);
+		
+		//assertEquals(account.getBalance() , 6000 );
+		
+	}
 
 }
