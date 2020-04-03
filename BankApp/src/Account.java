@@ -16,7 +16,8 @@ public class Account {
 	private double interestRate;
 
 	// Constructor
-	public Account(int accountNumber, String name, int cvv, int expiryDate, String type, String password, double balance) {
+	public Account(int accountNumber, String name, int cvv, int expiryDate, String type, String password,
+			double balance) {
 
 		this.accountNumber = accountNumber;
 		this.name = name;
@@ -25,7 +26,7 @@ public class Account {
 		this.type = type;
 		this.password = password;
 		this.balance = balance;
-		
+
 	}
 
 	/**
@@ -45,13 +46,26 @@ public class Account {
 	 */
 	public void withdraw(int amount) {
 
-	
-		if(amount <balance) {
-		this.balance = this.balance - amount;
+		if (amount < balance) {
+			this.balance = this.balance - amount;
 		}
-		
-		
-		
+
+	}
+
+	/**
+	 * This method is used to transfer money from one account to other account
+	 * 
+	 * @param obj
+	 */
+
+	public void moneyTransfer(Account obj, int amount) {
+
+		if (obj.balance < amount) {
+
+			this.withdraw(amount);
+			obj.deposit(amount);
+		}
+
 	}
 
 	/**
