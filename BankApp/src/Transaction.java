@@ -9,13 +9,13 @@ public class Transaction {
 
 	String transactionType;
 	int amount;
-	int date;
+	String date;
 	String place;
 	String vendor;
 	String product;
 	
 	// Constructor1
-	public Transaction(String transactionType, int amount, int date, String place, String vendor, String product) {
+	public Transaction(String transactionType, int amount, String date, String place, String vendor, String product) {
 
 		this.transactionType = transactionType;
 		this.amount = amount;
@@ -26,7 +26,7 @@ public class Transaction {
 		
 	}
 	//constructor2
-	public Transaction(int amount, int date, String vendor, String product) {
+	public Transaction(int amount, String date, String vendor, String product) {
 
 		
 		this.amount = amount;

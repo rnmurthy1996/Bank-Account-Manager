@@ -11,7 +11,7 @@ public class BankAppRunner {
 		// gui to open an account
 		// gui to do some transactions
 		// gui to print monthly statements
-		// gui to deposit money ]
+		// gui to deposit money 
 		// gui to withdraw money
 		// gui to transfer money
 

@@ -29,7 +29,7 @@ public class BankAppGui {
 	JButton button2; // used for Withdraw (action method is needed when user clicks the button)
 	JButton button3; // used for money transfer(action method is needed when user clicks the button)
 	JButton button4; // used to exit gui (action method is needed when user clicks the button)
-	JComboBox box; // used to select account number
+	JComboBox<String> box; // used to select account number
 	
 	
 	/**

@@ -45,9 +45,10 @@ public class AccountReader {
 				accountlist.add(account);
 				//System.out.println(accountlist.get(0).getBalance());
 			}
+			fileScanner.close();
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

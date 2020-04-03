@@ -36,9 +36,10 @@ class UnitTesting {
 	void test3() {
 		//fail("Not yet implemented");
 		TransactionReader tr = new TransactionReader();
-		tr.readTransaction(new Transaction(50 ,2029,"walmart","bodywash"));
-		tr.readTransaction(new Transaction(50 ,2029,"amazon","soap"));
-		tr.printTransactions(5, 0);
+		tr.readTransaction(new Transaction(50 ,"09312029","walmart","bodywash"));
+		tr.readTransaction(new Transaction(50 ,"10232029","amazon","soap"));
+		tr.readTransaction(new Transaction(50 ,"10232029","amazon","coffee"));
+		tr.printTransactions(10, 2029);
 		
 		//assertEquals(account.getBalance() , 6000 );
 		

@@ -40,18 +40,20 @@ public class TransactionReader {
 			FileWriter fw = new FileWriter(f);
 			PrintWriter p = new PrintWriter(fw, true);
 			for (int i = 0; i < transactionList.size(); i++) {
-				
-				
+				// sysoutInteger.toString(month)
+				if(Integer.toString(month).contentEquals(transactionList.get(i).date.substring(0, 2)) 
+						&& Integer.toString(year).contentEquals(transactionList.get(i).date.substring(4,8))) {
 				p.print(transactionList.get(i).amount + " ");
 				p.print(transactionList.get(i).date + " ");
 				p.print(transactionList.get(i).vendor + " ");
 				p.print(transactionList.get(i).product + " ");
 				p.println();
+				}
 			}
 			p.close();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
