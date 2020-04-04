@@ -7,6 +7,7 @@
  */
 public class Transaction {
 
+	//Instant Variables
 	String transactionType;
 	int amount;
 	String date;

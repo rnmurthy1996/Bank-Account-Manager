@@ -13,8 +13,10 @@ import java.util.ArrayList;
  */
 public class TransactionReader {
 
+	//Instant Variables
 	ArrayList<Transaction> transactionList;
-
+	
+	//constructor
 	TransactionReader() {
 
 		transactionList = new ArrayList<Transaction>();

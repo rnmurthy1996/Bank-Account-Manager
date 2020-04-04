@@ -11,14 +11,19 @@ import java.util.Scanner;
  */
 public class AccountReader {
 
+	//instance variables
 	ArrayList<Account> accountlist;
 
+	//constructor
 	public AccountReader() {
 
 		accountlist = new ArrayList<Account>();
 
 	}
 
+	/**
+	 * This method is used to read accounts.
+	 */
 	void readAccountcsv() {
 		
 		try {
