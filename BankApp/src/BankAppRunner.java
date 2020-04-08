@@ -16,7 +16,7 @@ public class BankAppRunner {
 		// gui to withdraw money
 		// gui to transfer money
 
-		new BankAppGui().createGui();
+		new LoginGui().createGui();
 	}
 
 }
