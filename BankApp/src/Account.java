@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -19,6 +20,8 @@ public class Account {
 	protected double balance;
 	static final public double interestRate =2.5;
 	static private int accountcount=0;
+	static public int transactionNum=0;
+	public ArrayList<String>transactions ;
 	
 	
 	
@@ -33,7 +36,7 @@ public class Account {
 		this.type = type;
 		this.password = password;
 		this.balance = balance;
-
+		transactions = new ArrayList<String>();
 	}
 
 	public Account(String name, String type, String password, double balance) {
@@ -45,7 +48,7 @@ public class Account {
 		this.type = type;
 		this.password = password;
 		this.balance = balance;
-
+		transactions = new ArrayList<String>();
 	}
 
 	/**
@@ -56,6 +59,13 @@ public class Account {
 	public void deposit(int amount) {
 
 		this.balance = this.balance + amount;
+		transactionNum++;
+		
+		String transaction = "No."+transactionNum+ " "+" Deposit" +" - " +"amount-"+amount+"Available balance-"+balance;
+		
+		
+		transactions.add(transaction);
+		
 	}
 
 	/**
@@ -67,6 +77,10 @@ public class Account {
 
 		if (amount < balance) {
 			this.balance = this.balance - amount;
+			transactionNum++;
+			String transaction = "No."+transactionNum+ " "+" withdraw" +"- " +"amount-"+amount+"Available balance-"+balance;
+			
+			transactions.add(transaction);
 		}
 
 	}
@@ -83,6 +97,10 @@ public class Account {
 
 			this.withdraw(amount);
 			obj.deposit(amount);
+			transactionNum++;
+			String transaction = "No."+transactionNum+ " "+" moneyTransfer" +"to account-"+obj.name+"- " +"amount-"+amount+"Available balance-"+balance;
+			
+			transactions.add(transaction);
 		}
 
 	}

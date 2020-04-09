@@ -23,7 +23,7 @@ public class SavingsAccount extends Account {
 		double interest = (Account.interestRate * this.balance) / 12;
 
 		this.balance = this.balance + interest;
-
+ 
 	}
 
 	
