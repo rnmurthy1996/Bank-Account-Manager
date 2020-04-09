@@ -33,10 +33,10 @@ public class AccountReader {
 			File f = new File("accountdata.csv");
 			Scanner fileScanner = new Scanner(f);
 
-			while (fileScanner.hasNextLine()) {
+			while (fileScanner.hasNext()) {
 
 				String line = fileScanner.next();
-
+				
 				String[] lineArray = line.split(",");
 				// System.out.println(lineArray[0]);
 				int accountNumber = Integer.parseInt(lineArray[0]);

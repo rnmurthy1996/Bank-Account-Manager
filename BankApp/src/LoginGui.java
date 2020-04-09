@@ -75,7 +75,7 @@ public class LoginGui {
 		username = new JLabel("Username:");
 		password = new JLabel("Password:");
 		usernameText = new JTextField();
-		passwordText = new JTextField();
+		passwordText = new JPasswordField();
 		usernameText.setColumns(10);
 		passwordText.setColumns(10);
 

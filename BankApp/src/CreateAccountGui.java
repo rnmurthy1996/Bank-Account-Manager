@@ -21,6 +21,8 @@ public class CreateAccountGui {
 	private JPanel pw;
 	private JPanel buttons;
 	private JPanel incorrect;
+	private JPanel accType;
+	private JPanel id;
 	
 	private JLabel username;
 	private JTextField usernameText;
@@ -32,6 +34,12 @@ public class CreateAccountGui {
 	private JButton exit;
 	
 	private JLabel incorrectMessage;
+	
+	private JLabel accountTypeText;
+	private JComboBox accountType;
+	
+	private JLabel initialDeposit;
+	private JTextField initialDepositText;
 
 	/**
 	 * This method is used to design the layout for the GUI.
@@ -39,7 +47,7 @@ public class CreateAccountGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(400, 200);
+		frame.setSize(400, 300);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -52,6 +60,16 @@ public class CreateAccountGui {
 		pw.setLayout(new FlowLayout());
 		pw.setSize(50, 200);
 		frame.add(pw);
+		
+		accType = new JPanel();
+		accType.setLayout(new FlowLayout());
+		accType.setSize(50, 200);
+		frame.add(accType);
+		
+		id = new JPanel();
+		id.setLayout(new FlowLayout());
+		id.setSize(50, 200);
+		frame.add(id);
 		
 		buttons = new JPanel();
 		buttons.setLayout(new FlowLayout());
@@ -75,7 +93,7 @@ public class CreateAccountGui {
 		username = new JLabel("Create Username:");
 		password = new JLabel("Create Password:");
 		usernameText = new JTextField();
-		passwordText = new JTextField();
+		passwordText = new JPasswordField();
 		usernameText.setColumns(10);
 		passwordText.setColumns(10);
 
@@ -83,6 +101,18 @@ public class CreateAccountGui {
 		un.add(usernameText);
 		pw.add(password);
 		pw.add(passwordText);
+		
+		accountTypeText = new JLabel("Select Account Type:");
+		String [] at = {"Checking", "Savings"};
+		accountType = new JComboBox(at);
+		accType.add(accountTypeText);
+		accType.add(accountType);
+		
+		initialDeposit = new JLabel("Initial Deposit:");
+		initialDepositText = new JTextField();
+		initialDepositText.setColumns(10);
+		id.add(initialDeposit);
+		id.add(initialDepositText);
 		
 		createAccount = new JButton("Create Account");
 		exit = new JButton("Exit");
@@ -103,9 +133,16 @@ public class CreateAccountGui {
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
+			String name = usernameText.getText();
+			String pw = passwordText.getText();
+			String accType = accountType.getSelectedItem().toString();
+			Double balance = Double.parseDouble(initialDepositText.getText());
 			
-			
-			
+			Account newAccount = new Account(name, accType, pw, balance);
+			AccountReader ar = new AccountReader();
+			ar.createAccountcsv(newAccount);
+			frame.dispose();
+			new LoginGui().createGui();
 		}
 	}
 	
@@ -114,6 +151,7 @@ public class CreateAccountGui {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
 			frame.dispose();
+			new LoginGui().createGui();
 		}
 	}
 }
