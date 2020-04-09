@@ -1,5 +1,6 @@
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * This is the Account class.
@@ -17,7 +18,10 @@ public class Account {
 	private String password;
 	private double balance;
 	private double interestRate;
-
+	static private int accountcount=0;
+	
+	
+	
 	// Constructor
 	public Account(int accountNumber, String name, int cvv, String expiryDate, String type, String password,
 			double balance) {
@@ -127,7 +131,10 @@ public class Account {
 
 	public int cvvcaluclator() {
 
-		return 0;
+		Random random = new Random();
+		
+		int cvv = (random.nextInt(900)+100);
+		return cvv;
 	}
 
 	/*
@@ -135,8 +142,11 @@ public class Account {
 	 */
 
 	public int accountNumGenerator() {
+		
+		
+		int accountNum = accountcount+500001;
 
-		return 0;
+		return accountNum;
 	}
 
 	/**
