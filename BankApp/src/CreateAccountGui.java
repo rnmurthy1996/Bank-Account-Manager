@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author Sridhar.Varala
  *
  */
-public class LoginGui {
+public class CreateAccountGui {
 
 	// instance variables
 
@@ -72,8 +72,8 @@ public class LoginGui {
 
 		layoutManager() ;
 		
-		username = new JLabel("Username:");
-		password = new JLabel("Password:");
+		username = new JLabel("Create Username:");
+		password = new JLabel("Create Password:");
 		usernameText = new JTextField();
 		passwordText = new JTextField();
 		usernameText.setColumns(10);
@@ -84,11 +84,9 @@ public class LoginGui {
 		pw.add(password);
 		pw.add(passwordText);
 		
-		login = new JButton("Login");
 		createAccount = new JButton("Create Account");
 		exit = new JButton("Exit");
 		
-		buttons.add(login);
 		buttons.add(createAccount);
 		buttons.add(exit);
 		
@@ -97,38 +95,17 @@ public class LoginGui {
 		
 		frame.setVisible(true);
 		
-		login.addActionListener(new Login());
 		createAccount.addActionListener(new CreateAccount());
 		exit.addActionListener(new Exit());
-	}
-
-//Internal class to perform action associated to the button.
-	private class Login implements ActionListener {
-		
-		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
-			String user = usernameText.getText();
-			String pass = passwordText.getText();
-			
-			AccountReader ar = new AccountReader();
-			ar.readAccountcsv();
-			for(int i=0; i < ar.accountlist.size(); i++) {
-				if(ar.accountlist.get(i).loginAuthentication(user, pass)==true) {
-					new BankAppGui(ar.accountlist.get(i)).createGui();
-					frame.dispose();
-				}
-			}
-			incorrectMessage.setText("Incorrect Username or Password"); 
-			incorrectMessage.setForeground(Color.red);
-		}
 	}
 
 	//Internal class to perform action associated to the button.
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
-			new CreateAccountGui().createGui();
-			frame.dispose();
+			
+			
+			
 		}
 	}
 	
