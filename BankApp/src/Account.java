@@ -16,8 +16,8 @@ public class Account {
 	private String expiryDate;
 	private String type;
 	private String password;
-	private double balance;
-	private double interestRate;
+	protected double balance;
+	static final public double interestRate =2.5;
 	static private int accountcount=0;
 	
 	
@@ -87,16 +87,6 @@ public class Account {
 
 	}
 
-	/**
-	 * This method is used to calculate interest.
-	 */
-	public void interest() {
-
-		double interest = (this.interestRate * this.balance) / 12;
-
-		this.balance = this.balance + interest;
-
-	}
 
 	/**
 	 * This method is used to verify login credentials.
