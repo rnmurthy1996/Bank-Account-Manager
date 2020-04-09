@@ -32,6 +32,18 @@ public class Account {
 
 	}
 
+	public Account(String name, String type, String password, double balance) {
+
+		this.accountNumber = accountNumGenerator();
+		this.name = name;
+		this.cvv = cvvcaluclator();
+		this.expiryDate = expiryDateCaluclator();
+		this.type = type;
+		this.password = password;
+		this.balance = balance;
+
+	}
+
 	/**
 	 * This is the deposit method.
 	 * 
@@ -89,7 +101,7 @@ public class Account {
 	 * @param accountNumber
 	 */
 
-	public boolean  loginAuthentication(String name, String password) {
+	public boolean loginAuthentication(String name, String password) {
 
 		if (this.name.contentEquals(name) && this.password.contentEquals(password)) {
 			return true;
@@ -97,34 +109,33 @@ public class Account {
 			return false;
 		}
 	}
-	
-	
-	
+
 	/*
 	 * This method is used to compute account expire date.
 	 */
-	public String expiryDateCaluclator ( ) {
-		
-		Date today = new Date();  
-		Calendar cal = Calendar.getInstance(); 
-		cal.setTime(today); 
-		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH); 
-		int month = cal.get(Calendar.MONTH);  
-		int year = cal.get(Calendar.YEAR); 
-	    String expiryDate = dayOfMonth+"/"+month+"/"+(year+2);
-	    return expiryDate;
+	public String expiryDateCaluclator() {
+
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		String expiryDate = dayOfMonth + "/" + month + "/" + (year + 2);
+		return expiryDate;
 	}
-	
-	
+
+	public int cvvcaluclator() {
+
+		return 0;
+	}
+
 	/*
 	 * This method is used to generate account number.
 	 */
-	
+
 	public int accountNumGenerator() {
-		
-		
-		
-		
+
 		return 0;
 	}
 
@@ -138,15 +149,6 @@ public class Account {
 	}
 
 	/**
-	 * This is a setter for account number.
-	 * 
-	 * @param accountNumber
-	 */
-//	public void setAccountNumber(int accountNumber) {
-//		this.accountNumber = accountNumber;
-//	}
-
-	/**
 	 * This is the getter for the account name.
 	 * 
 	 * @return
@@ -154,15 +156,6 @@ public class Account {
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * This is the setter for the account name.
-	 * 
-	 * @param name
-	 */
-//	public void setName(String name) {
-//		this.name = name;
-//	}
 
 	/**
 	 * This is the getter for cvv of the account.
@@ -174,31 +167,13 @@ public class Account {
 	}
 
 	/**
-	 * This is the setter for the cvv of the account.
-	 * 
-	 * @param cvv
-	 */
-//	public void setCvv(int cvv) {
-//		this.cvv = cvv;
-//	}
-
-	/**
 	 * This is the getter for the account expiry date.
 	 * 
 	 * @return
 	 */
-	public String  getExpiryDate() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
-
-	/**
-	 * This isi the setter for the account expiry date.
-	 * 
-	 * @param expiryDate
-	 */
-//	public void setExpiryDate(String expiryDate) {
-//		this.expiryDate = expiryDate;
-//	}
 
 	/**
 	 * This is the getter for the account type.
@@ -210,15 +185,6 @@ public class Account {
 	}
 
 	/**
-	 * This is the setter for the account type.
-	 * 
-	 * @param type
-	 */
-//	public void setType(String type) {
-//		this.type = type;
-//	}
-
-	/**
 	 * This is the getter for the account password
 	 * 
 	 * @return
@@ -226,15 +192,6 @@ public class Account {
 	public String getPassword() {
 		return password;
 	}
-
-	/**
-	 * This is the setter for the account password
-	 * 
-	 * @param password
-	 */
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
 
 	/**
 	 * This is the getter for the account balance.
@@ -246,15 +203,6 @@ public class Account {
 	}
 
 	/**
-	 * This is the setter for the account balance.
-	 * 
-	 * @param balance
-	 */
-//	public void setBalance(double balance) {
-//		this.balance = balance;
-//	}
-
-	/**
 	 * This is the getter for the account interest rate.
 	 * 
 	 * @return
@@ -263,12 +211,4 @@ public class Account {
 		return interestRate;
 	}
 
-	/**
-	 * This is the setter for the account interest rate.
-	 * 
-	 * @param interestRate
-	 */
-//	public void setInterestRate(double interestRate) {
-//		this.interestRate = interestRate;
-//	}
 }
