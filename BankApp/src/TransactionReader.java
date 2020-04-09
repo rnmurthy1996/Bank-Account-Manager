@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class TransactionReader {
 
 	//Instant Variables
-	ArrayList<Transaction> transactionList;
+	private ArrayList<Transaction> transactionList;
 	
 	//constructor
-	TransactionReader() {
+	public TransactionReader() {
 
 		transactionList = new ArrayList<Transaction>();
 
@@ -43,13 +43,14 @@ public class TransactionReader {
 			PrintWriter p = new PrintWriter(fw, true);
 			for (int i = 0; i < transactionList.size(); i++) {
 				// sysoutInteger.toString(month)
-				if(Integer.toString(month).contentEquals(transactionList.get(i).date.substring(0, 2)) 
-						&& Integer.toString(year).contentEquals(transactionList.get(i).date.substring(4,8))) {
-				p.print(transactionList.get(i).amount + " ");
-				p.print(transactionList.get(i).date + " ");
-				p.print(transactionList.get(i).vendor + " ");
-				p.print(transactionList.get(i).product + " ");
+				if(Integer.toString(month).contentEquals(transactionList.get(i).getDate().substring(0, 2)) 
+						&& Integer.toString(year).contentEquals(transactionList.get(i).getDate().substring(4,8))) {
+				p.print(transactionList.get(i).getAmount() + " ");
+				p.print(transactionList.get(i).getDate() + " ");
+				p.print(transactionList.get(i).getVendor() + " ");
+				p.print(transactionList.get(i).getProduct() + " ");
 				p.println();
+				p.flush();
 				}
 			}
 			p.close();
@@ -59,6 +60,15 @@ public class TransactionReader {
 			e.printStackTrace();
 		}
 
+	}
+	
+	//getter	
+	public ArrayList<Transaction> getTransactionList() {
+		return transactionList;
+	}
+	//Setter
+	public void setTransactionList(ArrayList<Transaction> transactionList) {
+		this.transactionList = transactionList;
 	}
 
 }

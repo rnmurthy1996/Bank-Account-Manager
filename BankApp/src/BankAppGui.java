@@ -15,19 +15,19 @@ public class BankAppGui {
 
 	// instance variables
 
-	JFrame frame; // used to create frame
-	JPanel p ;
-	JPanel buttons;
-	JLabel label1; // used to label for Account number
-	JLabel label2; // used to label account balance
-	JLabel label3; // used to label for Account name;
-	JLabel label4; // used to label account expire date
-	JButton button1; // used for Deposit (action method is needed when user clicks the button)
-	JButton button2; // used for Withdraw (action method is needed when user clicks the button)
-	JButton button3; // used for money transfer(action method is needed when user clicks the button)
-	JButton button4; // used to exit gui (action method is needed when user clicks the button)
-	JComboBox<String> box; // used to select account number
-	Account a;
+	private JFrame frame; // used to create frame
+	private JPanel p ;
+	private JPanel buttons;
+	private JLabel label1; // used to label for Account number
+	private JLabel label2; // used to label account balance
+	private JLabel label3; // used to label for Account name;
+	private JLabel label4; // used to label account expire date
+	private JButton button1; // used for Deposit (action method is needed when user clicks the button)
+	private JButton button2; // used for Withdraw (action method is needed when user clicks the button)
+	private JButton button3; // used for money transfer(action method is needed when user clicks the button)
+	private JButton button4; // used to exit gui (action method is needed when user clicks the button)
+	private JComboBox<String> box; // used to select account number
+	private Account a;
 	
 	/**
 	 * 
@@ -92,9 +92,9 @@ public class BankAppGui {
 		
 		label1 = new JLabel("Account Number: " + Integer.toString(a.getAccountNumber()) + "       ");
 		label2 = new JLabel("Account Name: " + a.getName() + "       ");
-		label3 = new JLabel("Expire Date: " + Integer.toString(a.getExpiryDate()).substring(0,2) 
-							+ "/" + Integer.toString(a.getExpiryDate()).substring(2,4) +
-							"/" + Integer.toString(a.getExpiryDate()).substring(4) + "       ");
+		label3 = new JLabel("Expire Date: " + (a.getExpiryDate()).substring(0,2) 
+							+ "/" + (a.getExpiryDate()).substring(2,4) +
+							"/" + (a.getExpiryDate()).substring(4) + "       ");
 		String balance = String.format("%.2f", a.getBalance());
 		label4 = new JLabel("Account Balance: " + balance + "       ");
 		

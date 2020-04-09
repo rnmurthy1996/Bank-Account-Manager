@@ -140,7 +140,7 @@ public class LoginGui {
 			AccountReader ar = new AccountReader();
 			ar.readAccountcsv();
 			for(int i=0; i < ar.accountlist.size(); i++) {
-				if(username.equals(ar.accountlist.get(i).getName()) && password.equals(ar.accountlist.get(i).getPassword())) {
+				if(ar.accountlist.get(i).loginAuthentication(username, password)==true) {
 					new BankAppGui(ar.accountlist.get(i)).createGui();
 				}
 			}

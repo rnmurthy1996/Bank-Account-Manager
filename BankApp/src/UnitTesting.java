@@ -1,5 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +16,7 @@ class UnitTesting {
 	void test1() {
 		//fail("Not yet implemented");
 		
-		Account one = new Account (123,"sri",456, 2013, "checking", "password", 5000.0);
+		Account one = new Account (123,"sri",456, "2013", "checking", "password", 5000.0);
 		
 		one.deposit(500);
 		one.withdraw(20);
@@ -40,9 +43,20 @@ class UnitTesting {
 		tr.readTransaction(new Transaction(50 ,"10232029","amazon","soap"));
 		tr.readTransaction(new Transaction(50 ,"10232029","amazon","coffee"));
 		tr.printTransactions(10, 2029);
+
+		AccountReader li = new AccountReader();
 		
-		//assertEquals(account.getBalance() , 6000 );
+	
+		Account account = new Account(45678, "varala", 356 ,"9132022" ,"checking" , "passcode",5000);
 		
+		li.createAccountcsv(account);
+		
+		
+		
+	 
+		
+		//assertEquals(account.getBalance() , 6000 );	
 	}
+	
 
 }
