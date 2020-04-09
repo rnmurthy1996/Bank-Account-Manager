@@ -107,8 +107,16 @@ public class BankAppGui {
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-			
-			
+			String in = JOptionPane.showInputDialog("Enter the amount to deposit");
+			int depositAmount =0;
+			try {
+			depositAmount = Integer.parseInt(in);
+			}catch(Exception e) {
+				JOptionPane.showInputDialog("invalid amount!");
+			}
+			a.deposit(depositAmount);
+			String bal = String.format("%.2f", a.getBalance());
+			balance.setText(bal);
 		}
 	}
 
@@ -116,8 +124,16 @@ public class BankAppGui {
 	private class WithdrawMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-			
-			
+			String in = JOptionPane.showInputDialog("Enter the amount to Withdraw");
+			int withdrawalAmount =0;
+			try {
+				withdrawalAmount = Integer.parseInt(in);
+			}catch(Exception e) {
+				JOptionPane.showInputDialog("invalid amount!");
+			}
+			a.withdraw(withdrawalAmount);
+			String bal = String.format("%.2f", a.getBalance());
+			balance.setText(bal);
 		}
 	}
 
@@ -125,8 +141,17 @@ public class BankAppGui {
 	private class TransferMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
+			String in = JOptionPane.showInputDialog("Enter the amount to Transfer");
 			
-			
+			int transferAmount =0;
+			try {
+				transferAmount = Integer.parseInt(in);
+			}catch(Exception e) {
+				JOptionPane.showInputDialog("invalid amount!");
+			}
+			//a.transfer(transferAmount, other);
+			String bal = String.format("%.2f", a.getBalance());
+			balance.setText(bal);
 		}
 	}
 
