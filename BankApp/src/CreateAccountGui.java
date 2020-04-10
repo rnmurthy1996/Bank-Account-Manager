@@ -1,6 +1,7 @@
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -33,13 +34,17 @@ public class CreateAccountGui {
 	private JButton createAccount;
 	private JButton exit;
 	
-	private JLabel incorrectMessage;
-	
 	private JLabel accountTypeText;
 	private JComboBox accountType;
 	
 	private JLabel initialDeposit;
-	private JTextField initialDepositText;
+	private JTextField dollarsText;
+	private JLabel dot;
+	private JTextField centsText;
+
+	private JLabel usernameErr;
+	private JLabel passwordErr;
+	private JLabel depositErr;
 
 	/**
 	 * This method is used to design the layout for the GUI.
@@ -47,7 +52,7 @@ public class CreateAccountGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(400, 300);
+		frame.setSize(300, 300);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -78,7 +83,7 @@ public class CreateAccountGui {
 		
 		incorrect = new JPanel();
 		incorrect.setBackground(Color.white);
-		incorrect.setLayout(new FlowLayout());
+		incorrect.setLayout(new BoxLayout(incorrect, BoxLayout.Y_AXIS));
 		incorrect.setSize(50, 200);
 		frame.add(incorrect);
 	}
@@ -109,10 +114,15 @@ public class CreateAccountGui {
 		accType.add(accountType);
 		
 		initialDeposit = new JLabel("Initial Deposit:");
-		initialDepositText = new JTextField();
-		initialDepositText.setColumns(10);
+		dollarsText = new JTextField();
+		dollarsText.setColumns(7);
+		dot = new JLabel(".");
+		centsText = new JTextField();
+		centsText.setColumns(3);
 		id.add(initialDeposit);
-		id.add(initialDepositText);
+		id.add(dollarsText);
+		id.add(dot);
+		id.add(centsText);
 		
 		createAccount = new JButton("Create Account");
 		exit = new JButton("Exit");
@@ -120,8 +130,15 @@ public class CreateAccountGui {
 		buttons.add(createAccount);
 		buttons.add(exit);
 		
-		incorrectMessage = new JLabel("");
-		incorrect.add(incorrectMessage);
+		usernameErr = new JLabel("");
+		incorrect.add(usernameErr);
+		usernameErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
+		passwordErr = new JLabel("");
+		incorrect.add(passwordErr);
+		passwordErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
+		depositErr = new JLabel("");
+		incorrect.add(depositErr);
+		depositErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
 		
 		frame.setVisible(true);
 		
@@ -133,16 +150,73 @@ public class CreateAccountGui {
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
-			String name = usernameText.getText();
-			String pw = passwordText.getText();
-			String accType = accountType.getSelectedItem().toString();
-			Double balance = Double.parseDouble(initialDepositText.getText());
 			
-			Account newAccount = new Account(name, accType, pw, balance);
-			AccountReader ar = new AccountReader();
-			ar.createAccountcsv(newAccount);
-			frame.dispose();
-			new LoginGui().createGui();
+			String name = "";
+			String pw = "";
+			double balance = 0;
+			
+			if(usernameText.getText().isEmpty() == true) {
+				usernameErr.setText("Username is empty");
+				usernameErr.setForeground(Color.red);
+			}
+			else if(userNameCheck(usernameText.getText()) == false){
+				usernameErr.setText("Username cannot contain spaces");
+				usernameErr.setForeground(Color.red);
+			}
+			else {
+				name = usernameText.getText();
+				usernameErr.setText("");
+			}
+			
+			if(passwordText.getText().isEmpty() == true) {
+				passwordErr.setText("Password is empty");
+				passwordErr.setForeground(Color.red);
+			}
+			else {
+				pw = passwordText.getText();
+				passwordErr.setText("");
+			}
+			
+			if(dollarsText.getText().isEmpty() == true) {
+				depositErr.setText("Deposit is empty");
+				depositErr.setForeground(Color.red);
+			}
+			else if(depositPosCheck(dollarsText.getText()) == false) {
+				depositErr.setText("Deposit must be positive");
+				depositErr.setForeground(Color.red);
+			}
+			else if(depositCheck(dollarsText.getText()) == false) {
+				depositErr.setText("Deposit must be numerical");
+				depositErr.setForeground(Color.red);
+			}
+			else if(centsText.getText().isEmpty() == true) {
+				depositErr.setText("Deposit is empty");
+				depositErr.setForeground(Color.red);
+			}
+			else if(depositPosCheck(centsText.getText()) == false) {
+				depositErr.setText("Deposit must be positive");
+				depositErr.setForeground(Color.red);
+			}
+			else if(depositCheck(centsText.getText()) == false) {
+				depositErr.setText("Deposit must be numerical");
+				depositErr.setForeground(Color.red);
+			}
+			else {
+				balance = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+				depositErr.setText("");
+			}
+			
+			String accType = accountType.getSelectedItem().toString();
+			
+			if(!(usernameText.getText().equals("")) && !(passwordText.getText().equals("")) && balance > 0) {
+				
+				Account newAccount = new Account(name, accType, pw, balance);
+				AccountReader ar = new AccountReader();
+				ar.createAccountcsv(newAccount);
+				frame.dispose();
+				new LoginGui().createGui();
+				
+			}
 		}
 	}
 	
@@ -154,4 +228,30 @@ public class CreateAccountGui {
 			new LoginGui().createGui();
 		}
 	}
+	
+	public boolean userNameCheck(String s) {
+		for(int i = 0; i < s.length(); i++) {
+			if(s.charAt(i) == ' ') {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean depositCheck(String s) {
+		for(int i = 0; i < s.length(); i++) {
+			if(Character.isDigit(s.charAt(i)) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean depositPosCheck(String s) {
+		if((s.substring(0,1)).equals("-")) {
+			return false;
+		}
+		return true;
+	}
+	
 }
