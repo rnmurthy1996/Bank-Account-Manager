@@ -110,11 +110,11 @@ public class LoginGui {
 			String user = usernameText.getText();
 			String pass = passwordText.getText();
 			
-			AccountReader ar = new AccountReader();
-			ar.readAccountcsv();
-			for(int i=0; i < ar.accountlist.size(); i++) {
-				if(ar.accountlist.get(i).loginAuthentication(user, pass)==true) {
-					new BankAppGui(ar.accountlist.get(i)).createGui();
+//			AccountReader ar = new AccountReader();
+			AccountReader.readAccountcsv();
+			for(int i=0; i < AccountReader.accountlist.size(); i++) {
+				if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
+					new BankAppGui(AccountReader.accountlist.get(i)).createGui();
 					frame.dispose();
 				}
 			}

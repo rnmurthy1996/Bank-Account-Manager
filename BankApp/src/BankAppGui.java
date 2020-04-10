@@ -47,6 +47,8 @@ public class BankAppGui {
 	
 	public BankAppGui(Account acc) {
 		a = acc;
+		// ar = new AccountReader();
+		
 	}
 	
 	private void layoutManager() {
@@ -117,6 +119,9 @@ public class BankAppGui {
 			a.deposit(depositAmount);
 			String bal = String.format("%.2f", a.getBalance());
 			balance.setText(bal);
+			
+			AccountReader.updateAccountDatabase();
+			
 		}
 	}
 
@@ -152,6 +157,7 @@ public class BankAppGui {
 			//a.transfer(transferAmount, other);
 			String bal = String.format("%.2f", a.getBalance());
 			balance.setText(bal);
+			
 		}
 	}
 
