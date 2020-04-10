@@ -24,6 +24,7 @@ public class BankAppGui {
 	private JLabel accountName;
 	private JLabel expDate;
 	private JLabel balance;
+	private JLabel accountType;
 	
 	private JButton deposit;
 	private JButton withdraw;
@@ -60,7 +61,7 @@ public class BankAppGui {
 		
 		accountInfo = new JPanel();
 		accountInfo.setLayout(new FlowLayout());
-		accountInfo.setSize(50, 300);
+		accountInfo.setSize(100, 300);
 		frame.add(accountInfo);
 		
 		buttons = new JPanel();
@@ -81,11 +82,13 @@ public class BankAppGui {
 		expDate = new JLabel("Expire Date: " + (a.getExpiryDate()) + "       ");
 		String bal = String.format("%.2f", a.getBalance());
 		balance = new JLabel("Account Balance: " + bal + "       ");
+		accountType = new JLabel("Account Type: " + a.getType()+ "       ");
 		
 		accountInfo.add(accountNumber);
 		accountInfo.add(accountName);
 		accountInfo.add(expDate);
 		accountInfo.add(balance);
+		accountInfo.add(accountType);
 		
 		deposit = new JButton("Deposit");
 		withdraw = new JButton("Withdraw");
@@ -118,7 +121,7 @@ public class BankAppGui {
 			}
 			a.deposit(depositAmount);
 			String bal = String.format("%.2f", a.getBalance());
-			balance.setText(bal);
+			balance.setText("Account Balance: " + bal + "       ");
 			
 			AccountReader.updateAccountDatabase();
 			
@@ -138,7 +141,9 @@ public class BankAppGui {
 			}
 			a.withdraw(withdrawalAmount);
 			String bal = String.format("%.2f", a.getBalance());
-			balance.setText(bal);
+			balance.setText("Account Balance: " + bal + "       ");
+			AccountReader.updateAccountDatabase();
+			
 		}
 	}
 
@@ -146,17 +151,20 @@ public class BankAppGui {
 	private class TransferMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-			String in = JOptionPane.showInputDialog("Enter the amount to Transfer");
+//			String in = JOptionPane.showInputDialog("Enter the amount to Transfer");
+//			
+//			int transferAmount =0;
+//			try {
+//				transferAmount = Integer.parseInt(in);
+//			}catch(Exception e) {
+//				JOptionPane.showInputDialog("invalid amount!");
+//			}
+//			//a.transfer(transferAmount, other);
+//			String bal = String.format("%.2f", a.getBalance());
+//			balance.setText(bal);
 			
-			int transferAmount =0;
-			try {
-				transferAmount = Integer.parseInt(in);
-			}catch(Exception e) {
-				JOptionPane.showInputDialog("invalid amount!");
-			}
-			//a.transfer(transferAmount, other);
-			String bal = String.format("%.2f", a.getBalance());
-			balance.setText(bal);
+			
+			new MoneyTransferGui().createGui();
 			
 		}
 	}
