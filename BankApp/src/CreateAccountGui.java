@@ -108,7 +108,7 @@ public class CreateAccountGui {
 		pw.add(passwordText);
 		
 		accountTypeText = new JLabel("Select Account Type:");
-		String [] at = {"Checking", "Savings"};
+		String [] at = {"Checking", "Saving"};
 		accountType = new JComboBox(at);
 		accType.add(accountTypeText);
 		accType.add(accountType);
@@ -143,7 +143,7 @@ public class CreateAccountGui {
 		frame.setVisible(true);
 		
 		createAccount.addActionListener(new CreateAccount());
-		exit.addActionListener(new Exit());
+		//exit.addActionListener(new Exit());
 	}
 
 	//Internal class to perform action associated to the button.
@@ -209,15 +209,29 @@ public class CreateAccountGui {
 			String accType = accountType.getSelectedItem().toString();
 			
 			if(!(usernameText.getText().equals("")) && !(passwordText.getText().equals("")) && balance > 0) {
+				if(accType.toUpperCase().contentEquals("SAVING"))
+				{
+				SavingAccount newAccount = new SavingAccount(name, accType, pw, balance);
 				
-				Account newAccount = new Account(name, accType, pw, balance);
 				AccountReader ar = new AccountReader();
 				ar.createAccountcsv(newAccount);
 				frame.dispose();
 				new LoginGui().createGui();
-				
+				}
+				else {
+					
+					if(accType.toUpperCase().contentEquals("CHECKING"))
+					{
+					CheckingAccount newAccount = new CheckingAccount(name, accType, pw, balance);
+					
+					AccountReader ar = new AccountReader();
+					ar.createAccountcsv(newAccount);
+					frame.dispose();
+					new LoginGui().createGui();
+				}
 			}
 		}
+	}
 	}
 	
 	//Internal class to perform action associated to the button.
@@ -255,3 +269,4 @@ public class CreateAccountGui {
 	}
 	
 }
+

@@ -47,11 +47,18 @@ public  class AccountReader {
 				String type = lineArray[4];
 				String password = lineArray[5];
 				double balance = Double.parseDouble(lineArray[6]);
-
-				Account account = new Account(accountNumber, name, cvv, expiryDate, type, password, balance);
-
-				accountlist.add(account);
 				
+				if(type.toUpperCase().contentEquals("CHECKING")) {
+				
+				CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
+				accountlist.add(cAccount);
+				}
+				
+				if(type.toUpperCase().contentEquals("SAVING")) {
+					
+					SavingAccount sAccount = new SavingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
+					accountlist.add(sAccount);
+				}
 			}
 			fileScanner.close();
 

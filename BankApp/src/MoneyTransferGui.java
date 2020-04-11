@@ -125,16 +125,26 @@ public class MoneyTransferGui {
 	private class transfer implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
-//			String name = usernameText.getText();
-//			String pw = passwordText.getText();
-//			String accType = accountType.getSelectedItem().toString();
-//			Double balance = Double.parseDouble(initialDepositText.getText());
-//			
+			
+				String name = usernameText.getText();
+				String number = AccountNumberText.getText();
+				String accType = accountType.getSelectedItem().toString();
+				Double amount = Double.parseDouble(AmountText.getText());
+				
+			
+//				for(int i=0; i < AccountReader.accountlist.size(); i++) {
+//					if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
+//						
+//						
+//					}
+//			a.transfer(amount, other);
+//			String bal = String.format("%.2f", a.getBalance());
+//			balance.setText(bal);
 //			Account newAccount = new Account(name, accType, pw, balance);
 //			AccountReader ar = new AccountReader();
 //			ar.createAccountcsv(newAccount);
-//			frame.dispose();
-//			new LoginGui().createGui();
+		//	frame.dispose();
+		//	new LoginGui().createGui();
 		}
 	}
 	

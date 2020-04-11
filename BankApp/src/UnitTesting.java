@@ -16,7 +16,7 @@ class UnitTesting {
 	void test1() {
 		//fail("Not yet implemented");
 		
-		Account one = new Account (123,"sri",456, "2013", "checking", "password", 5000.0);
+		CheckingAccount one = new CheckingAccount (123,"sri",456, "2013", "checking", "password", 5000.0);
 		
 		one.deposit(500);
 		one.withdraw(20);
@@ -47,7 +47,7 @@ class UnitTesting {
 		AccountReader li = new AccountReader();
 		
 	
-		Account account = new Account(45678, "varala", 356 ,"9132022" ,"checking" , "passcode",5000);
+		CheckingAccount account = new CheckingAccount(45678, "varala", 356 ,"9132022" ,"checking" , "passcode",5000);
 		
 		li.createAccountcsv(account);
 		
