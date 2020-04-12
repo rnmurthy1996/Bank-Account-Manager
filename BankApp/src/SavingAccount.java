@@ -7,7 +7,7 @@
  */
 public class SavingAccount extends CheckingAccount implements Account {
 	
-	
+	static int accountcount =0;
 	
 	// Constructor
 	public SavingAccount(int accountNumber, String name, int cvv, String expiryDate, String type, String password,
@@ -31,7 +31,18 @@ public class SavingAccount extends CheckingAccount implements Account {
 		this.balance = this.balance + interest;
 
 	}
+	/*
+	 * This method is used to generate account number.
+	 */
 
+	public int accountNumGenerator() {
+		
+		
+		int accountNum = accountcount+800001;
+		
+		accountcount++;
+		return accountNum;
+	}
 	
 	/**
 	 * This is the withdraw method.

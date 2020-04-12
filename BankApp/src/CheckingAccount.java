@@ -156,7 +156,8 @@ public class CheckingAccount implements Account  {
 		
 		
 		int accountNum = accountcount+500001;
-
+		
+		accountcount++;
 		return accountNum;
 	}
 
