@@ -1,4 +1,3 @@
-import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -17,6 +16,7 @@ public class MoneyTransferGui {
 
 	private JFrame frame;
 	
+	private JPanel balance;
 	private JPanel name;
 	private JPanel number;
 	private JPanel buttons;
@@ -49,6 +49,11 @@ public class MoneyTransferGui {
 		frame.setSize(400, 300);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
+		
+		balance = new JPanel();
+		balance.setLayout(new FlowLayout());
+		balance.setSize(100, 300);
+		frame.add(balance);
 		
 		name = new JPanel();
 		name.setLayout(new FlowLayout());
@@ -166,7 +171,6 @@ public class MoneyTransferGui {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
 			frame.dispose();
-			new LoginGui().createGui();
 		}
 	}
 }

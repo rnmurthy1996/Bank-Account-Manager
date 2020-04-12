@@ -108,7 +108,7 @@ public class CreateAccountGui {
 		pw.add(passwordText);
 		
 		accountTypeText = new JLabel("Select Account Type:");
-		String [] at = {"Checking", "Saving"};
+		String [] at = {"Checking", "Savings"};
 		accountType = new JComboBox(at);
 		accType.add(accountTypeText);
 		accType.add(accountType);
@@ -143,7 +143,7 @@ public class CreateAccountGui {
 		frame.setVisible(true);
 		
 		createAccount.addActionListener(new CreateAccount());
-		//exit.addActionListener(new Exit());
+		exit.addActionListener(new Exit());
 	}
 
 	//Internal class to perform action associated to the button.
@@ -155,21 +155,32 @@ public class CreateAccountGui {
 			String pw = "";
 			double balance = 0;
 			
+			boolean taken = false;
+			AccountReader check = new AccountReader();
+			check.readAccountcsv();
+			for(int i = 0; i < check.accountlist.size(); i++) {
+				if(usernameText.getText().equals(check.accountlist.get(i).getName())) {
+					
+					usernameErr.setText("Username is already taken");
+					usernameErr.setForeground(Color.red);
+					taken = true;
+				}
+			}
 			if(usernameText.getText().isEmpty() == true) {
-				usernameErr.setText("Username is empty");
+				usernameErr.setText("Username field cannot be empty");
 				usernameErr.setForeground(Color.red);
 			}
 			else if(userNameCheck(usernameText.getText()) == false){
 				usernameErr.setText("Username cannot contain spaces");
 				usernameErr.setForeground(Color.red);
 			}
-			else {
+			else if(taken = false) {
 				name = usernameText.getText();
 				usernameErr.setText("");
 			}
 			
 			if(passwordText.getText().isEmpty() == true) {
-				passwordErr.setText("Password is empty");
+				passwordErr.setText("Password field cannot be empty");
 				passwordErr.setForeground(Color.red);
 			}
 			else {
@@ -178,7 +189,7 @@ public class CreateAccountGui {
 			}
 			
 			if(dollarsText.getText().isEmpty() == true) {
-				depositErr.setText("Deposit is empty");
+				depositErr.setText("Deposit field cannot be empty");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(dollarsText.getText()) == false) {
@@ -190,7 +201,7 @@ public class CreateAccountGui {
 				depositErr.setForeground(Color.red);
 			}
 			else if(centsText.getText().isEmpty() == true) {
-				depositErr.setText("Deposit is empty");
+				depositErr.setText("Deposit field cannot be empty");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(centsText.getText()) == false) {
@@ -209,26 +220,23 @@ public class CreateAccountGui {
 			String accType = accountType.getSelectedItem().toString();
 			
 			if(!(usernameText.getText().equals("")) && !(passwordText.getText().equals("")) && balance > 0) {
-				if(accType.toUpperCase().contentEquals("SAVING"))
-				{
-				SavingAccount newAccount = new SavingAccount(name, accType, pw, balance);
 				
-				AccountReader ar = new AccountReader();
-				ar.createAccountcsv(newAccount);
-				frame.dispose();
-				new LoginGui().createGui();
-				}
-				else {
-					
-					if(accType.toUpperCase().contentEquals("CHECKING"))
-					{
-					CheckingAccount newAccount = new CheckingAccount(name, accType, pw, balance);
+				if(accType.toUpperCase().contentEquals("SAVINGS")) {
+					SavingAccount newAccount = new SavingAccount(name, accType, pw, balance);
 					
 					AccountReader ar = new AccountReader();
 					ar.createAccountcsv(newAccount);
 					frame.dispose();
 					new LoginGui().createGui();
 				}
+				
+				else {
+					CheckingAccount newAccount = new CheckingAccount(name, accType, pw, balance);
+					
+					AccountReader ar = new AccountReader();
+					ar.createAccountcsv(newAccount);
+					frame.dispose();
+					new LoginGui().createGui();
 			}
 		}
 	}

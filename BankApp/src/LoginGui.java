@@ -13,7 +13,7 @@ import javax.swing.*;
  */
 public class LoginGui {
 
-	// instance variables
+	// Instance variables
 
 	private JFrame frame;
 	
@@ -35,9 +35,7 @@ public class LoginGui {
 	
 	public static Account workingAccount;
 
-	/**
-	 * This method is used to design the layout for the GUI.
-	 */
+	//This method is used to design the layout for the GUI.
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
@@ -67,9 +65,7 @@ public class LoginGui {
 		frame.add(incorrect);
 	}
 
-	/*
-	 * This method creates and perform various actions associated with in the GUI.
-	 */
+	//This method creates and perform various actions associated with in the GUI.
 	public void createGui() {
 
 		layoutManager() ;
@@ -104,19 +100,18 @@ public class LoginGui {
 		exit.addActionListener(new Exit());
 	}
 
-//Internal class to perform action associated to the button.
+	//Internal class to perform action associated to the button.
 	private class Login implements ActionListener {
 		
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
+			//Implement the Code to handle button click goes here
 			String user = usernameText.getText();
 			String pass = passwordText.getText();
 			
-//			AccountReader ar = new AccountReader();
 			AccountReader.readAccountcsv();
 			for(int i=0; i < AccountReader.accountlist.size(); i++) {
 				if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
-					workingAccount =AccountReader.accountlist.get(i);
+					workingAccount = AccountReader.accountlist.get(i);
 					
 					new BankAppGui(AccountReader.accountlist.get(i)).createGui();
 					frame.dispose();
@@ -130,7 +125,7 @@ public class LoginGui {
 	//Internal class to perform action associated to the button.
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
+			//Implement the Code to handle button click goes here
 			new CreateAccountGui().createGui();
 			frame.dispose();
 		}
@@ -139,7 +134,7 @@ public class LoginGui {
 	//Internal class to perform action associated to the button.
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
+			//Implement the Code to handle button click goes here
 			frame.dispose();
 		}
 	}

@@ -12,22 +12,20 @@ import java.util.Scanner;
  * @author Sridhar.Varala
  *
  */
-public  class AccountReader {
+public class AccountReader {
 
 	// instance variables
 	public static ArrayList<Account> accountlist;
 
 	// constructor
-	public   AccountReader() {
-
-		//accountlist = new ArrayList<Account>();
+	public AccountReader() {
 
 	}
 
 	/**
 	 * This method is used to read available accounts in the database.
 	 */
-	public  static void readAccountcsv() {
+	public static void readAccountcsv() {
 
 		try {
 			File f = new File("accountdata.csv");
