@@ -54,10 +54,11 @@ public class SavingAccount extends CheckingAccount implements Account {
 	 * @param obj
 	 */
 	
-	public void moneyTransfer( SavingAccount obj, int amount) {
+	public void moneyTransfer( Account obj, int amount) {
 
+		
 		int transferFee =2;
-		if (obj.balance < amount) {
+		if (obj.getBalance() > amount) {
 
 			this.withdraw((amount-transferFee+5));
 			obj.deposit(amount);

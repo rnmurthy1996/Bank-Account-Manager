@@ -97,7 +97,7 @@ public class MoneyTransferGui {
 		number.add(AccountNumberText);
 		
 		accountTypeText = new JLabel("Select Account Type:");
-		String [] at = {"Checking", "Savings"};
+		String [] at = {"Checking", "Saving"};
 		accountType = new JComboBox(at);
 		accType.add(accountTypeText);
 		accType.add(accountType);
@@ -108,7 +108,7 @@ public class MoneyTransferGui {
 		amount.add(Amount);
 		amount.add(AmountText);
 		
-		send = new JButton("Create Account");
+		send = new JButton("Send");
 		exit = new JButton("Exit");
 		
 		buttons.add(send);
@@ -127,24 +127,37 @@ public class MoneyTransferGui {
 			// implement the Code to handle button click goes here
 			
 				String name = usernameText.getText();
-				String number = AccountNumberText.getText();
+				int number = Integer.parseInt(AccountNumberText.getText());
 				String accType = accountType.getSelectedItem().toString();
-				Double amount = Double.parseDouble(AmountText.getText());
+				int amount = Integer.parseInt(AmountText.getText());
 				
 			
-//				for(int i=0; i < AccountReader.accountlist.size(); i++) {
-//					if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
-//						
-//						
-//					}
+				for(int i=0; i < AccountReader.accountlist.size(); i++) {
+					
+					String aName = AccountReader.accountlist.get(i).getName();
+					int aNumber =AccountReader.accountlist.get(i).getAccountNumber();
+					String aType =AccountReader.accountlist.get(i).getType();
+					
+					Account toAccount =AccountReader.accountlist.get(i);
+					 Account fromAccount = new LoginGui().workingAccount;
+					
+					if(name.contentEquals(aName)&& number == aNumber && accType.contentEquals(aType)) {
+						
+						fromAccount.moneyTransfer(toAccount,amount);
+						String bal = String.format("%.2f", fromAccount.getBalance());
+						new BankAppGui(fromAccount).balance.setText("Account Balance: " + bal + "       ");
+						AccountReader.updateAccountDatabase();
+							frame.dispose();
+							
+					}
+					
+				}
+					
 //			a.transfer(amount, other);
 //			String bal = String.format("%.2f", a.getBalance());
 //			balance.setText(bal);
-//			Account newAccount = new Account(name, accType, pw, balance);
-//			AccountReader ar = new AccountReader();
-//			ar.createAccountcsv(newAccount);
-		//	frame.dispose();
-		//	new LoginGui().createGui();
+//			
+		
 		}
 	}
 	

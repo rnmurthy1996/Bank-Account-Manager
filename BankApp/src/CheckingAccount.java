@@ -90,14 +90,18 @@ public class CheckingAccount implements Account  {
 	 * @param obj
 	 */
 
-	public void moneyTransfer(CheckingAccount obj, int amount) {
-
-		if (obj.balance < amount) {
+	public void moneyTransfer(Account obj, int amount) {
+		
+		
+		
+		
+		
+		if (obj.getBalance() > amount) {
 
 			this.withdraw(amount);
 			obj.deposit(amount);
 			transactionNum++;
-			String transaction = "No."+transactionNum+ " "+" moneyTransfer" +"to account-"+obj.name+"- " +"amount-"+amount+"Available balance-"+balance;
+			String transaction = "No."+transactionNum+ " "+" moneyTransfer" +"to account-"+obj.getName()+"- " +"amount-"+amount+"Available balance-"+balance;
 			
 			transactions.add(transaction);
 		}
@@ -228,10 +232,7 @@ public class CheckingAccount implements Account  {
 		return interestRate;
 	}
 
-	@Override
-	public void moneyTransfer(Account obj, int amount) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 
 }

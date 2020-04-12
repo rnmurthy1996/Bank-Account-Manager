@@ -23,7 +23,7 @@ public class BankAppGui {
 	private JLabel accountNumber;
 	private JLabel accountName;
 	private JLabel expDate;
-	private JLabel balance;
+	public static JLabel balance;
 	private JLabel accountType;
 	
 	private JButton deposit;

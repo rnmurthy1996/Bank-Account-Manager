@@ -32,6 +32,8 @@ public class LoginGui {
 	private JButton exit;
 	
 	private JLabel incorrectMessage;
+	
+	public static Account workingAccount;
 
 	/**
 	 * This method is used to design the layout for the GUI.
@@ -114,6 +116,8 @@ public class LoginGui {
 			AccountReader.readAccountcsv();
 			for(int i=0; i < AccountReader.accountlist.size(); i++) {
 				if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
+					workingAccount =AccountReader.accountlist.get(i);
+					
 					new BankAppGui(AccountReader.accountlist.get(i)).createGui();
 					frame.dispose();
 				}
