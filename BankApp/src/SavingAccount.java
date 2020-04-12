@@ -50,7 +50,7 @@ public class SavingAccount extends CheckingAccount implements Account {
 	 * @param amount
 	 */
 	@Override
-	public void withdraw(int amount) {
+	public void withdraw(double amount) {
 
 		int withdrawFee =5;
 		if (amount < balance) {

@@ -13,9 +13,9 @@ import javax.swing.*;
  */
 public class BankAppGui {
 
-	// instance variables
+	// Instance variables
 
-	private JFrame frame; // used to create frame
+	private JFrame frame;
 	
 	private JPanel accountInfo;
 	private JPanel buttons;
@@ -33,29 +33,15 @@ public class BankAppGui {
 	
 	private Account a;
 	
-	/**
-	 * 
-	 * Add any extra instant variables here.
-	 * 
-	 * 
-	 * 
-	 */
-	
-
-	/**
-	 * This method is used to design the layout for the GUI.
-	 */
-	
 	public BankAppGui(Account acc) {
-		a = acc;
-		// ar = new AccountReader();
 		
+		a = acc;
 	}
 	
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(700, 400);
+		frame.setSize(1000, 400);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -70,9 +56,7 @@ public class BankAppGui {
 		frame.add(buttons);
 	}
 
-	/*
-	 * This method creates and perform various actions associated with in the GUI.
-	 */
+	//This method creates and perform various actions associated with in the GUI.
 	public void createGui() {
 
 		layoutManager() ;
@@ -108,23 +92,11 @@ public class BankAppGui {
 		exit.addActionListener(new Exit());
 	}
 
-//Internal class to perform action associated to the button.
+	//Internal class to perform action associated to the button.
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-			String in = JOptionPane.showInputDialog("Enter the amount to deposit");
-			int depositAmount =0;
-			try {
-			depositAmount = Integer.parseInt(in);
-			}catch(Exception e) {
-				JOptionPane.showInputDialog("invalid amount!");
-			}
-			a.deposit(depositAmount);
-			String bal = String.format("%.2f", a.getBalance());
-			balance.setText("Account Balance: " + bal + "       ");
-			
-			AccountReader.updateAccountDatabase();
-			
+			new DepositGui(a).createGui();
 		}
 	}
 
@@ -132,18 +104,7 @@ public class BankAppGui {
 	private class WithdrawMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-			String in = JOptionPane.showInputDialog("Enter the amount to Withdraw");
-			int withdrawalAmount =0;
-			try {
-				withdrawalAmount = Integer.parseInt(in);
-			}catch(Exception e) {
-				JOptionPane.showInputDialog("invalid amount!");
-			}
-			a.withdraw(withdrawalAmount);
-			String bal = String.format("%.2f", a.getBalance());
-			balance.setText("Account Balance: " + bal + "       ");
-			AccountReader.updateAccountDatabase();
-			
+			new WithdrawGui(a).createGui();
 		}
 	}
 
@@ -151,21 +112,7 @@ public class BankAppGui {
 	private class TransferMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-//			String in = JOptionPane.showInputDialog("Enter the amount to Transfer");
-//			
-//			int transferAmount =0;
-//			try {
-//				transferAmount = Integer.parseInt(in);
-//			}catch(Exception e) {
-//				JOptionPane.showInputDialog("invalid amount!");
-//			}
-//			//a.transfer(transferAmount, other);
-//			String bal = String.format("%.2f", a.getBalance());
-//			balance.setText(bal);
-			
-			
 			new MoneyTransferGui().createGui();
-			
 		}
 	}
 

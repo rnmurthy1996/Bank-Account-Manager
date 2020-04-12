@@ -21,7 +21,7 @@ public class CheckingAccount implements Account  {
 	static final public double interestRate =2.5;
 	static private int accountcount=0;
 	static public int transactionNum=0;
-	public ArrayList<String>transactions ;
+	public ArrayList<String>transactions;
 	
 	
 	
@@ -56,7 +56,7 @@ public class CheckingAccount implements Account  {
 	 * 
 	 * @param amount
 	 */
-	public void deposit(int amount) {
+	public void deposit(double amount) {
 
 		this.balance = this.balance + amount;
 		transactionNum++;
@@ -72,7 +72,7 @@ public class CheckingAccount implements Account  {
 	 * 
 	 * @param amount
 	 */
-	public void withdraw(int amount) {
+	public void withdraw(double amount) {
 
 		if (amount < balance) {
 			this.balance = this.balance - amount;
