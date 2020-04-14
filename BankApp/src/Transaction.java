@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * This Class is used to for account transactions.
@@ -8,60 +10,29 @@
 public class Transaction {
 
 	//Instant Variables
-	private String transactionType;
-	private int amount;
-	private String date;
-	private String place;
-	private String vendor;
-	private String product;
+	public String transaction;
+	
+	public Account account;
 	
 	// Constructor1
-	public Transaction(String transactionType, int amount, String date, String place, String vendor, String product) {
+	public Transaction(String transaction, Account account) {
 
-		this.transactionType = transactionType;
-		this.amount = amount;
-		this.date = date;
-		this.place = place;
-		this.vendor = vendor;
-		this.product = product;
+		this.transaction = transaction;
+		this.account =account;
 		
 	}
-	//constructor2
-	public Transaction(int amount, String date, String vendor, String product) {
+	
+	
+	public static String DateCaluclator() {
 
-		
-		this.amount = amount;
-		this.date = date;
-		this.vendor = vendor;
-		this.product = product;
-		
+		Date today = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(today);
+		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		String Date = dayOfMonth + "/" + month + "/" + (year);
+		return Date;
 	}
-	
-	public int getAmount() {
-		return amount;
-	}
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getVendor() {
-		return vendor;
-	}
-	public void setVendor(String vendor) {
-		this.vendor = vendor;
-	}
-	public String getProduct() {
-		return product;
-	}
-	public void setProduct(String product) {
-		this.product = product;
-	}
-	
-	
 
 }
