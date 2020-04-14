@@ -31,15 +31,13 @@ public class AccountReader {
 			File f = new File("accountdata.csv");
 			Scanner fileScanner = new Scanner(f);
 			accountlist = new ArrayList<Account>();
-			
-			while (fileScanner.hasNextLine()) {
+			while (fileScanner.hasNext()) {
 
-				String line = fileScanner.nextLine();
+				String line = fileScanner.next();
 				
 				String[] lineArray = line.split(",");
 				
 				int accountNumber = Integer.parseInt(lineArray[0]);
-				
 				String name = lineArray[1];
 				int cvv = Integer.parseInt(lineArray[2]);
 				String expiryDate = (lineArray[3]);
@@ -47,6 +45,7 @@ public class AccountReader {
 				String type = lineArray[4];
 				String password = lineArray[5];
 				double balance = Double.parseDouble(lineArray[6]);
+				
 				if(type.toUpperCase().contentEquals("CHECKING")) {
 				
 				CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
@@ -125,4 +124,3 @@ public class AccountReader {
 	
 }
 		
-

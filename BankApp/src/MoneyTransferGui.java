@@ -17,28 +17,22 @@ public class MoneyTransferGui {
 	private JFrame frame;
 	
 	private JPanel balance;
-	private JPanel name;
 	private JPanel number;
-	private JPanel buttons;	
-	private JPanel incorrect;
-
+	private JPanel buttons;
 	
 	private JPanel accType;
-	private JPanel accTypeTo;
-	private JPanel transfer;
+	private JPanel amount;
+	private JPanel error;
+	private JPanel error2;
+	private JPanel error3;
 	
-	private JLabel balanceText;
-	private JLabel Accountusername;
-	private JTextField usernameText;
+	private JLabel balanceLabel;
 	private JLabel AccountNumber;
 	private JTextField AccountNumberText;
 	private JLabel accountTypeText;
 	private JComboBox accountType;
+
 	private JLabel transferLabel;
-	private JTextField AmountText;
-	private JComboBox accountTypeTo;
-	private JLabel accountTypeToText;
-	
 	private JTextField dollarsText;
 	private JLabel dot;
 	private JTextField centsText;
@@ -47,21 +41,18 @@ public class MoneyTransferGui {
 	private JButton exit;
 	
 	private JLabel transferErr;
+	private JLabel accErr;
+	private JLabel fundsErr;
 	
-	private Account a;
 	
-	public MoneyTransferGui(Account acc) {
-		
-		a = acc;
-	}
 
 	/**
 	 * This method is used to design the layout for the GUI.
 	 */
 	private void layoutManager() {
 		
-		frame = new JFrame("Bank Application");
-		frame.setSize(375, 300);
+		frame = new JFrame("Money Transfer form");
+		frame.setSize(300, 300);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -70,36 +61,43 @@ public class MoneyTransferGui {
 		balance.setSize(100, 300);
 		frame.add(balance);
 		
-		accType = new JPanel();
-		accType.setLayout(new FlowLayout());
-		accType.setSize(50, 200);
-		frame.add(accType);
-		
-		accTypeTo = new JPanel();
-		accTypeTo.setLayout(new FlowLayout());
-		accTypeTo.setSize(50, 200);
-		frame.add(accTypeTo);
-		
 		number = new JPanel();
 		number.setLayout(new FlowLayout());
 		number.setSize(50, 200);
 		frame.add(number);
 		
-		transfer = new JPanel();
-		transfer.setLayout(new FlowLayout());
-		transfer.setSize(50, 200);
-		frame.add(transfer);
+		accType = new JPanel();
+		accType.setLayout(new FlowLayout());
+		accType.setSize(50, 200);
+		frame.add(accType);
+		
+		amount = new JPanel();
+		amount.setLayout(new FlowLayout());
+		amount.setSize(50, 200);
+		frame.add(amount);
 		
 		buttons = new JPanel();
 		buttons.setLayout(new FlowLayout());
 		buttons.setSize(50, 200);
 		frame.add(buttons);
 		
-		incorrect = new JPanel();
-		incorrect.setBackground(Color.white);
-		incorrect.setLayout(new BoxLayout(incorrect, BoxLayout.Y_AXIS));
-		incorrect.setSize(50, 200);
-		frame.add(incorrect);
+		error2 = new JPanel();
+		error2.setLayout(new FlowLayout());
+		error2.setSize(50, 200);
+		error2.setBackground(Color.white);
+		frame.add(error2);
+		
+		error3 = new JPanel();
+		error3.setLayout(new FlowLayout());
+		error3.setSize(50, 200);
+		error3.setBackground(Color.white);
+		frame.add(error3);
+		
+		error = new JPanel();
+		error.setLayout(new FlowLayout());
+		error.setSize(50, 200);
+		error.setBackground(Color.white);
+		frame.add(error);
 		
 			}
 
@@ -110,40 +108,32 @@ public class MoneyTransferGui {
 
 		layoutManager() ;
 		
-		balanceText = new JLabel("Current Balance: " + a.getBalance());
-		balance.add(balanceText);
+		balanceLabel = new JLabel("Current Balance:" + new LoginGui().workingAccount.getBalance());
+		balance.add(balanceLabel);
 		
-		accountTypeText = new JLabel("Select Account Type To Transfer From:");
-		String [] at = {"Checking", "Saving"};
-		accountType = new JComboBox(at);
-		accType.add(accountTypeText); 
-		accType.add(accountType);
-		
-		accountTypeToText = new JLabel("Select Account Type To Transfer To:");
-		String [] at2 = {"Checking", "Saving"};
-		accountTypeTo = new JComboBox(at);
-		accTypeTo.add(accountTypeToText); 
-		accTypeTo.add(accountTypeTo);
-		
-		AccountNumber = new JLabel("Enter Account Number To Transfer To:");
+		AccountNumber = new JLabel("Select Account Number:");
 		AccountNumberText = new JTextField();
 		AccountNumberText.setColumns(10);
-		
 		number.add(AccountNumber);
 		number.add(AccountNumberText);
 		
+		accountTypeText = new JLabel("Select Account Type:");
+		String [] at = {"Checking", "Saving"};
+		accountType = new JComboBox(at);
+		accType.add(accountTypeText);
+		accType.add(accountType);
 		
-		transferLabel = new JLabel("Deposit Amount:");
+		transferLabel = new JLabel("Transfer Amount:");
 		dollarsText = new JTextField();
 		dollarsText.setColumns(7);
 		dot = new JLabel(".");
 		centsText = new JTextField();
 		centsText.setColumns(3);
 		
-		transfer.add(transferLabel);
-		transfer.add(dollarsText);
-		transfer.add(dot);
-		transfer.add(centsText);
+		amount.add(transferLabel);
+		amount.add(dollarsText);
+		amount.add(dot);
+		amount.add(centsText);
 		
 		send = new JButton("Send");
 		exit = new JButton("Exit");
@@ -152,8 +142,16 @@ public class MoneyTransferGui {
 		buttons.add(exit);
 		
 		transferErr = new JLabel("");
-		incorrect.add(transferErr);
-		transferErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
+		error.add(transferErr);
+		transferErr.setAlignmentX(error.CENTER_ALIGNMENT);
+		
+		accErr = new JLabel("");
+		error2.add(accErr);
+		accErr.setAlignmentX(error2.CENTER_ALIGNMENT);
+		
+		fundsErr = new JLabel("");
+		error3.add(fundsErr);
+		fundsErr.setAlignmentX(error3.CENTER_ALIGNMENT);
 			
 		frame.setVisible(true);
 		
@@ -168,28 +166,29 @@ public class MoneyTransferGui {
 			
 			double transferAmount = 0;
 			
+			
 			if(dollarsText.getText().isEmpty() == true) {
-				transferErr.setText("Deposit field cannot be empty");
+				transferErr.setText("Tranfer Amount Field Cannot Be Empty");
 				transferErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(dollarsText.getText()) == false) {
-				transferErr.setText("Deposit must be positive");
+				transferErr.setText("Transfer Amount Must Be Positive");
 				transferErr.setForeground(Color.red);
 			}
 			else if(depositCheck(dollarsText.getText()) == false) {
-				transferErr.setText("Deposit must be numerical");
+				transferErr.setText("Transfer Amount Must Be Numerical");
 				transferErr.setForeground(Color.red);
 			}
 			else if(centsText.getText().isEmpty() == true) {
-				transferErr.setText("Deposit field cannot be empty");
+				transferErr.setText("Tranfer Amount Field Cannot Be Empty");
 				transferErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(centsText.getText()) == false) {
-				transferErr.setText("Deposit must be positive");
+				transferErr.setText("Transfer Amount Must Be Positive");
 				transferErr.setForeground(Color.red);
 			}
 			else if(depositCheck(centsText.getText()) == false) {
-				transferErr.setText("Deposit must be numerical");
+				transferErr.setText("Transfer Amount Must Be Numerical");
 				transferErr.setForeground(Color.red);
 			}
 			else {
@@ -197,35 +196,72 @@ public class MoneyTransferGui {
 				transferErr.setText("");
 			}
 			
-				int number = Integer.parseInt(AccountNumberText.getText());
-				String accTypeTo = accountTypeTo.getSelectedItem().toString();
-				
+			Account toAccount = null;
 			
+			Account fromAccount = new LoginGui().workingAccount;
+			int number = 0;
+			boolean accCheck = false;
+			
+			if(AccountNumberText.getText().isEmpty() == true) {
+				accErr.setText("Account Information Invalid");
+				accErr.setForeground(Color.red);
+			}
+			else if(depositCheck(AccountNumberText.getText()) == false) {
+				accErr.setText("Account Information Invalid");
+				accErr.setForeground(Color.red);
+			}
+			else {
+				number = Integer.parseInt(AccountNumberText.getText());
+				accErr.setText("");
+			}
+				
+				String accType = accountType.getSelectedItem().toString();
+				
 				for(int i=0; i < AccountReader.accountlist.size(); i++) {
 					
-					String aName = AccountReader.accountlist.get(i).getName();
 					int aNumber =AccountReader.accountlist.get(i).getAccountNumber();
 					String aType =AccountReader.accountlist.get(i).getType();
-					
-					Account toAccount =AccountReader.accountlist.get(i);
-					
-					if(number == aNumber && accTypeTo.contentEquals(aType)) {
+					if(number == aNumber && accType.contentEquals(aType)) {
 						
-						fromAccount.moneyTransfer(toAccount,amount);
-						String bal = String.format("%.2f", fromAccount.getBalance());
-						new BankAppGui(fromAccount).balance.setText("Account Balance: " + bal + "       ");
+						toAccount = AccountReader.accountlist.get(i);
 						
-						String date =	 Transaction.DateCaluclator();
-						String transaction = "Date-"+date +", Type- transfer, Amount-"+amount+", To Account - "+toAccount.getName()+"\n";
-						new BankAppGui(fromAccount).textArea.append(transaction);		
-						
-						
-						AccountReader.updateAccountDatabase();
-						frame.dispose();
-							
+						accCheck = true;
+								
 					}
 					
 				}
+			
+			if(transferAmount > new LoginGui().workingAccount.getBalance()) {
+				fundsErr.setText("Insufficient Funds For Transfer");
+				fundsErr.setForeground(Color.red);
+			}
+			else {
+				fundsErr.setText("");
+			}
+				
+			if(accCheck == false) {
+				accErr.setText("Account Information Invalid");
+				accErr.setForeground(Color.red);
+			}
+				
+			else if(transferAmount > 0 && transferAmount <= new LoginGui().workingAccount.getBalance() && accCheck == true) {
+				
+				fromAccount.moneyTransfer(toAccount,transferAmount);
+				String bal = String.format("%.2f", fromAccount.getBalance());
+				new BankAppGui(fromAccount).balance.setText("Account Balance: " + bal + "       ");
+				
+				String date =	 Transaction.DateCaluclator();
+				String transaction = "Date-"+date +", Type- transfer, Amount-"+amount+", To Account - "+toAccount.getName()+"\n";
+				new BankAppGui(fromAccount).textArea.append(transaction);		
+				
+				transferErr.setText("");
+				accErr.setText("");
+				fundsErr.setText("");
+				
+				AccountReader.updateAccountDatabase();
+			}
+			
+			
 					
 //			a.transfer(amount, other);
 //			String bal = String.format("%.2f", a.getBalance());
@@ -241,15 +277,6 @@ public class MoneyTransferGui {
 			// implement the Code to handle button click goes here
 			frame.dispose();
 		}
-	}
-	
-	public boolean userNameCheck(String s) {
-		for(int i = 0; i < s.length(); i++) {
-			if(s.charAt(i) == ' ') {
-				return false;
-			}
-		}
-		return true;
 	}
 	
 	public boolean depositCheck(String s) {

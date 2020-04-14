@@ -113,7 +113,7 @@ public class LoginGui {
 				if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
 					workingAccount = AccountReader.accountlist.get(i);
 					
-					new BankAppGui(workingAccount).createGui();
+					new BankAppGui(AccountReader.accountlist.get(i)).createGui();
 					frame.dispose();
 				}
 			}

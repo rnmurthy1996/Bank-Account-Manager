@@ -112,27 +112,27 @@ public class WithdrawGui {
 			
 			
 			if(dollarsText.getText().isEmpty() == true) {
-				withdrawErr.setText("Withdrawal field cannot be empty");
+				withdrawErr.setText("Withdrawal Amount Field Cannot Be Empty");
 				withdrawErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(dollarsText.getText()) == false) {
-				withdrawErr.setText("Withdrawal must be positive");
+				withdrawErr.setText("Withdrawal Amount Must Be Positive");
 				withdrawErr.setForeground(Color.red);
 			}
 			else if(depositCheck(dollarsText.getText()) == false) {
-				withdrawErr.setText("Withdrawal must be numerical");
+				withdrawErr.setText("Withdrawal Amount Must Be Numerical");
 				withdrawErr.setForeground(Color.red);
 			}
 			else if(centsText.getText().isEmpty() == true) {
-				withdrawErr.setText("Withdrawal field cannot be empty");
+				withdrawErr.setText("Withdrawal Amount Field Cannot Be Empty");
 				withdrawErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(centsText.getText()) == false) {
-				withdrawErr.setText("Withdrawal must be positive");
+				withdrawErr.setText("Withdrawal Amount Must Be Positivee");
 				withdrawErr.setForeground(Color.red);
 			}
 			else if(depositCheck(centsText.getText()) == false) {
-				withdrawErr.setText("Withdrawal must be numerical");
+				withdrawErr.setText("Withdrawal Amount Must Be Numerical");
 				withdrawErr.setForeground(Color.red);
 			}
 			else {
@@ -141,7 +141,7 @@ public class WithdrawGui {
 			}
 			
 			if(withdrawAmount > a.getBalance()) {
-				withdrawErr.setText("Insufficient funds for withdrawal");
+				withdrawErr.setText("Insufficient Funds For Withdrawal");
 				withdrawErr.setForeground(Color.red);
 			}
 			else if(withdrawAmount > 0) {

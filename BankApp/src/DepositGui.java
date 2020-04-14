@@ -112,27 +112,27 @@ public class DepositGui {
 			
 			
 			if(dollarsText.getText().isEmpty() == true) {
-				depositErr.setText("Deposit field cannot be empty");
+				depositErr.setText("Deposit Amount Field Cannot Be Empty");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(dollarsText.getText()) == false) {
-				depositErr.setText("Deposit must be positive");
+				depositErr.setText("Deposit Amount Must Be Positive");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositCheck(dollarsText.getText()) == false) {
-				depositErr.setText("Deposit must be numerical");
+				depositErr.setText("Deposit Amount Must Be Numerical");
 				depositErr.setForeground(Color.red);
 			}
 			else if(centsText.getText().isEmpty() == true) {
-				depositErr.setText("Deposit field cannot be empty");
+				depositErr.setText("Deposit Amount Field Cannot Be Emptyy");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(centsText.getText()) == false) {
-				depositErr.setText("Deposit must be positive");
+				depositErr.setText("Deposit Amount Must Be Positive");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositCheck(centsText.getText()) == false) {
-				depositErr.setText("Deposit must be numerical");
+				depositErr.setText("Deposit Amount Must Be Numerical");
 				depositErr.setForeground(Color.red);
 			}
 			else {

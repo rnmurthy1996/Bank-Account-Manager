@@ -154,36 +154,33 @@ public class CreateAccountGui {
 			String name = "";
 			String pw = "";
 			double balance = 0;
-			boolean taken = false;
 			
+			boolean taken = false;
 			AccountReader check = new AccountReader();
 			check.readAccountcsv();
 			for(int i = 0; i < check.accountlist.size(); i++) {
 				if(usernameText.getText().equals(check.accountlist.get(i).getName())) {
 					
-					usernameErr.setText("Username is already taken");
+					usernameErr.setText("Username Is Already Taken");
 					usernameErr.setForeground(Color.red);
 					taken = true;
 				}
 			}
-			
-			System.out.println(taken);
-			
 			if(usernameText.getText().isEmpty() == true) {
-				usernameErr.setText("Username field cannot be empty");
+				usernameErr.setText("Username Field Cannot Be Empty");
 				usernameErr.setForeground(Color.red);
 			}
 			else if(userNameCheck(usernameText.getText()) == false){
-				usernameErr.setText("Username cannot contain spaces");
+				usernameErr.setText("Username Cannot Contain Spaces");
 				usernameErr.setForeground(Color.red);
 			}
-			else if(taken = false) {
+			else if(taken == false) {
 				name = usernameText.getText();
 				usernameErr.setText("");
 			}
 			
 			if(passwordText.getText().isEmpty() == true) {
-				passwordErr.setText("Password field cannot be empty");
+				passwordErr.setText("Password Field Cannot Be Empty");
 				passwordErr.setForeground(Color.red);
 			}
 			else {
@@ -192,27 +189,27 @@ public class CreateAccountGui {
 			}
 			
 			if(dollarsText.getText().isEmpty() == true) {
-				depositErr.setText("Deposit field cannot be empty");
+				depositErr.setText("Deposit Amount Field Cannot Be Empty");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(dollarsText.getText()) == false) {
-				depositErr.setText("Deposit must be positive");
+				depositErr.setText("Deposit Amount Must Be Positive");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositCheck(dollarsText.getText()) == false) {
-				depositErr.setText("Deposit must be numerical");
+				depositErr.setText("Deposit Amount Must Be Numerical");
 				depositErr.setForeground(Color.red);
 			}
 			else if(centsText.getText().isEmpty() == true) {
-				depositErr.setText("Deposit field cannot be empty");
+				depositErr.setText("Deposit Amount Field Cannot Be Empty");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositPosCheck(centsText.getText()) == false) {
-				depositErr.setText("Deposit must be positive");
+				depositErr.setText("Deposit Amount Must Be Positive");
 				depositErr.setForeground(Color.red);
 			}
 			else if(depositCheck(centsText.getText()) == false) {
-				depositErr.setText("Deposit must be numerical");
+				depositErr.setText("Deposit Amount Must Be Numerical");
 				depositErr.setForeground(Color.red);
 			}
 			else {
@@ -222,11 +219,10 @@ public class CreateAccountGui {
 			
 			String accType = accountType.getSelectedItem().toString();
 			
-			if(taken == false && !(passwordText.getText().equals("")) && balance > 0) {
+			if(!(name.equals("")) && !(pw.equals("")) && balance > 0) {
 				
 				if(accType.toUpperCase().contentEquals("SAVINGS")) {
 					SavingAccount newAccount = new SavingAccount(name, accType, pw, balance);
-					
 					AccountReader ar = new AccountReader();
 					ar.createAccountcsv(newAccount);
 					frame.dispose();
@@ -280,4 +276,3 @@ public class CreateAccountGui {
 	}
 	
 }
-
