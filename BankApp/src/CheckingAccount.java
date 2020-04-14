@@ -90,7 +90,7 @@ public class CheckingAccount implements Account  {
 	 * @param obj
 	 */
 
-	public void moneyTransfer(Account obj, int amount) {
+	public void moneyTransfer(Account obj, double amount) {
 		
 		
 		

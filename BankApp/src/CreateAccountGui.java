@@ -154,8 +154,8 @@ public class CreateAccountGui {
 			String name = "";
 			String pw = "";
 			double balance = 0;
-			
 			boolean taken = false;
+			
 			AccountReader check = new AccountReader();
 			check.readAccountcsv();
 			for(int i = 0; i < check.accountlist.size(); i++) {
@@ -166,6 +166,9 @@ public class CreateAccountGui {
 					taken = true;
 				}
 			}
+			
+			System.out.println(taken);
+			
 			if(usernameText.getText().isEmpty() == true) {
 				usernameErr.setText("Username field cannot be empty");
 				usernameErr.setForeground(Color.red);
@@ -219,7 +222,7 @@ public class CreateAccountGui {
 			
 			String accType = accountType.getSelectedItem().toString();
 			
-			if(!(usernameText.getText().equals("")) && !(passwordText.getText().equals("")) && balance > 0) {
+			if(taken == false && !(passwordText.getText().equals("")) && balance > 0) {
 				
 				if(accType.toUpperCase().contentEquals("SAVINGS")) {
 					SavingAccount newAccount = new SavingAccount(name, accType, pw, balance);

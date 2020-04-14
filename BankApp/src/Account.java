@@ -3,7 +3,7 @@ public interface Account {
 	
 	public void deposit(double amount);
 	public void withdraw(double amount);
-	public void moneyTransfer(Account obj, int amount);
+	public void moneyTransfer(Account obj, double amount);
 	public boolean loginAuthentication(String name, String password);
 	public String expiryDateCaluclator();
 	public int cvvcaluclator();

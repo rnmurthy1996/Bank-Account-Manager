@@ -37,7 +37,7 @@ public class BankAppGui {
 		
 		a = acc;
 	}
-	
+
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
@@ -112,7 +112,7 @@ public class BankAppGui {
 	private class TransferMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
-			new MoneyTransferGui().createGui();
+			new MoneyTransferGui(a).createGui();
 		}
 	}
 
