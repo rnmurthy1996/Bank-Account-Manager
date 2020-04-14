@@ -211,9 +211,15 @@ public class MoneyTransferGui {
 					
 					if(number == aNumber && accTypeTo.contentEquals(aType)) {
 						
-						a.moneyTransfer(toAccount,transferAmount);
-						String bal = String.format("%.2f", a.getBalance());
-						new BankAppGui(a).balance.setText("Account Balance: " + bal + "       ");
+						fromAccount.moneyTransfer(toAccount,amount);
+						String bal = String.format("%.2f", fromAccount.getBalance());
+						new BankAppGui(fromAccount).balance.setText("Account Balance: " + bal + "       ");
+						
+						String date =	 Transaction.DateCaluclator();
+						String transaction = "Date-"+date +", Type- transfer, Amount-"+amount+", To Account - "+toAccount.getName()+"\n";
+						new BankAppGui(fromAccount).textArea.append(transaction);		
+						
+						
 						AccountReader.updateAccountDatabase();
 						frame.dispose();
 							

@@ -1,4 +1,4 @@
-import javax.swing.JLabel;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -19,6 +19,7 @@ public class BankAppGui {
 	
 	private JPanel accountInfo;
 	private JPanel buttons;
+	private JPanel area;
 	
 	private JLabel accountNumber;
 	private JLabel accountName;
@@ -30,7 +31,8 @@ public class BankAppGui {
 	private JButton withdraw;
 	private JButton transfer;
 	private JButton exit;
-	
+	public static JTextArea textArea;
+	private JScrollPane scrollPane;
 	private Account a;
 	
 	public BankAppGui(Account acc) {
@@ -54,6 +56,16 @@ public class BankAppGui {
 		buttons.setLayout(new FlowLayout());
 		buttons.setSize(50, 300);
 		frame.add(buttons);
+		textArea = new JTextArea(15, 50);
+		scrollPane = new JScrollPane(textArea);
+		//scrollPane.setLayout(new BorderLayout());
+		
+		area = new JPanel();
+		area.add(scrollPane);
+		area.setLayout(new FlowLayout());
+		area.setSize(50,300);
+		frame.add(area);
+	
 	}
 
 	//This method creates and perform various actions associated with in the GUI.
@@ -84,6 +96,17 @@ public class BankAppGui {
 		buttons.add(transfer);
 		buttons.add(exit);
 
+		
+		
+		
+		textArea.setText("Transactions -:"+"\n");
+        //textArea.append(write);
+        textArea.setEditable(false);
+		
+        
+		
+		
+		
 		frame.setVisible(true);
 		
 		deposit.addActionListener(new DepositMoney());

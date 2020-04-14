@@ -145,6 +145,12 @@ public class DepositGui {
 				String bal = String.format("%.2f", a.getBalance());
 				balanceLabel.setText("Current Balance:" + a.getBalance());	
 				new BankAppGui(a).balance.setText("Account Balance: " + a.getBalance() + "       ");
+				
+				
+				String date =	 Transaction.DateCaluclator();
+				String transaction = "Date-"+date +", Type- Deposit, Amount-"+depositAmount+"\n";
+				new BankAppGui(a).textArea.append(transaction);
+			
 				AccountReader.updateAccountDatabase();
 			}
 		}

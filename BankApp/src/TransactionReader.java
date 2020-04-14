@@ -35,20 +35,17 @@ public class TransactionReader {
 	/*
 	 * Method to print monthly account transactions
 	 */
-	public void printTransactions(int month, int year) {
+	public void printTransactions(Account account, String transaction) {
 
 		try {
 			File f = new File("Statement.csv");
 			FileWriter fw = new FileWriter(f);
 			PrintWriter p = new PrintWriter(fw, true);
 			for (int i = 0; i < transactionList.size(); i++) {
-				// sysoutInteger.toString(month)
-				if(Integer.toString(month).contentEquals(transactionList.get(i).getDate().substring(0, 2)) 
-						&& Integer.toString(year).contentEquals(transactionList.get(i).getDate().substring(4,8))) {
-				p.print(transactionList.get(i).getAmount() + " ");
-				p.print(transactionList.get(i).getDate() + " ");
-				p.print(transactionList.get(i).getVendor() + " ");
-				p.print(transactionList.get(i).getProduct() + " ");
+				
+				if(transactionList.get(i).account.equals(account)) {
+						 
+				p.print(transactionList.get(i).transaction + " ");
 				p.println();
 				p.flush();
 				}
