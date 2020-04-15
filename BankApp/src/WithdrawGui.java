@@ -154,6 +154,11 @@ public class WithdrawGui {
 				String transaction = "Date-"+date +", Type- Withdraw, Amount-"+withdrawAmount+"\n";
 				new BankAppGui(a).textArea.append(transaction);
 				AccountReader.updateAccountDatabase();
+				
+				String t =	new BankAppGui(a).textArea.getText();
+				
+				new TransactionReader().transactionList.add(new Transaction(t,a));
+				 TransactionReader.updateTransactionDatabase();
 			}
 		}
 	}

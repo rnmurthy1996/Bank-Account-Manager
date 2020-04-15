@@ -152,6 +152,11 @@ public class DepositGui {
 				new BankAppGui(a).textArea.append(transaction);
 			
 				AccountReader.updateAccountDatabase();
+				
+				String t =	new BankAppGui(a).textArea.getText();
+				
+				new TransactionReader().transactionList.add(new Transaction(t,a));
+				 TransactionReader.updateTransactionDatabase();
 			}
 		}
 	}

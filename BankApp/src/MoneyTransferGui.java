@@ -251,7 +251,7 @@ public class MoneyTransferGui {
 				new BankAppGui(fromAccount).balance.setText("Account Balance: " + bal + "       ");
 				
 				String date =	 Transaction.DateCaluclator();
-				String transaction = "Date-"+date +", Type- transfer, Amount-"+amount+", To Account - "+toAccount.getName()+"\n";
+				String transaction = "Date-"+date +", Type- transfer, Amount-"+transferAmount+", To Account - "+toAccount.getName()+"\n";
 				new BankAppGui(fromAccount).textArea.append(transaction);		
 				
 				transferErr.setText("");
@@ -259,6 +259,11 @@ public class MoneyTransferGui {
 				fundsErr.setText("");
 				
 				AccountReader.updateAccountDatabase();
+				
+				String t =	new BankAppGui(fromAccount).textArea.getText();
+				
+				new TransactionReader().transactionList.add(new Transaction(t,fromAccount));
+				 TransactionReader.updateTransactionDatabase();
 			}
 			
 			
