@@ -42,7 +42,8 @@ public class DepositGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(300, 200);
+		frame.setSize(300, 175);
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -94,7 +95,7 @@ public class DepositGui {
 		buttons.add(depositButton);
 		buttons.add(exit);
 		
-		depositErr = new JLabel("");
+		depositErr = new JLabel("                                                                            ");
 		incorrect.add(depositErr);
 		depositErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
 
@@ -137,7 +138,7 @@ public class DepositGui {
 			}
 			else {
 				depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				depositErr.setText("");
+				depositErr.setText("                                                                            ");
 			}
 			
 			if(depositAmount > 0) {

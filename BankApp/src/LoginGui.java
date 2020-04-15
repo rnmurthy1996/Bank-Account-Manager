@@ -39,7 +39,8 @@ public class LoginGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(400, 200);
+		frame.setSize(300, 175);
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -90,7 +91,8 @@ public class LoginGui {
 		buttons.add(createAccount);
 		buttons.add(exit);
 		
-		incorrectMessage = new JLabel("");
+		incorrectMessage = new JLabel("                                  ");
+		incorrectMessage.setAlignmentX(incorrect.CENTER_ALIGNMENT);
 		incorrect.add(incorrectMessage);
 		
 		frame.setVisible(true);

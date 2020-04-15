@@ -52,7 +52,8 @@ public class CreateAccountGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(300, 300);
+		frame.setSize(300, 285);
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -130,15 +131,15 @@ public class CreateAccountGui {
 		buttons.add(createAccount);
 		buttons.add(exit);
 		
-		usernameErr = new JLabel("");
-		incorrect.add(usernameErr);
+		usernameErr = new JLabel("                                  ");
 		usernameErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
-		passwordErr = new JLabel("");
-		incorrect.add(passwordErr);
+		incorrect.add(usernameErr);
+		passwordErr = new JLabel("                                  ");
 		passwordErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
-		depositErr = new JLabel("");
-		incorrect.add(depositErr);
+		incorrect.add(passwordErr);
+		depositErr = new JLabel("                                  ");
 		depositErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
+		incorrect.add(depositErr);
 		
 		frame.setVisible(true);
 		
@@ -176,7 +177,7 @@ public class CreateAccountGui {
 			}
 			else if(taken == false) {
 				name = usernameText.getText();
-				usernameErr.setText("");
+				usernameErr.setText("                                  ");
 			}
 			
 			if(passwordText.getText().isEmpty() == true) {
@@ -185,7 +186,7 @@ public class CreateAccountGui {
 			}
 			else {
 				pw = passwordText.getText();
-				passwordErr.setText("");
+				passwordErr.setText("                                  ");
 			}
 			
 			if(dollarsText.getText().isEmpty() == true) {
@@ -214,7 +215,7 @@ public class CreateAccountGui {
 			}
 			else {
 				balance = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				depositErr.setText("");
+				depositErr.setText("                                  ");
 			}
 			
 			String accType = accountType.getSelectedItem().toString();

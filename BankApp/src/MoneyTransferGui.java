@@ -23,8 +23,6 @@ public class MoneyTransferGui {
 	private JPanel accType;
 	private JPanel amount;
 	private JPanel error;
-	private JPanel error2;
-	private JPanel error3;
 	
 	private JLabel balanceLabel;
 	private JLabel AccountNumber;
@@ -51,8 +49,9 @@ public class MoneyTransferGui {
 	 */
 	private void layoutManager() {
 		
-		frame = new JFrame("Money Transfer form");
-		frame.setSize(300, 300);
+		frame = new JFrame("Bank Application");
+		frame.setSize(300, 265);
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -81,22 +80,10 @@ public class MoneyTransferGui {
 		buttons.setSize(50, 200);
 		frame.add(buttons);
 		
-		error2 = new JPanel();
-		error2.setLayout(new FlowLayout());
-		error2.setSize(50, 200);
-		error2.setBackground(Color.white);
-		frame.add(error2);
-		
-		error3 = new JPanel();
-		error3.setLayout(new FlowLayout());
-		error3.setSize(50, 200);
-		error3.setBackground(Color.white);
-		frame.add(error3);
-		
 		error = new JPanel();
-		error.setLayout(new FlowLayout());
-		error.setSize(50, 200);
 		error.setBackground(Color.white);
+		error.setLayout(new BoxLayout(error, BoxLayout.Y_AXIS));
+		error.setSize(50, 200);
 		frame.add(error);
 		
 			}
@@ -141,17 +128,17 @@ public class MoneyTransferGui {
 		buttons.add(send);
 		buttons.add(exit);
 		
-		transferErr = new JLabel("");
+		transferErr = new JLabel("                                                                            ");
 		error.add(transferErr);
 		transferErr.setAlignmentX(error.CENTER_ALIGNMENT);
 		
-		accErr = new JLabel("");
-		error2.add(accErr);
-		accErr.setAlignmentX(error2.CENTER_ALIGNMENT);
+		accErr = new JLabel("                                                                            ");
+		error.add(accErr);
+		accErr.setAlignmentX(error.CENTER_ALIGNMENT);
 		
-		fundsErr = new JLabel("");
-		error3.add(fundsErr);
-		fundsErr.setAlignmentX(error3.CENTER_ALIGNMENT);
+		fundsErr = new JLabel("                                                                            ");
+		error.add(fundsErr);
+		fundsErr.setAlignmentX(error.CENTER_ALIGNMENT);
 			
 		frame.setVisible(true);
 		
@@ -193,7 +180,7 @@ public class MoneyTransferGui {
 			}
 			else {
 				transferAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				transferErr.setText("");
+				transferErr.setText("                                                                            ");
 			}
 			
 			Account toAccount = null;
@@ -212,7 +199,7 @@ public class MoneyTransferGui {
 			}
 			else {
 				number = Integer.parseInt(AccountNumberText.getText());
-				accErr.setText("");
+				accErr.setText("                                                                            ");
 			}
 				
 				String accType = accountType.getSelectedItem().toString();
@@ -232,11 +219,11 @@ public class MoneyTransferGui {
 				}
 			
 			if(transferAmount > new LoginGui().workingAccount.getBalance()) {
-				fundsErr.setText("Insufficient Funds For Transfer");
-				fundsErr.setForeground(Color.red);
+				transferErr.setText("Insufficient Funds For Transfer");
+				transferErr.setForeground(Color.red);
 			}
-			else {
-				fundsErr.setText("");
+			else if (transferAmount != 0){
+				transferErr.setText("                                                                            ");
 			}
 				
 			if(accCheck == false) {
@@ -254,9 +241,9 @@ public class MoneyTransferGui {
 				String transaction = "Date-"+date +", Type- transfer, Amount-"+transferAmount+", To Account - "+toAccount.getName()+"\n";
 				new BankAppGui(fromAccount).textArea.append(transaction);		
 				
-				transferErr.setText("");
-				accErr.setText("");
-				fundsErr.setText("");
+				transferErr.setText("                                                                            ");
+				accErr.setText("                                                                            ");
+				fundsErr.setText("                                                                            ");
 				
 				AccountReader.updateAccountDatabase();
 				

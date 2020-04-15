@@ -43,7 +43,8 @@ public class BankAppGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(1000, 400);
+		frame.setSize(900, 400);
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -74,17 +75,17 @@ public class BankAppGui {
 		layoutManager() ;
 		
 		accountNumber = new JLabel("Account Number: " + Integer.toString(a.getAccountNumber()) + "       ");
-		accountName = new JLabel("Account Name: " + a.getName() + "       ");
-		expDate = new JLabel("Expire Date: " + (a.getExpiryDate()) + "       ");
+		accountName = new JLabel("Username: " + a.getName() + "       ");
+		expDate = new JLabel("Account Expiration: " + (a.getExpiryDate()) + "       ");
 		String bal = String.format("%.2f", a.getBalance());
-		balance = new JLabel("Account Balance: " + bal + "       ");
+		balance = new JLabel("Balance: " + bal + "       ");
 		accountType = new JLabel("Account Type: " + a.getType()+ "       ");
 		
-		accountInfo.add(accountNumber);
 		accountInfo.add(accountName);
-		accountInfo.add(expDate);
-		accountInfo.add(balance);
+		accountInfo.add(accountNumber);
 		accountInfo.add(accountType);
+		accountInfo.add(balance);
+		accountInfo.add(expDate);
 		
 		deposit = new JButton("Deposit");
 		withdraw = new JButton("Withdraw");
@@ -99,7 +100,7 @@ public class BankAppGui {
 		
 		
 		
-		textArea.setText("Transactions -:"+"\n");
+		textArea.setText("Your Transactions:"+"\n");
         //textArea.append(write);
         textArea.setEditable(false);
 		

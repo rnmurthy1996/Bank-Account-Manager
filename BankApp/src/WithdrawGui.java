@@ -42,7 +42,8 @@ public class WithdrawGui {
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
-		frame.setSize(300, 200);
+		frame.setSize(300, 175);
+		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
 		
@@ -94,7 +95,7 @@ public class WithdrawGui {
 		buttons.add(withdrawButton);
 		buttons.add(exit);
 		
-		withdrawErr = new JLabel("");
+		withdrawErr = new JLabel("                                                                            ");
 		incorrect.add(withdrawErr);
 		withdrawErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
 
@@ -137,7 +138,7 @@ public class WithdrawGui {
 			}
 			else {
 				withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				withdrawErr.setText("");
+				withdrawErr.setText("                                                                            ");
 			}
 			
 			if(withdrawAmount > a.getBalance()) {

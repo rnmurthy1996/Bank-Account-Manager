@@ -136,7 +136,7 @@ public class CheckingAccount implements Account  {
 		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
 		int month = cal.get(Calendar.MONTH);
 		int year = cal.get(Calendar.YEAR);
-		String expiryDate = dayOfMonth + "/" + month + "/" + (year + 2);
+		String expiryDate = month + "/" + dayOfMonth + "/" + (year + 2);
 		return expiryDate;
 	}
 

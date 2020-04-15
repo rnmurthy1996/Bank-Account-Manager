@@ -1,13 +1,4 @@
-500002,Sridhar,163,13/3/2022,Checking,Password,610.0
-Transactions -:
-Date-14/3/2020, Type- Deposit, Amount-20.0
-Date-14/3/2020, Type- Deposit, Amount-20.0
-Date-14/3/2020, Type- Deposit, Amount-20.0
-Date-14/3/2020, Type- Deposit, Amount-20.0
-Date-14/3/2020, Type- Withdraw, Amount-40.0
-Date-14/3/2020, Type- Withdraw, Amount-40.0
-Date-14/3/2020, Type- Withdraw, Amount-40.0
-Date-14/3/2020, Type- Deposit, Amount-40.0
-Date-14/3/2020, Type- transfer, Amount-30.0, To Account - Rohan
-Date-14/3/2020, Type- transfer, Amount-30.0, To Account - Rohan
+500001,Rohan,122,3/14/2022,Checking,Password,1000.0
+Your Transactions:
+Date-14/3/2020, Type- transfer, Amount-100.0, To Account - Sridhar
 
