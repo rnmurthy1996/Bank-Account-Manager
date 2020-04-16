@@ -248,15 +248,35 @@ public class MoneyTransferGui {
 				String transaction = "Date-"+date +", Type- transfer, Amount-"+transferAmount+", To Account - "+toAccount.getName()+"\n";
 				new BankAppGui(fromAccount).textArea.append(transaction);		
 				
-				transferErr.setText("                                                                            ");
-				accErr.setText("                                                                            ");
+				transferErr.setText(" ");
+				accErr.setText("                                                                          ");
 				fundsErr.setText("                                                                            ");
 				
 				AccountReader.updateAccountDatabase();
 				
 				String t =	new BankAppGui(fromAccount).textArea.getText();
 				
-				new TransactionReader().transactionList.add(new Transaction(t,fromAccount));
+				
+				
+				boolean accountNotFound =true;
+				for ( int j =0; j<TransactionReader.transactionList.size();j++) {
+					
+					if(fromAccount.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName()) 
+							&& fromAccount.getAccountNumber() == TransactionReader.transactionList.get(j).account.getAccountNumber()) {
+						
+						TransactionReader.transactionList.get(j).transaction =t;
+						accountNotFound =false;
+					}
+				
+				}
+				
+					if(accountNotFound==true)	{
+						 TransactionReader.transactionList.add(new Transaction(t,fromAccount));
+					}
+				
+				
+				
+				//new TransactionReader().transactionList.add(new Transaction(t,fromAccount));
 				 TransactionReader.updateTransactionDatabase();
 			}
 			
