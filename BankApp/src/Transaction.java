@@ -31,7 +31,7 @@ public class Transaction {
 		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
 		int month = cal.get(Calendar.MONTH);
 		int year = cal.get(Calendar.YEAR);
-		String Date = dayOfMonth + "/" + month + "/" + (year);
+		String Date = month + "/" + dayOfMonth + "/" + (year);
 		return Date;
 	}
 

@@ -74,7 +74,8 @@ public class WithdrawGui {
 
 		layoutManager() ;
 		
-		balanceLabel = new JLabel("Current Balance:" + a.getBalance());
+		String b = String.format("%.2f", a.getBalance());
+		balanceLabel = new JLabel("Current Balance: " + b);
 		balance.add(balanceLabel);
 		
 		withdrawLabel = new JLabel("Withdrawal Amount:");
@@ -139,11 +140,11 @@ public class WithdrawGui {
 			}
 			else {
 				if(centsText.getText().length() == 1) {
-					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10;
+					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10.00;
 					withdrawErr.setText("                                                                            ");
 				}
 				else {
-					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100.00;
 					withdrawErr.setText("                                                                            ");
 				}
 			}
@@ -155,11 +156,12 @@ public class WithdrawGui {
 			else if(withdrawAmount > 0) {
 				a.withdraw(withdrawAmount);
 				String bal = String.format("%.2f", a.getBalance());
-				balanceLabel.setText("Current Balance:" + a.getBalance());	
-				new BankAppGui(a).balance.setText("Account Balance: " + a.getBalance() + "       ");
+				balanceLabel.setText("Current Balance: " + bal);	
+				new BankAppGui(a).balance.setText("Account Balance: " + bal + "       ");
 				
+				String with = String.format("%.2f", withdrawAmount);
 				String date =	 Transaction.DateCaluclator();
-				String transaction = "Date-"+date +", Type- Withdraw, Amount-"+withdrawAmount+"\n";
+				String transaction = "Date: "+date +"          Transaction Type: Withdrawal       Amount: "+with+"\n";
 				new BankAppGui(a).textArea.append(transaction);
 				AccountReader.updateAccountDatabase();
 				
@@ -192,7 +194,8 @@ public class WithdrawGui {
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
-			new BankAppGui(a).balance.setText("Account Balance: " + a.getBalance() + "       ");
+			String b = String.format("%.2f", a.getBalance());
+			new BankAppGui(a).balance.setText("Account Balance: " + b + "       ");
 			frame.dispose();
 		}
 	}

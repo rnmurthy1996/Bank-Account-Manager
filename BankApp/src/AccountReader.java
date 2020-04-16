@@ -35,6 +35,10 @@ public class AccountReader {
 
 				String line = fileScanner.next();
 				
+				if(line.equals(",,,,,,")) {
+					continue;
+				}
+				
 				String[] lineArray = line.split(",");
 				
 				int accountNumber = Integer.parseInt(lineArray[0]);

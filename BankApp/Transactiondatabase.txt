@@ -1,46 +1,27 @@
-500002,Sridhar,163,13/3/2022,Checking,Password,2351.1399999999985
-Date-15/3/2020, Type- Deposit, Amount-12.12
-Date-15/3/2020, Type- Deposit, Amount-12.12
-Date-15/3/2020, Type- Deposit, Amount-12.12
-Date-15/3/2020, Type- Deposit, Amount-18.0
-Date-15/3/2020, Type- Deposit, Amount-18.0
-Date-15/3/2020, Type- Deposit, Amount-18.0
-Date-15/3/2020, Type- Deposit, Amount-12.01
-Date-15/3/2020, Type- Deposit, Amount-12.01
-Date-15/3/2020, Type- Deposit, Amount-12.0
-Date-15/3/2020, Type- Deposit, Amount-12.0
-Date-15/3/2020, Type- Deposit, Amount-12.0
-Date-15/3/2020, Type- Deposit, Amount-12.0
-Date-15/3/2020, Type- Deposit, Amount-11.11
-Date-15/3/2020, Type- Deposit, Amount-11.11
-Date-15/3/2020, Type- Deposit, Amount-11.11
-Date-15/3/2020, Type- Deposit, Amount-111.11
-Date-15/3/2020, Type- Deposit, Amount-111.11
-Date-15/3/2020, Type- Deposit, Amount-111.11
-Date-15/3/2020, Type- Deposit, Amount-111.11
-Date-15/3/2020, Type- Deposit, Amount-1.1
-Date-15/3/2020, Type- Deposit, Amount-1.1
-Date-15/3/2020, Type- Deposit, Amount-1.1
-Date-15/3/2020, Type- Deposit, Amount-1.1
-Date-16/3/2020, Type- Withdraw, Amount-11.11
-Date-16/3/2020, Type- Withdraw, Amount-11.11
-Date-16/3/2020, Type- Withdraw, Amount-11.11
-Date-16/3/2020, Type- transfer, Amount-12.12, To Account - Rohan2
-Date-16/3/2020, Type- transfer, Amount-12.12, To Account - Rohan2
+500001,Rohan,153,3/16/2022,Checking,PW,100.0
+
+
+
+
+
+
+
+Date-16/3/2020, Type- Deposit, Amount-1.1
+Date-16/3/2020, Type- Withdraw, Amount-1.1
+Date-16/3/2020, Type- Deposit, Amount-1.1
+Date-16/3/2020, Type- Withdraw, Amount-1.1
+Date-16/3/2020, Type- transfer, Amount-1.1, To Account - Rohan2
+Date: 16/3/2020          Transaction Type: Deposit       Amount: 100.0
+Date: 16/3/2020          Transaction Type: Deposit       Amount: 100.00
+Date: 16/3/2020          Transaction Type: Withdrawal       Amount: 1.10
+Date: 16/3/2020          Transaction Type: Transfer       Amount: 1.10       Destination Account: Rohan2
+Date: 3/16/2020          Transaction Type: Deposit       Amount: 100.00
+Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
 
 end
-500001,Rohan,122,3/14/2022,Checking,Password,2463.9400000000005
-Date-15/3/2020, Type- Deposit, Amount-123.01
-Date-15/3/2020, Type- Deposit, Amount-123.01
-Date-15/3/2020, Type- Deposit, Amount-123.01
-Date-15/3/2020, Type- Deposit, Amount-123.01
+500002,Rohan2,702,3/16/2022,Checking,PW,104.39999999999998
 
-end
-500003,Rohan2,343,13/3/2022,Checking,Password,710.5
-Date-15/3/2020, Type- Deposit, Amount-122.1
-Date-15/3/2020, Type- Deposit, Amount-122.1
-Date-15/3/2020, Type- Deposit, Amount-122.1
-Date-15/3/2020, Type- Deposit, Amount-122.1
-Date-15/3/2020, Type- Deposit, Amount-122.1
+Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
 
 end

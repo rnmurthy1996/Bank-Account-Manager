@@ -74,7 +74,8 @@ public class DepositGui {
 
 		layoutManager() ;
 		
-		balanceLabel = new JLabel("Current Balance:" + a.getBalance());
+		String b = String.format("%.2f", a.getBalance());
+		balanceLabel = new JLabel("Current Balance: " + b);
 		balance.add(balanceLabel);
 		
 		depositLabel = new JLabel("Deposit Amount:");
@@ -139,11 +140,11 @@ public class DepositGui {
 			}
 			else {
 				if(centsText.getText().length() == 1) {
-					depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10;
+					depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10.00;
 					depositErr.setText("                                                                            ");
 				}
 				else {
-					depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+					depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100.00;
 					depositErr.setText("                                                                            ");
 				}
 			}
@@ -151,12 +152,12 @@ public class DepositGui {
 			if(depositAmount > 0) {
 				a.deposit(depositAmount);
 				String bal = String.format("%.2f", a.getBalance());
-				balanceLabel.setText("Current Balance:" + a.getBalance());	
-				new BankAppGui(a).balance.setText("Account Balance: " + a.getBalance() + "       ");
+				balanceLabel.setText("Current Balance: " + bal);	
+				new BankAppGui(a).balance.setText("Account Balance: " + bal + "       ");
 				
-				
+				String dep = String.format("%.2f", depositAmount);
 				String date =	 Transaction.DateCaluclator();
-				String transaction = "Date-"+date +", Type- Deposit, Amount-"+depositAmount+"\n";
+				String transaction = "Date: "+date +"          Transaction Type: Deposit       Amount: "+dep+"\n";
 				new BankAppGui(a).textArea.append(transaction);
 			
 				AccountReader.updateAccountDatabase();
@@ -187,7 +188,8 @@ public class DepositGui {
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
-			new BankAppGui(a).balance.setText("Account Balance: " + a.getBalance() + "       ");
+			String b = String.format("%.2f", a.getBalance());
+			new BankAppGui(a).balance.setText("Account Balance: " + b + "       ");
 			frame.dispose();
 		}
 	}
