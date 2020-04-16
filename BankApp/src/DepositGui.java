@@ -155,8 +155,22 @@ public class DepositGui {
 				AccountReader.updateAccountDatabase();
 				
 				String t =	new BankAppGui(a).textArea.getText();
+				boolean accountNotFound =true;
+				for ( int j =0; j<TransactionReader.transactionList.size();j++) {
+					
+					if(a.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName()) 
+							&& a.getAccountNumber() == TransactionReader.transactionList.get(j).account.getAccountNumber()) {
+						
+						TransactionReader.transactionList.get(j).transaction =t;
+						accountNotFound =false;
+					}
 				
-				new TransactionReader().transactionList.add(new Transaction(t,a));
+				}
+				
+					if(accountNotFound==true)	{
+						 TransactionReader.transactionList.add(new Transaction(t,a));
+					}
+				 //TransactionReader.transactionList.add(new Transaction(t,a));
 				 TransactionReader.updateTransactionDatabase();
 			}
 		}

@@ -111,11 +111,23 @@ public class LoginGui {
 			String pass = passwordText.getText();
 			
 			AccountReader.readAccountcsv();
+		
 			for(int i=0; i < AccountReader.accountlist.size(); i++) {
 				if(AccountReader.accountlist.get(i).loginAuthentication(user, pass)==true) {
 					workingAccount = AccountReader.accountlist.get(i);
 					
 					new BankAppGui(AccountReader.accountlist.get(i)).createGui();
+					TransactionReader.readTransactioncsv();
+					for ( int j =0; j<TransactionReader.transactionList.size();j++) {
+						
+						if(workingAccount.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName()) 
+								&& workingAccount.getAccountNumber() == TransactionReader.transactionList.get(j).account.getAccountNumber()) {
+					new BankAppGui(workingAccount).textArea.append(TransactionReader.transactionList.get(j).transaction);
+						}
+					
+					}
+					
+					
 					frame.dispose();
 				}
 			}

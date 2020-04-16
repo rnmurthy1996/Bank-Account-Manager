@@ -30,7 +30,7 @@ class UnitTesting {
 		AccountReader list = new AccountReader();
 		list.readAccountcsv();
 		Account account = list.accountlist.get(0);
-		
+		TransactionReader.readTransactioncsv();
 		assertEquals(account.getBalance() , 6000 );
 		
 	}

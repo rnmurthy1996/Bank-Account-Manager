@@ -16,14 +16,14 @@ import java.util.Scanner;
 public class TransactionReader {
 
 	//Instant Variables
-	public static ArrayList<Transaction> transactionList;
+	public static ArrayList<Transaction> transactionList=new ArrayList<Transaction>(); 
 	
 	//constructor
-	public TransactionReader() {
-
-		transactionList = new ArrayList<Transaction>();
-
-	}
+//	public TransactionReader() {
+//
+//		transactionList = new ArrayList<Transaction>();
+//
+//	}
 
 	/*
 	 * Method to read account transactions
@@ -36,13 +36,13 @@ public class TransactionReader {
 	public static void readTransactioncsv() {
 
 		try {
-			File f = new File("Transactiondatabase.csv");
+			File f = new File("Transactiondatabase.txt");
 			Scanner fileScanner = new Scanner(f);
-			transactionList = new ArrayList<Transaction>();
+			
 			while (fileScanner.hasNext()) {
 
 				String line = fileScanner.next();
-				
+				System.out.println(line);
 				String[] lineArray = line.split(",");
 				
 				int accountNumber = Integer.parseInt(lineArray[0]);
@@ -57,18 +57,56 @@ public class TransactionReader {
 				if(type.toUpperCase().contentEquals("CHECKING")) {
 				
 				CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
-				String t1 ="";
-				Transaction t = new Transaction (t1,cAccount);
+				
+				String t3 =" ";
+				while(fileScanner.hasNext()) {
+				
+				//String t1 = fileScanner.hasNext(pattern);
+				//String t2 = fileScanner.nextLine();
+					String l =fileScanner.nextLine();
+					
+					if(l.contentEquals("end")) {
+						
+						break;
+					}
+					
+				 t3 = t3+"\n"+l ;
+				// fileScanner.nextLine();
+				//System.out.println(t3);
+				
+				}
+			
+				
+				Transaction t = new Transaction (t3,cAccount);
 				transactionList.add(t);
+				System.out.println(t.account.getName());
+				System.out.println(t3);
+				
+				
 				}
 				
 				if(type.toUpperCase().contentEquals("SAVING")) {
 					
 					SavingAccount sAccount = new SavingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
 					String t1 ="";
+					
+					while(fileScanner.hasNext()&&!fileScanner.hasNext("end")) {
+					
+						String l =fileScanner.nextLine();
+						
+						if(l.contentEquals("end")) {
+							
+							break;
+						}
+						
+						t1 =t1+"\n"+l;
+					
+					}
+					
+					System.out.println(t1);
 					Transaction t = new Transaction (t1,sAccount);
 					transactionList.add(t);
-					
+					fileScanner.nextLine();
 				}
 			}
 			fileScanner.close();
@@ -84,7 +122,7 @@ public class TransactionReader {
 	public void printTransactions(Transaction obj) {
 
 		try {
-			File f = new File("Transactionsdatabase.csv");
+			File f = new File("Transactionsdatabase.txt");
 			FileWriter fw = new FileWriter(f);
 			PrintWriter p = new PrintWriter(fw, true);
 			for (int i = 0; i < transactionList.size(); i++) {
@@ -117,7 +155,7 @@ public static void updateTransactionDatabase() {
 		
 		
 		try {
-			PrintWriter pr = new PrintWriter(new FileWriter("Transactiondatabase.csv"));
+			PrintWriter pr = new PrintWriter(new FileWriter("Transactiondatabase.txt"));
 			for ( int i =0; i<transactionList.size();i++) {
 				
 				pr.println(transactionList.get(i).account.getAccountNumber()+","+transactionList.get(i).account.getName()+","
@@ -125,6 +163,7 @@ public static void updateTransactionDatabase() {
 				+","+transactionList.get(i).account.getType()+","+transactionList.get(i).account.getPassword()
 				+","+transactionList.get(i).account.getBalance());
 				pr.println(transactionList.get(i).transaction);
+				pr.println("end");
 			}
 			pr.flush();
 			

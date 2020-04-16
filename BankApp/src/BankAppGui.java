@@ -100,7 +100,7 @@ public class BankAppGui {
 		
 		
 		
-		textArea.setText("Your Transactions:"+"\n");
+		//textArea.setText("Your Transactions:"+"\n");
         //textArea.append(write);
         textArea.setEditable(false);
 		
