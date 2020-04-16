@@ -78,7 +78,7 @@ public class BankAppGui {
 		accountName = new JLabel("Username: " + a.getName() + "       ");
 		expDate = new JLabel("Account Expiration: " + (a.getExpiryDate()) + "       ");
 		String bal = String.format("%.2f", a.getBalance());
-		balance = new JLabel("Balance: " + bal + "       ");
+		balance = new JLabel("Account Balance: " + bal + "       ");
 		accountType = new JLabel("Account Type: " + a.getType()+ "       ");
 		
 		accountInfo.add(accountName);

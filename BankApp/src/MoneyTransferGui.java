@@ -95,7 +95,8 @@ public class MoneyTransferGui {
 
 		layoutManager() ;
 		
-		balanceLabel = new JLabel("Current Balance:" + new LoginGui().workingAccount.getBalance());
+		String b = String.format("%.2f", new LoginGui().workingAccount.getBalance());
+		balanceLabel = new JLabel("Current Balance: " + b);
 		balance.add(balanceLabel);
 		
 		AccountNumber = new JLabel("Select Account Number:");
@@ -243,10 +244,14 @@ public class MoneyTransferGui {
 				fromAccount.moneyTransfer(toAccount,transferAmount);
 				String bal = String.format("%.2f", fromAccount.getBalance());
 				new BankAppGui(fromAccount).balance.setText("Account Balance: " + bal + "       ");
+				balanceLabel.setText("Current Balance: " + bal);
 				
+				String ta = String.format("%.2f", transferAmount);
 				String date =	 Transaction.DateCaluclator();
-				String transaction = "Date-"+date +", Type- transfer, Amount-"+transferAmount+", To Account - "+toAccount.getName()+"\n";
+				String transaction = "Date: "+date +"          Transaction Type: Transfer       Amount: "+
+										ta+"       Destination Account: "+toAccount.getName()+"\n";
 				new BankAppGui(fromAccount).textArea.append(transaction);		
+				
 				
 				transferErr.setText(" ");
 				accErr.setText("                                                                          ");
