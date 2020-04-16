@@ -15,7 +15,7 @@ public class CheckingAccount implements Account  {
 	private String name;
 	private int cvv;
 	private String expiryDate;
-	private String type;
+	public String type;
 	private String password;
 	protected double balance;
 	static final public double interestRate =2.5;
@@ -155,9 +155,15 @@ public class CheckingAccount implements Account  {
 	public int accountNumGenerator() {
 		
 		
+		AccountReader ar = new AccountReader();
+		ar.readAccountcsv();
+		for(int i = 0; i < ar.accountlist.size(); i++) {
+			if(ar.accountlist.get(i).getType().equals("Checking")) {
+				accountcount++;
+			}
+		}
 		int accountNum = accountcount+500001;
 		
-		accountcount++;
 		return accountNum;
 	}
 

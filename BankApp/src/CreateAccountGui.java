@@ -120,6 +120,7 @@ public class CreateAccountGui {
 		dot = new JLabel(".");
 		centsText = new JTextField();
 		centsText.setColumns(3);
+		centsText.setDocument(new JTextFieldLimit(2));
 		id.add(initialDeposit);
 		id.add(dollarsText);
 		id.add(dot);
@@ -214,8 +215,14 @@ public class CreateAccountGui {
 				depositErr.setForeground(Color.red);
 			}
 			else {
-				balance = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				depositErr.setText("                                  ");
+				if(centsText.getText().length() == 1) {
+					balance = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10;
+					depositErr.setText("                                                                            ");
+				}
+				else {
+					balance = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+					depositErr.setText("                                                                            ");
+				}
 			}
 			
 			String accType = accountType.getSelectedItem().toString();
