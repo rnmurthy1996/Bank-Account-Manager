@@ -70,7 +70,12 @@ public class TransactionReader {
 						break;
 					}
 					
-				 t3 = t3+"\n"+l ;
+					if (t3.contentEquals(" ")) {
+						
+						t3 =l;
+					}
+					else {
+				 t3 = t3+"\n"+l ;}
 				// fileScanner.nextLine();
 				//System.out.println(t3);
 				
