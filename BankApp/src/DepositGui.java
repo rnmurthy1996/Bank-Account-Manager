@@ -83,6 +83,7 @@ public class DepositGui {
 		dot = new JLabel(".");
 		centsText = new JTextField();
 		centsText.setColumns(3);
+		centsText.setDocument(new JTextFieldLimit(2));
 		
 		deposit.add(depositLabel);
 		deposit.add(dollarsText);
@@ -137,8 +138,14 @@ public class DepositGui {
 				depositErr.setForeground(Color.red);
 			}
 			else {
-				depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				depositErr.setText("                                                                            ");
+				if(centsText.getText().length() == 1) {
+					depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10;
+					depositErr.setText("                                                                            ");
+				}
+				else {
+					depositAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+					depositErr.setText("                                                                            ");
+				}
 			}
 			
 			if(depositAmount > 0) {

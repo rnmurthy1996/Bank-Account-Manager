@@ -116,6 +116,7 @@ public class MoneyTransferGui {
 		dot = new JLabel(".");
 		centsText = new JTextField();
 		centsText.setColumns(3);
+		centsText.setDocument(new JTextFieldLimit(2));
 		
 		amount.add(transferLabel);
 		amount.add(dollarsText);
@@ -179,8 +180,14 @@ public class MoneyTransferGui {
 				transferErr.setForeground(Color.red);
 			}
 			else {
-				transferAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				transferErr.setText("                                                                            ");
+				if(centsText.getText().length() == 1) {
+					transferAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10;
+					transferErr.setText("                                                                            ");
+				}
+				else {
+					transferAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+					transferErr.setText("                                                                            ");
+				}
 			}
 			
 			Account toAccount = null;

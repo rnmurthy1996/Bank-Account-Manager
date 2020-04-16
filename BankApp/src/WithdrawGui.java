@@ -83,6 +83,7 @@ public class WithdrawGui {
 		dot = new JLabel(".");
 		centsText = new JTextField();
 		centsText.setColumns(3);
+		centsText.setDocument(new JTextFieldLimit(2));
 		
 		withdraw.add(withdrawLabel);
 		withdraw.add(dollarsText);
@@ -137,8 +138,14 @@ public class WithdrawGui {
 				withdrawErr.setForeground(Color.red);
 			}
 			else {
-				withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
-				withdrawErr.setText("                                                                            ");
+				if(centsText.getText().length() == 1) {
+					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10;
+					withdrawErr.setText("                                                                            ");
+				}
+				else {
+					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100;
+					withdrawErr.setText("                                                                            ");
+				}
 			}
 			
 			if(withdrawAmount > a.getBalance()) {
