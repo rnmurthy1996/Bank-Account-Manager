@@ -37,10 +37,14 @@ public class SavingAccount extends CheckingAccount implements Account {
 
 	public int accountNumGenerator() {
 		
-		
+		AccountReader ar = new AccountReader();
+		ar.readAccountcsv();
+		for(int i = 0; i < ar.accountlist.size(); i++) {
+			if(ar.accountlist.get(i).getType().equals("Savings")) {
+				accountcount++;
+			}
+		}
 		int accountNum = accountcount+800001;
-		
-		accountcount++;
 		return accountNum;
 	}
 	
@@ -76,7 +80,6 @@ public class SavingAccount extends CheckingAccount implements Account {
 		}
 
 	}
-
 }
 
 

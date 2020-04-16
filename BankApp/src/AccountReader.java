@@ -52,7 +52,7 @@ public class AccountReader {
 				accountlist.add(cAccount);
 				}
 				
-				if(type.toUpperCase().contentEquals("SAVING")) {
+				if(type.toUpperCase().contentEquals("SAVINGS")) {
 					
 					SavingAccount sAccount = new SavingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
 					accountlist.add(sAccount);
