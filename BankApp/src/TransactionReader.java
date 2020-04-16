@@ -104,7 +104,12 @@ public class TransactionReader {
 							break;
 						}
 						
-						t1 =t1+"\n"+l;
+						if (t1.contentEquals(" ")) {
+							
+							t1 =l;
+						}
+						else {
+					 t1 = t1+"\n"+l ;}
 					
 					}
 					
