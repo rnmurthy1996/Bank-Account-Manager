@@ -77,7 +77,7 @@ public class SavingAccount extends CheckingAccount implements Account {
 
 		int transferFee = 2;
 		if (obj.getBalance() > amount) {
-			//withdraw fee is added back since only transfer fee is deducted.
+			
 			this.withdraw((amount - transferFee + 5));
 			obj.deposit(amount);
 		}

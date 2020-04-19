@@ -73,7 +73,7 @@ public class AccountReader {
 	}
 
 	/*
-	 * This method is used to create a account and pass it to add in the database.
+	 * This method is used to create an account.
 	 */
 
 	public static void createAccountcsv(Account account) {
