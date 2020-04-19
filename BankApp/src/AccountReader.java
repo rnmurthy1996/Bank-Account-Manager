@@ -7,23 +7,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This class is used to read existing Accounts from the given text file.
  * 
- * @author Sridhar.Varala
+ * AccountReader.java is used to maintain the database of accounts created in our program.
+ * Using AccountReader.java, we are able to create a list of all existing accounts, update the list with any new accounts, and update any existing accounts with new information.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
-public class AccountReader {
 
-	// instance variables
+public class AccountReader {
+	
 	public static ArrayList<Account> accountlist;
 
-	// constructor
 	public AccountReader() {
 
 	}
 
 	/**
-	 * This method is used to read available accounts in the database.
+	 * The readAccountcsv method is used to populate accountlist with the current accounts from accountdata.csv.
 	 */
 	public static void readAccountcsv() {
 
@@ -70,10 +71,10 @@ public class AccountReader {
 		}
 	}
 	
-	/*
-	 * This method is used to create a account and pass it to add in the database.
+	/**
+	 * The createAccountcsv method is used to create a new account and add it to accountdata.csv.
+	 * @param Account the account that is being created
 	 */
-
 	public static void createAccountcsv(Account account) {
 
 		try {
@@ -105,9 +106,10 @@ public class AccountReader {
 
 	}
 	
-	
+	/**
+	 * If any changes have been made to accountlist, the updateAccountDatabase method will go through the list and update accountdata.csv to reflect those changes.
+	 */
 	public static void updateAccountDatabase() {
-		
 		
 		try {
 			PrintWriter pr = new PrintWriter(new FileWriter("accountdata.csv"));

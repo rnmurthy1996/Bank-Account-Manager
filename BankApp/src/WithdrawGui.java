@@ -75,7 +75,7 @@ public class WithdrawGui {
 		layoutManager() ;
 		
 		String b = String.format("%.2f", a.getBalance());
-		balanceLabel = new JLabel("Current Balance: " + b);
+		balanceLabel = new JLabel("Current Balance: $" + b);
 		balance.add(balanceLabel);
 		
 		withdrawLabel = new JLabel("Withdrawal Amount:");
@@ -156,8 +156,8 @@ public class WithdrawGui {
 			else if(withdrawAmount > 0) {
 				a.withdraw(withdrawAmount);
 				String bal = String.format("%.2f", a.getBalance());
-				balanceLabel.setText("Current Balance: " + bal);	
-				new BankAppGui(a).balance.setText("Account Balance: " + bal + "       ");
+				balanceLabel.setText("Current Balance: $" + bal);	
+				new BankAppGui(a).balance.setText("Current Balance: $" + bal + "       ");
 				
 				String with = String.format("%.2f", withdrawAmount);
 				String date =	 Transaction.DateCaluclator();
@@ -195,7 +195,7 @@ public class WithdrawGui {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
 			String b = String.format("%.2f", a.getBalance());
-			new BankAppGui(a).balance.setText("Account Balance: " + b + "       ");
+			new BankAppGui(a).balance.setText("Current Balance: $" + b + "       ");
 			frame.dispose();
 		}
 	}

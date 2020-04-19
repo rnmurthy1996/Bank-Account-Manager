@@ -5,14 +5,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * This class is for building the Gui for the Bank App.
  * 
- * @author Sridhar.Varala
+ * DepositGui.java is used to create the deposit window of our program. This GUI is accessed when the user clicks the deposit button in the home page GUI.
+ * This GUI allows the user to deposit money into their account. The amount is determined by the user.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
-public class DepositGui {
 
-	// Instance variables
+public class DepositGui {
 
 	private JFrame frame;
 	
@@ -39,6 +40,9 @@ public class DepositGui {
 		a = acc;
 	}
 	
+	/**
+	 * The layoutManager method initializes all of the panels used by DepositGui.java.
+	 */
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
@@ -69,13 +73,15 @@ public class DepositGui {
 		frame.add(incorrect);
 	}
 
-	//This method creates and perform various actions associated with in the GUI.
+	/**
+	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 */
 	public void createGui() {
 
 		layoutManager() ;
 		
 		String b = String.format("%.2f", a.getBalance());
-		balanceLabel = new JLabel("Current Balance: " + b);
+		balanceLabel = new JLabel("Current Balance: $" + b);
 		balance.add(balanceLabel);
 		
 		depositLabel = new JLabel("Deposit Amount:");
@@ -107,7 +113,10 @@ public class DepositGui {
 		exit.addActionListener(new Exit());
 	}
 
-	//Internal class to perform action associated to the button.
+	/**
+	 * The private class DepositMoney is called when the depositButton Jbutton is clicked and deposits the user determined amount into the account.
+	 * The amount is also first checked in this class to ensure that it is a valid amount (no spaces, letters, negative values, etc.)
+	 */
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
@@ -152,8 +161,8 @@ public class DepositGui {
 			if(depositAmount > 0) {
 				a.deposit(depositAmount);
 				String bal = String.format("%.2f", a.getBalance());
-				balanceLabel.setText("Current Balance: " + bal);	
-				new BankAppGui(a).balance.setText("Account Balance: " + bal + "       ");
+				balanceLabel.setText("Current Balance: $" + bal);	
+				new BankAppGui(a).balance.setText("Current Balance: $" + bal + "       ");
 				
 				String dep = String.format("%.2f", depositAmount);
 				String date =	 Transaction.DateCaluclator();
@@ -184,16 +193,24 @@ public class DepositGui {
 		}
 	}
 
-	//Internal class to perform action associated to the button.
+	/**
+	 * The private class Exit is called when the exit Jbutton is clicked and closes the deposit money window.
+	 * This class also initializes a new home page GUI with an updated account balance.
+	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
 			String b = String.format("%.2f", a.getBalance());
-			new BankAppGui(a).balance.setText("Account Balance: " + b + "       ");
+			new BankAppGui(a).balance.setText("Current Balance: $" + b + "       ");
 			frame.dispose();
 		}
 	}
 	
+	/**
+	 * The userNameCheck method checks to see if the username entered by the user contains any spaces.
+	 * @param s the username that is being checked for spaces.
+	 * @return true if the username does not contain any spaces and false otherwise.
+	 */
 	public boolean userNameCheck(String s) {
 		for(int i = 0; i < s.length(); i++) {
 			if(s.charAt(i) == ' ') {
@@ -203,6 +220,11 @@ public class DepositGui {
 		return true;
 	}
 	
+	/**
+	 * The depositCheck method checks to see if the initial deposit entered by the user only contains numbers.
+	 * @param s the initial deposit that is being checked for non-numerical values.
+	 * @return true if the initial deposit only contains numberical values and false otherwise.
+	 */
 	public boolean depositCheck(String s) {
 		for(int i = 0; i < s.length(); i++) {
 			if(Character.isDigit(s.charAt(i)) == false) {
@@ -212,6 +234,11 @@ public class DepositGui {
 		return true;
 	}
 	
+	/**
+	 * The depositCheck method checks to see if the initial deposit is positive.
+	 * @param s the initial deposit that is being checked to see if it is a positive value.
+	 * @return true if the initial deposit is positive and false otherwise.
+	 */
 	public boolean depositPosCheck(String s) {
 		if((s.substring(0,1)).equals("-")) {
 			return false;

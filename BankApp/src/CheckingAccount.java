@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.Random;
 
 /**
- * This is the Account class.
  * 
- * @author Sridhar.Varala
+ * CheckingAccount.java implements the Account interface and contains the variables and methods associated with a checking account.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
+
 public class CheckingAccount implements Account  {
 
 	private int accountNumber;
@@ -25,7 +27,18 @@ public class CheckingAccount implements Account  {
 	
 	
 	
-	// Constructor
+	/**
+	 * 
+	 * The primary checking account constructor.
+	 * @param accountNumber the account number associated with the account
+	 * @param name the username for the account
+	 * @param cvv the card verification value for the account
+	 * @param expiryDate the expiration date of the account
+	 * @param type the account type (chekcing or savings)
+	 * @param password the password for the account
+	 * @param balance the balance of the account
+	 *
+	 */
 	public CheckingAccount(int accountNumber, String name, int cvv, String expiryDate, String type, String password,
 			double balance) {
 
@@ -38,7 +51,15 @@ public class CheckingAccount implements Account  {
 		this.balance = balance;
 		transactions = new ArrayList<String>();
 	}
-
+	
+	/**
+	 * 
+	 * The secondary checking account constructor. This is the constructor normally called in CreateAccountGui.java when a new checking account is created.
+	 * @param name username for the account
+	 * @param type the account type (chekcing or savings)
+	 * @param password the password for the account
+	 * @param balance the balance of the account
+	 */
 	public CheckingAccount(String name, String type, String password, double balance) {
 
 		this.accountNumber = accountNumGenerator();
@@ -52,9 +73,9 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * This is the deposit method.
-	 * 
-	 * @param amount
+	 * The deposit method is called to deposit money into the account.
+	 * This method also adds a deposit transaction to the transaction list.
+	 * @param amount amount of money that should be deposited.
 	 */
 	public void deposit(double amount) {
 
@@ -68,9 +89,9 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * This is the withdraw method.
-	 * 
-	 * @param amount
+	 * The withdraw method is called to withdraw money from the account.
+	 * This method also adds a withdrawal transaction to the transaction list.
+	 * @param amount the amount of money that should be withdrawn.
 	 */
 	public void withdraw(double amount) {
 
@@ -85,16 +106,12 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * This method is used to transfer money from one account to other account
-	 * 
-	 * @param obj
+	 * The moneyTransfer method is called to transfer money from the account to another external account.
+	 * This method also adds a money transfer transaction to the transaction list.
+	 * @param obj the external account that money should be transferred to.
+	 * @param amount the amount of money that should be transferred.
 	 */
-
 	public void moneyTransfer(Account obj, double amount) {
-		
-		
-		
-		
 		
 		if (obj.getBalance() > amount) {
 
@@ -108,14 +125,12 @@ public class CheckingAccount implements Account  {
 
 	}
 
-
 	/**
-	 * This method is used to verify login credentials.
-	 * 
-	 * @param password
-	 * @param accountNumber
+	 * The loginAuthentication method is used to verify login credentials for the account.
+	 * @param name the username that is being checked for authentication.
+	 * @param password the password that is being checked for authentication.
+	 * @return returns true if login credentials are good and false otherwise.
 	 */
-
 	public boolean loginAuthentication(String name, String password) {
 
 		if (this.name.contentEquals(name) && this.password.contentEquals(password)) {
@@ -125,8 +140,10 @@ public class CheckingAccount implements Account  {
 		}
 	}
 
-	/*
-	 * This method is used to compute account expire date.
+	/**
+	 * The loginAuthentication method is used to verify login credentials for the account.
+	 * @param name the username that is being checked for authentication
+	 * @param password the password that is being checked for authentication
 	 */
 	public String expiryDateCaluclator() {
 
@@ -148,10 +165,10 @@ public class CheckingAccount implements Account  {
 		return cvv;
 	}
 
-	/*
-	 * This method is used to generate account number.
+	/**
+	 * The accountNumGenerator method is used to generate an account number upon creation of a new account. The account number formula is 500001+number of current checking accounts.
+	 *@return accountNum the account number that has been generated.
 	 */
-
 	public int accountNumGenerator() {
 		
 		
@@ -168,78 +185,66 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * This is a getter for account number.
-	 * 
-	 * @return
+	 * Getter for the account number.
+	 * @return accountNumber the account number associated with the account.
 	 */
 	public int getAccountNumber() {
 		return accountNumber;
 	}
 
 	/**
-	 * This is the getter for the account name.
-	 * 
-	 * @return
+	 * Getter for the username.
+	 * @return name the username for the account.
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * This is the getter for cvv of the account.
-	 * 
-	 * @return
+	 * Getter for the card verification value.
+	 * @return cvv the card verification value for the account
 	 */
 	public int getCvv() {
 		return cvv;
 	}
 
 	/**
-	 * This is the getter for the account expiry date.
-	 * 
-	 * @return
+	 * Getter for the account expiration date.
+	 * @return expiryDate the expiration date of the account
 	 */
 	public String getExpiryDate() {
 		return expiryDate;
 	}
 
 	/**
-	 * This is the getter for the account type.
-	 * 
-	 * @return
+	 * Getter for the account type.
+	 * @return type the account type (checking or savings)
 	 */
 	public String getType() {
 		return type;
 	}
 
 	/**
-	 * This is the getter for the account password
-	 * 
-	 * @return
+	 * Getter for the password.
+	 * @return password the password for the account
 	 */
 	public String getPassword() {
 		return password;
 	}
 
 	/**
-	 * This is the getter for the account balance.
-	 * 
-	 * @return
+	 * Getter for the account balance.
+	 * @return balance the balance of the account.
 	 */
 	public double getBalance() {
 		return balance;
 	}
 
 	/**
-	 * This is the getter for the account interest rate.
-	 * 
-	 * @return
+	 * Getter for the interest rate. Set at 2.5% for checking accounts.
+	 * @return interestRate the interest rate of the account.
 	 */
 	public double getInterestRate() {
 		return interestRate;
 	}
-
-	
-	
-
 }

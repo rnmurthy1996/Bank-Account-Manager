@@ -6,14 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * This class is for building the Gui for the Bank App.
  * 
- * @author Sridhar.Varala
+ * BankAppGui.java is used to create the home page window of our program. This GUI is accessed when the user successfully logs in.
+ * This GUI contains the primary account information, buttons with options to deposit, withdraw, transfer, and exit the application, and a list of all transactions for the account.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
-public class BankAppGui {
 
-	// Instance variables
+public class BankAppGui {
 
 	private JFrame frame;
 	
@@ -40,6 +41,9 @@ public class BankAppGui {
 		a = acc;
 	}
 	
+	/**
+	 * The layoutManager method initializes all of the panels used by BankAppGui.java.
+	 */
 	private void layoutManager() {
 		
 		frame = new JFrame("Bank Application");
@@ -59,17 +63,17 @@ public class BankAppGui {
 		frame.add(buttons);
 		textArea = new JTextArea(15, 50);
 		scrollPane = new JScrollPane(textArea);
-		//scrollPane.setLayout(new BorderLayout());
 		
 		area = new JPanel();
 		area.add(scrollPane);
 		area.setLayout(new FlowLayout());
 		area.setSize(50,300);
 		frame.add(area);
-	
 	}
 
-	//This method creates and perform various actions associated with in the GUI.
+	/**
+	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 */
 	public void createGui() {
 
 		layoutManager() ;
@@ -78,7 +82,7 @@ public class BankAppGui {
 		accountName = new JLabel("Username: " + a.getName() + "       ");
 		expDate = new JLabel("Account Expiration: " + (a.getExpiryDate()) + "       ");
 		String bal = String.format("%.2f", a.getBalance());
-		balance = new JLabel("Account Balance: " + bal + "       ");
+		balance = new JLabel("Current Balance: $" + bal + "       ");
 		accountType = new JLabel("Account Type: " + a.getType()+ "       ");
 		
 		accountInfo.add(accountName);
@@ -97,16 +101,7 @@ public class BankAppGui {
 		buttons.add(transfer);
 		buttons.add(exit);
 
-		
-		
-		
-		//textArea.setText("Your Transactions:"+"\n");
-        //textArea.append(write);
         textArea.setEditable(false);
-		
-        
-		
-		
 		
 		frame.setVisible(true);
 		
@@ -116,7 +111,9 @@ public class BankAppGui {
 		exit.addActionListener(new Exit());
 	}
 
-	//Internal class to perform action associated to the button.
+	/**
+	 * The private class DepositMoney is called when the deposit Jbutton is clicked and opens the deposit money GUI.
+	 */
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
@@ -124,7 +121,9 @@ public class BankAppGui {
 		}
 	}
 
-	//Internal class to perform action associated to the button.
+	/**
+	 * The private class WithdrawMoney is called when the withdraw Jbutton is clicked and opens the withdraw money GUI.
+	 */
 	private class WithdrawMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
@@ -132,7 +131,9 @@ public class BankAppGui {
 		}
 	}
 
-	//Internal class to perform action associated to the button.
+	/**
+	 * The private class TransferMoney is called when the transfer Jbutton is clicked and opens the transfer money GUI.
+	 */
 	private class TransferMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
@@ -140,12 +141,13 @@ public class BankAppGui {
 		}
 	}
 
-	//Internal class to perform action associated to the button.
+	/**
+	 * The private class Exit is called when the exit Jbutton is clicked and closes all windows currently open that are associated with the application.
+	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
-			System.exit(0);
-			
+
+			System.exit(0);	
 		}
 	}
 }
