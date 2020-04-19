@@ -4,12 +4,12 @@ import java.util.Date;
 import java.util.Random;
 
 /**
- * This is the Account class.
+ * This is the Checking Account class.
  * 
  * @author Sridhar.Varala
  *
  */
-public class CheckingAccount implements Account  {
+public class CheckingAccount implements Account {
 
 	private int accountNumber;
 	private String name;
@@ -18,14 +18,12 @@ public class CheckingAccount implements Account  {
 	public String type;
 	private String password;
 	protected double balance;
-	static final public double interestRate =2.5;
-	static private int accountcount=0;
-	static public int transactionNum=0;
-	public ArrayList<String>transactions;
-	
-	
-	
-	// Constructor
+	static final public double interestRate = 2.5;
+	static private int accountcount = 0;
+	static public int transactionNum = 0;
+	public ArrayList<String> transactions;
+
+	// Constructor 1
 	public CheckingAccount(int accountNumber, String name, int cvv, String expiryDate, String type, String password,
 			double balance) {
 
@@ -39,6 +37,7 @@ public class CheckingAccount implements Account  {
 		transactions = new ArrayList<String>();
 	}
 
+	// Constructor 2
 	public CheckingAccount(String name, String type, String password, double balance) {
 
 		this.accountNumber = accountNumGenerator();
@@ -54,31 +53,33 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the deposit method.
 	 * 
-	 * @param amount
+	 * @param amount - this is the the amount of money in dollars of type double.
 	 */
 	public void deposit(double amount) {
 
 		this.balance = this.balance + amount;
 		transactionNum++;
-		
-		String transaction = "No."+transactionNum+ " "+" Deposit" +" - " +"amount-"+amount+"Available balance-"+balance;
-		
+
+		String transaction = "No." + transactionNum + " " + " Deposit" + " - " + "amount-" + amount
+				+ "Available balance-" + balance;
+
 		transactions.add(transaction);
-		
+
 	}
 
 	/**
 	 * This is the withdraw method.
 	 * 
-	 * @param amount
+	 * @param amount -this is the the amount of money in dollars of type double.
 	 */
 	public void withdraw(double amount) {
 
 		if (amount < balance) {
 			this.balance = this.balance - amount;
 			transactionNum++;
-			String transaction = "No."+transactionNum+ " "+" withdraw" +"- " +"amount-"+amount+"Available balance-"+balance;
-			
+			String transaction = "No." + transactionNum + " " + " withdraw" + "- " + "amount-" + amount
+					+ "Available balance-" + balance;
+
 			transactions.add(transaction);
 		}
 
@@ -87,33 +88,29 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This method is used to transfer money from one account to other account
 	 * 
-	 * @param obj
+	 * @param obj - this is the account object to which money has to be transferred.
+	 * @param amount -this is the the amount of money in dollars of type double.
 	 */
 
 	public void moneyTransfer(Account obj, double amount) {
-		
-		
-		
-		
-		
+
 		if (obj.getBalance() > amount) {
 
 			this.withdraw(amount);
 			obj.deposit(amount);
 			transactionNum++;
-			String transaction = "No."+transactionNum+ " "+" moneyTransfer" +"to account-"+obj.getName()+"- " +"amount-"+amount+"Available balance-"+balance;
-			
+			String transaction = "No." + transactionNum + " " + " moneyTransfer" + "to account-" + obj.getName() + "- "
+					+ "amount-" + amount + "Available balance-" + balance;
+
 			transactions.add(transaction);
 		}
 
 	}
 
-
 	/**
 	 * This method is used to verify login credentials.
-	 * 
-	 * @param password
-	 * @param accountNumber
+	 * @param name - this is the name of the account holder.
+	 * @param password - this is the password of the account.
 	 */
 
 	public boolean loginAuthentication(String name, String password) {
@@ -140,37 +137,42 @@ public class CheckingAccount implements Account  {
 		return expiryDate;
 	}
 
+	/**
+	 *  This method is used to calculate cvv of the account.
+	 *  @return cvv.
+	 */
 	public int cvvcaluclator() {
 
 		Random random = new Random();
-		
-		int cvv = (random.nextInt(900)+100);
+		//Cvv is made of 3 digit number form 0 to 1000 range.
+		int cvv = (random.nextInt(900) + 100);
 		return cvv;
 	}
 
 	/*
 	 * This method is used to generate account number.
+	 * @return account number.
 	 */
 
 	public int accountNumGenerator() {
-		
-		
+
 		AccountReader ar = new AccountReader();
 		ar.readAccountcsv();
-		for(int i = 0; i < ar.accountlist.size(); i++) {
-			if(ar.accountlist.get(i).getType().equals("Checking")) {
+		for (int i = 0; i < ar.accountlist.size(); i++) {
+			if (ar.accountlist.get(i).getType().equals("Checking")) {
 				accountcount++;
 			}
 		}
-		int accountNum = accountcount+500001;
-		
+		//Checking account number is a 6 digit and starts from 500001.
+		int accountNum = accountcount + 500001;
+
 		return accountNum;
 	}
 
 	/**
 	 * This is a getter for account number.
 	 * 
-	 * @return
+	 * @return accountNumber
 	 */
 	public int getAccountNumber() {
 		return accountNumber;
@@ -179,7 +181,7 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for the account name.
 	 * 
-	 * @return
+	 * @return name
 	 */
 	public String getName() {
 		return name;
@@ -188,7 +190,7 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for cvv of the account.
 	 * 
-	 * @return
+	 * @return cvv
 	 */
 	public int getCvv() {
 		return cvv;
@@ -197,7 +199,7 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for the account expiry date.
 	 * 
-	 * @return
+	 * @return expiryDate
 	 */
 	public String getExpiryDate() {
 		return expiryDate;
@@ -206,7 +208,7 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for the account type.
 	 * 
-	 * @return
+	 * @return type
 	 */
 	public String getType() {
 		return type;
@@ -215,7 +217,7 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for the account password
 	 * 
-	 * @return
+	 * @return password
 	 */
 	public String getPassword() {
 		return password;
@@ -224,7 +226,7 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for the account balance.
 	 * 
-	 * @return
+	 * @return balance
 	 */
 	public double getBalance() {
 		return balance;
@@ -233,13 +235,10 @@ public class CheckingAccount implements Account  {
 	/**
 	 * This is the getter for the account interest rate.
 	 * 
-	 * @return
+	 * @return interestRate
 	 */
 	public double getInterestRate() {
 		return interestRate;
 	}
-
-	
-	
 
 }

@@ -34,31 +34,33 @@ public class AccountReader {
 			while (fileScanner.hasNext()) {
 
 				String line = fileScanner.next();
-				
-				if(line.equals(",,,,,,")) {
+
+				if (line.equals(",,,,,,")) {
 					continue;
 				}
-				
+
 				String[] lineArray = line.split(",");
-				
+
 				int accountNumber = Integer.parseInt(lineArray[0]);
 				String name = lineArray[1];
 				int cvv = Integer.parseInt(lineArray[2]);
 				String expiryDate = (lineArray[3]);
-				
+
 				String type = lineArray[4];
 				String password = lineArray[5];
 				double balance = Double.parseDouble(lineArray[6]);
-				
-				if(type.toUpperCase().contentEquals("CHECKING")) {
-				
-				CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
-				accountlist.add(cAccount);
+
+				if (type.toUpperCase().contentEquals("CHECKING")) {
+
+					CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password,
+							balance);
+					accountlist.add(cAccount);
 				}
-				
-				if(type.toUpperCase().contentEquals("SAVINGS")) {
-					
-					SavingAccount sAccount = new SavingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
+
+				if (type.toUpperCase().contentEquals("SAVINGS")) {
+
+					SavingAccount sAccount = new SavingAccount(accountNumber, name, cvv, expiryDate, type, password,
+							balance);
 					accountlist.add(sAccount);
 				}
 			}
@@ -69,7 +71,7 @@ public class AccountReader {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/*
 	 * This method is used to create a account and pass it to add in the database.
 	 */
@@ -77,13 +79,13 @@ public class AccountReader {
 	public static void createAccountcsv(Account account) {
 
 		try {
-			
+
 			File f = new File("accountdata.csv");
 			Scanner sc = new Scanner(f);
 			while (sc.hasNextLine()) {
 
 				String line = sc.nextLine();
-				
+
 			}
 
 			FileWriter fw = new FileWriter("accountdata.csv", true);
@@ -104,27 +106,30 @@ public class AccountReader {
 		}
 
 	}
-	
-	
+
+	/**
+	 * This Method is used to update account database which is used to store updated
+	 * accounts in the file.
+	 */
 	public static void updateAccountDatabase() {
-		
-		
+
 		try {
 			PrintWriter pr = new PrintWriter(new FileWriter("accountdata.csv"));
-			for ( int i =0; i<accountlist.size();i++) {
-				
-				pr.println(accountlist.get(i).getAccountNumber()+","+accountlist.get(i).getName()+","+accountlist.get(i).getCvv()+","+accountlist.get(i).getExpiryDate()
-				+","+accountlist.get(i).getType()+","+accountlist.get(i).getPassword()+","+accountlist.get(i).getBalance());
-				
+			for (int i = 0; i < accountlist.size(); i++) {
+
+				pr.println(accountlist.get(i).getAccountNumber() + "," + accountlist.get(i).getName() + ","
+						+ accountlist.get(i).getCvv() + "," + accountlist.get(i).getExpiryDate() + ","
+						+ accountlist.get(i).getType() + "," + accountlist.get(i).getPassword() + ","
+						+ accountlist.get(i).getBalance());
+
 			}
 			pr.flush();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		
+		}
+
 	}
-	
+
 }
-		

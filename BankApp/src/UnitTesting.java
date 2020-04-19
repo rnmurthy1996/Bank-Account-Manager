@@ -14,30 +14,31 @@ class UnitTesting {
 
 	@Test
 	void test1() {
-		//fail("Not yet implemented");
-		
-		CheckingAccount one = new CheckingAccount (123,"sri",456, "2013", "checking", "password", 5000.0);
-		
+		// fail("Not yet implemented");
+
+		CheckingAccount one = new CheckingAccount(123, "sri", 456, "2013", "checking", "password", 5000.0);
+
 		one.deposit(500);
 		one.withdraw(20);
-		
-		assertEquals(one.getBalance() , 5480 );
-		
+
+		assertEquals(one.getBalance(), 5480);
+
 	}
+
 	@Test
 	void test2() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 		AccountReader list = new AccountReader();
 		list.readAccountcsv();
 		Account account = list.accountlist.get(0);
 		TransactionReader.readTransactioncsv();
-		assertEquals(account.getBalance() , 6000 );
-		
+		assertEquals(account.getBalance(), 6000);
+
 	}
-	
+
 	@Test
 	void test3() {
-		//fail("Not yet implemented");
+		// fail("Not yet implemented");
 //		TransactionReader tr = new TransactionReader();
 //		tr.readTransaction(new Transaction(50 ,"09312029","walmart","bodywash"));
 //		tr.readTransaction(new Transaction(50 ,"10232029","amazon","soap"));
@@ -52,11 +53,8 @@ class UnitTesting {
 //		li.createAccountcsv(account);
 //		
 //		
-		
-	 
-		
-		//assertEquals(account.getBalance() , 6000 );	
+
+		// assertEquals(account.getBalance() , 6000 );
 	}
-	
 
 }

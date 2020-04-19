@@ -9,20 +9,19 @@ import java.util.Date;
  */
 public class Transaction {
 
-	//Instant Variables
+	// Instant Variables
 	public String transaction;
-	
+
 	public Account account;
-	
+
 	// Constructor1
 	public Transaction(String transaction, Account account) {
 
 		this.transaction = transaction;
-		this.account =account;
-		
+		this.account = account;
+
 	}
-	
-	
+
 	public static String DateCaluclator() {
 
 		Date today = new Date();
