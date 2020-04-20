@@ -29,7 +29,7 @@ public class CheckingAccount implements Account  {
 	
 	/**
 	 * 
-	 * The primary checking account constructor.
+	 * The primary constructor for a checking account.
 	 * @param accountNumber the account number associated with the account
 	 * @param name the username for the account
 	 * @param cvv the card verification value for the account
@@ -54,7 +54,7 @@ public class CheckingAccount implements Account  {
 	
 	/**
 	 * 
-	 * The secondary checking account constructor. This is the constructor normally called in CreateAccountGui.java when a new checking account is created.
+	 * The secondary constructor for a checking account. This is the constructor normally called in CreateAccountGui.java when a new checking account is created.
 	 * @param name username for the account
 	 * @param type the account type (chekcing or savings)
 	 * @param password the password for the account

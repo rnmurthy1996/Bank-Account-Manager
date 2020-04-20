@@ -2,19 +2,25 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * This Class is used to for account transactions.
  * 
- * @author Sridhar.Varala
+ * Transaction.java contains the variables and methods associated with a transaction.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
 public class Transaction {
 
-	// Instant Variables
 	public String transaction;
 
 	public Account account;
 
-	// Constructor1
+	/**
+	 * 
+	 * The constructor for a transaction.
+	 * @param transaction the information associated with the transaction including transaction type, amount, date, etc.
+	 * @param account the account that the transaction is for
+	 *
+	 */
 	public Transaction(String transaction, Account account) {
 
 		this.transaction = transaction;
@@ -22,6 +28,9 @@ public class Transaction {
 
 	}
 
+	/**
+	 * The DateCalculator method is used to calculate date of the transaction.
+	 */
 	public static String DateCaluclator() {
 
 		Date today = new Date();

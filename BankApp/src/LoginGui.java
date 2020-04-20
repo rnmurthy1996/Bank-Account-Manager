@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * This class is for building the Gui for the Bank App.
  * 
- * @author Sridhar.Varala
+ * LoginGui.java is used to create the login GUI of our program. This GUI is accessed when BankAppRunner.java is run.
+ * This GUI allows the user to login to their account. If they do not have an account, the can click on the create account button to create a new account.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
 public class LoginGui {
-
-	// Instance variables
 
 	private JFrame frame;
 
@@ -35,7 +35,9 @@ public class LoginGui {
 
 	public static Account workingAccount;
 
-	// This method is used to design the layout for the GUI.
+	/**
+	 * The layoutManager method initializes all of the panels used by DepositGui.java.
+	 */
 	private void layoutManager() {
 
 		frame = new JFrame("Bank Application");
@@ -66,7 +68,9 @@ public class LoginGui {
 		frame.add(incorrect);
 	}
 
-	// This method creates and perform various actions associated with in the GUI.
+	/**
+	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 */
 	public void createGui() {
 
 		layoutManager();
@@ -102,11 +106,14 @@ public class LoginGui {
 		exit.addActionListener(new Exit());
 	}
 
-	// Internal class to perform action associated to the button.
+	/**
+	 * The private class Login is called when the login Jbutton is clicked. This class logs the user into their account and opens the home page GUI.
+	 * The values entered in the username and password fields are checked for verification with the account database in this class to ensure proper credentials.
+	 */
 	private class Login implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			// Implement the Code to handle button click goes here
+			
 			String user = usernameText.getText();
 			String pass = passwordText.getText();
 
@@ -138,19 +145,23 @@ public class LoginGui {
 		}
 	}
 
-	// Internal class to perform action associated to the button.
+	/**
+	 * The private class CreateAccount is called when the createAccount Jbutton is clicked and opens the create account GUI.
+	 */
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// Implement the Code to handle button click goes here
+			
 			new CreateAccountGui().createGui();
 			frame.dispose();
 		}
 	}
 
-	// Internal class to perform action associated to the button.
+	/**
+	 * The private class Exit is called when the exit Jbutton is clicked and closes the login GUI.
+	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// Implement the Code to handle button click goes here
+			
 			frame.dispose();
 		}
 	}

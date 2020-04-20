@@ -6,7 +6,7 @@ import javax.swing.*;
 
 /**
  * 
- * DepositGui.java is used to create the deposit window of our program. This GUI is accessed when the user clicks the deposit button in the home page GUI.
+ * DepositGui.java is used to create the deposit GUI of our program. This GUI is accessed when the user clicks the deposit button in the home page GUI.
  * This GUI allows the user to deposit money into their account. The amount is determined by the user.
  * @author Rohan Murthy
  * @author Sridhar Varala
@@ -114,7 +114,7 @@ public class DepositGui {
 
 	/**
 	 * The private class DepositMoney is called when the depositButton Jbutton is clicked and deposits the user determined amount into the account.
-	 * The amount is also first checked in this class to ensure that it is a valid amount (no spaces, letters, negative values, etc.)
+	 * The deposit amount is checked in this class to ensure that it is a valid amount (no spaces, letters, negative values, etc.).
 	 */
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
@@ -182,19 +182,18 @@ public class DepositGui {
 				if (accountNotFound == true) {
 					TransactionReader.transactionList.add(new Transaction(t, a));
 				}
-				// TransactionReader.transactionList.add(new Transaction(t,a));
 				TransactionReader.updateTransactionDatabase();
 			}
 		}
 	}
 
 	/**
-	 * The private class Exit is called when the exit Jbutton is clicked and closes the deposit money window.
+	 * The private class Exit is called when the exit Jbutton is clicked and closes the deposit money GUI.
 	 * This class also initializes a new home page GUI with an updated account balance.
 	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
+
 			String b = String.format("%.2f", a.getBalance());
 			new BankAppGui(a).balance.setText("Current Balance: $" + b + "       ");
 			frame.dispose();
@@ -216,9 +215,9 @@ public class DepositGui {
 	}
 	
 	/**
-	 * The depositCheck method checks to see if the initial deposit entered by the user only contains numbers.
-	 * @param s the initial deposit that is being checked for non-numerical values.
-	 * @return true if the initial deposit only contains numberical values and false otherwise.
+	 * The depositCheck method checks to see if the deposit entered by the user only contains numbers.
+	 * @param s the deposit that is being checked for non-numerical values.
+	 * @return true if the deposit only contains numerical values and false otherwise.
 	 */
 	public boolean depositCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
@@ -230,9 +229,9 @@ public class DepositGui {
 	}
 	
 	/**
-	 * The depositCheck method checks to see if the initial deposit is positive.
-	 * @param s the initial deposit that is being checked to see if it is a positive value.
-	 * @return true if the initial deposit is positive and false otherwise.
+	 * The depositPosCheck method checks to see if the deposit is positive.
+	 * @param s the deposit that is being checked to see if it is a positive value.
+	 * @return true if the deposit is positive and false otherwise.
 	 */
 	public boolean depositPosCheck(String s) {
 		if ((s.substring(0, 1)).equals("-")) {

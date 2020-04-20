@@ -7,7 +7,7 @@ import javax.swing.*;
 
 /**
  * 
- * BankAppGui.java is used to create the home page window of our program. This GUI is accessed when the user successfully logs in.
+ * BankAppGui.java is used to create the home page GUI of our program. This GUI is accessed when the user successfully logs in.
  * This GUI contains the primary account information, buttons with options to deposit, withdraw, transfer, and exit the application, and a list of all transactions for the account.
  * @author Rohan Murthy
  * @author Sridhar Varala
@@ -141,7 +141,7 @@ public class BankAppGui {
 	}
 
 	/**
-	 * The private class Exit is called when the exit Jbutton is clicked and closes all windows currently open that are associated with the application.
+	 * The private class Exit is called when the exit Jbutton is clicked and closes all GUIs currently open that are associated with the application.
 	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {

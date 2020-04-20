@@ -5,14 +5,14 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * This class is for building the Gui for the Bank App.
  * 
- * @author Sridhar.Varala
+ * MoneyTransferGui.java is used to create the money transfer GUI of our program. This GUI is accessed when the user clicks the money transfer button in the home page GUI.
+ * This GUI allows the user to transfer money from their account to another external account.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
 public class MoneyTransferGui {
-
-	// instance variables
 
 	private JFrame frame;
 
@@ -43,7 +43,7 @@ public class MoneyTransferGui {
 	private JLabel fundsErr;
 
 	/**
-	 * This method is used to design the layout for the GUI.
+	 * The layoutManager method initializes all of the panels used by DepositGui.java.
 	 */
 	private void layoutManager() {
 
@@ -86,8 +86,8 @@ public class MoneyTransferGui {
 
 	}
 
-	/*
-	 * This method creates and perform various actions associated with in the GUI.
+	/**
+	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
 	 */
 	public void createGui() {
 
@@ -146,29 +146,32 @@ public class MoneyTransferGui {
 		exit.addActionListener(new Exit());
 	}
 
-	// Internal class to perform action associated to the button.
+	/**
+	 * The private class transfer is called when the send Jbutton is clicked. This class transfers money from theor account to a seprate external account.
+	 * The account number is checked in this class for validity with the account database. 
+	 * The transfer amount is a checked in this class to ensure that it is a valid amount (no spaces, letters, negative values, etc.) and that sufficient funds are available for transfer.
+	 */
 	private class transfer implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
 
 			double transferAmount = 0;
 
 			if (dollarsText.getText().isEmpty() == true) {
 				transferErr.setText("Tranfer Amount Field Cannot Be Empty");
 				transferErr.setForeground(Color.red);
-			} else if (depositPosCheck(dollarsText.getText()) == false) {
+			} else if (transferPosCheck(dollarsText.getText()) == false) {
 				transferErr.setText("Transfer Amount Must Be Positive");
 				transferErr.setForeground(Color.red);
-			} else if (depositCheck(dollarsText.getText()) == false) {
+			} else if (transferCheck(dollarsText.getText()) == false) {
 				transferErr.setText("Transfer Amount Must Be Numerical");
 				transferErr.setForeground(Color.red);
 			} else if (centsText.getText().isEmpty() == true) {
 				transferErr.setText("Tranfer Amount Field Cannot Be Empty");
 				transferErr.setForeground(Color.red);
-			} else if (depositPosCheck(centsText.getText()) == false) {
+			} else if (transferPosCheck(centsText.getText()) == false) {
 				transferErr.setText("Transfer Amount Must Be Positive");
 				transferErr.setForeground(Color.red);
-			} else if (depositCheck(centsText.getText()) == false) {
+			} else if (transferCheck(centsText.getText()) == false) {
 				transferErr.setText("Transfer Amount Must Be Numerical");
 				transferErr.setForeground(Color.red);
 			} else {
@@ -192,7 +195,7 @@ public class MoneyTransferGui {
 			if (AccountNumberText.getText().isEmpty() == true) {
 				accErr.setText("Account Information Invalid");
 				accErr.setForeground(Color.red);
-			} else if (depositCheck(AccountNumberText.getText()) == false) {
+			} else if (transferCheck(AccountNumberText.getText()) == false) {
 				accErr.setText("Account Information Invalid");
 				accErr.setForeground(Color.red);
 			} else {
@@ -268,27 +271,28 @@ public class MoneyTransferGui {
 					TransactionReader.transactionList.add(new Transaction(t, fromAccount));
 				}
 
-				// new TransactionReader().transactionList.add(new Transaction(t,fromAccount));
 				TransactionReader.updateTransactionDatabase();
-			}
-
-//			a.transfer(amount, other);
-//			String bal = String.format("%.2f", a.getBalance());
-//			balance.setText(bal);
-//			
+			}	
 
 		}
 	}
 
-	// Internal class to perform action associated to the button.
+	/**
+	 * The private class Exit is called when the exit Jbutton is clicked and closes the money transfer GUI.
+	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
+
 			frame.dispose();
 		}
 	}
 
-	public boolean depositCheck(String s) {
+	/**
+	 * The transferCheck method checks to see if the transfer amount entered by the user only contains numbers.
+	 * @param s the transfer amount that is being checked for non-numerical values.
+	 * @return true if the transfer amount only contains numerical values and false otherwise.
+	 */
+	public boolean transferCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
 			if (Character.isDigit(s.charAt(i)) == false) {
 				return false;
@@ -297,7 +301,12 @@ public class MoneyTransferGui {
 		return true;
 	}
 
-	public boolean depositPosCheck(String s) {
+	/**
+	 * The transferPosCheck method checks to see if the transfer amount is positive.
+	 * @param s the transfer amount that is being checked to see if it is a positive value.
+	 * @return true if the transfer amount is positive and false otherwise.
+	 */
+	public boolean transferPosCheck(String s) {
 		if ((s.substring(0, 1)).equals("-")) {
 			return false;
 		}
