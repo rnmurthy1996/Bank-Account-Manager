@@ -17,17 +17,17 @@ import javax.swing.*;
 public class BankAppGui {
 
 	private JFrame frame;
-	
+
 	private JPanel accountInfo;
 	private JPanel buttons;
 	private JPanel area;
-	
+
 	private JLabel accountNumber;
 	private JLabel accountName;
 	private JLabel expDate;
 	public static JLabel balance;
 	private JLabel accountType;
-	
+
 	private JButton deposit;
 	private JButton withdraw;
 	private JButton transfer;
@@ -35,9 +35,9 @@ public class BankAppGui {
 	public static JTextArea textArea;
 	private JScrollPane scrollPane;
 	private Account a;
-	
+
 	public BankAppGui(Account acc) {
-		
+
 		a = acc;
 	}
 	
@@ -45,18 +45,18 @@ public class BankAppGui {
 	 * The layoutManager method initializes all of the panels used by BankAppGui.java.
 	 */
 	private void layoutManager() {
-		
+
 		frame = new JFrame("Bank Application");
 		frame.setSize(900, 400);
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
-		
+
 		accountInfo = new JPanel();
 		accountInfo.setLayout(new FlowLayout());
 		accountInfo.setSize(100, 300);
 		frame.add(accountInfo);
-		
+
 		buttons = new JPanel();
 		buttons.setLayout(new FlowLayout());
 		buttons.setSize(50, 300);
@@ -67,7 +67,7 @@ public class BankAppGui {
 		area = new JPanel();
 		area.add(scrollPane);
 		area.setLayout(new FlowLayout());
-		area.setSize(50,300);
+		area.setSize(50, 300);
 		frame.add(area);
 	}
 
@@ -76,8 +76,8 @@ public class BankAppGui {
 	 */
 	public void createGui() {
 
-		layoutManager() ;
-		
+		layoutManager();
+
 		accountNumber = new JLabel("Account Number: " + Integer.toString(a.getAccountNumber()) + "       ");
 		accountName = new JLabel("Username: " + a.getName() + "       ");
 		expDate = new JLabel("Account Expiration: " + (a.getExpiryDate()) + "       ");
@@ -90,21 +90,20 @@ public class BankAppGui {
 		accountInfo.add(accountType);
 		accountInfo.add(balance);
 		accountInfo.add(expDate);
-		
+
 		deposit = new JButton("Deposit");
 		withdraw = new JButton("Withdraw");
 		transfer = new JButton("Transfer");
 		exit = new JButton("Exit");
-		
+
 		buttons.add(deposit);
 		buttons.add(withdraw);
 		buttons.add(transfer);
 		buttons.add(exit);
 
         textArea.setEditable(false);
-		
 		frame.setVisible(true);
-		
+
 		deposit.addActionListener(new DepositMoney());
 		withdraw.addActionListener(new WithdrawMoney());
 		transfer.addActionListener(new TransferMoney());
@@ -116,7 +115,7 @@ public class BankAppGui {
 	 */
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			new DepositGui(a).createGui();
 		}
 	}
@@ -126,17 +125,17 @@ public class BankAppGui {
 	 */
 	private class WithdrawMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			new WithdrawGui(a).createGui();
 		}
 	}
-
+	
 	/**
 	 * The private class TransferMoney is called when the transfer Jbutton is clicked and opens the transfer money GUI.
 	 */
 	private class TransferMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			new MoneyTransferGui().createGui();
 		}
 	}
@@ -148,6 +147,6 @@ public class BankAppGui {
 		public void actionPerformed(ActionEvent event) {
 
 			System.exit(0);	
-		}
+	}
 	}
 }

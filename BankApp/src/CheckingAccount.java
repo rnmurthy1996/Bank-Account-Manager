@@ -81,11 +81,12 @@ public class CheckingAccount implements Account  {
 
 		this.balance = this.balance + amount;
 		transactionNum++;
-		
-		String transaction = "No."+transactionNum+ " "+" Deposit" +" - " +"amount-"+amount+"Available balance-"+balance;
-		
+
+		String transaction = "No." + transactionNum + " " + " Deposit" + " - " + "amount-" + amount
+				+ "Available balance-" + balance;
+
 		transactions.add(transaction);
-		
+
 	}
 
 	/**
@@ -98,8 +99,9 @@ public class CheckingAccount implements Account  {
 		if (amount < balance) {
 			this.balance = this.balance - amount;
 			transactionNum++;
-			String transaction = "No."+transactionNum+ " "+" withdraw" +"- " +"amount-"+amount+"Available balance-"+balance;
-			
+			String transaction = "No." + transactionNum + " " + " withdraw" + "- " + "amount-" + amount
+					+ "Available balance-" + balance;
+
 			transactions.add(transaction);
 		}
 
@@ -109,7 +111,7 @@ public class CheckingAccount implements Account  {
 	 * The moneyTransfer method is called to transfer money from the account to another external account.
 	 * This method also adds a money transfer transaction to the transaction list.
 	 * @param obj the external account that money should be transferred to.
-	 * @param amount the amount of money that should be transferred.
+	 * @param amount the amount of money that should be transferred.ey in dollars of type double.
 	 */
 	public void moneyTransfer(Account obj, double amount) {
 		
@@ -118,8 +120,9 @@ public class CheckingAccount implements Account  {
 			this.withdraw(amount);
 			obj.deposit(amount);
 			transactionNum++;
-			String transaction = "No."+transactionNum+ " "+" moneyTransfer" +"to account-"+obj.getName()+"- " +"amount-"+amount+"Available balance-"+balance;
-			
+			String transaction = "No." + transactionNum + " " + " moneyTransfer" + "to account-" + obj.getName() + "- "
+					+ "amount-" + amount + "Available balance-" + balance;
+
 			transactions.add(transaction);
 		}
 
@@ -157,11 +160,15 @@ public class CheckingAccount implements Account  {
 		return expiryDate;
 	}
 
+	/**
+	 *  This method is used to calculate cvv of the account.
+	 *  @return cvv.
+	 */
 	public int cvvcaluclator() {
 
 		Random random = new Random();
-		
-		int cvv = (random.nextInt(900)+100);
+		//Cvv is made of 3 digit number form 0 to 1000 range.
+		int cvv = (random.nextInt(900) + 100);
 		return cvv;
 	}
 
@@ -170,17 +177,17 @@ public class CheckingAccount implements Account  {
 	 *@return accountNum the account number that has been generated.
 	 */
 	public int accountNumGenerator() {
-		
-		
+
 		AccountReader ar = new AccountReader();
 		ar.readAccountcsv();
-		for(int i = 0; i < ar.accountlist.size(); i++) {
-			if(ar.accountlist.get(i).getType().equals("Checking")) {
+		for (int i = 0; i < ar.accountlist.size(); i++) {
+			if (ar.accountlist.get(i).getType().equals("Checking")) {
 				accountcount++;
 			}
 		}
-		int accountNum = accountcount+500001;
-		
+		//Checking account number is a 6 digit and starts from 500001.
+		int accountNum = accountcount + 500001;
+
 		return accountNum;
 	}
 

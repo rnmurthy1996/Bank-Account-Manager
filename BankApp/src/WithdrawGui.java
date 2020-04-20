@@ -15,53 +15,53 @@ public class WithdrawGui {
 	// Instance variables
 
 	private JFrame frame;
-	
+
 	private JPanel balance;
 	private JPanel withdraw;
 	private JPanel buttons;
 	private JPanel incorrect;
-	
+
 	private JLabel balanceLabel;
 	private JLabel withdrawLabel;
 	private JTextField dollarsText;
 	private JLabel dot;
 	private JTextField centsText;
-	
+
 	private JButton withdrawButton;
 	private JButton exit;
-	
+
 	private JLabel withdrawErr;
-	
+
 	private Account a;
-	
+
 	public WithdrawGui(Account acc) {
-		
+
 		a = acc;
 	}
-	
+
 	private void layoutManager() {
-		
+
 		frame = new JFrame("Bank Application");
 		frame.setSize(300, 175);
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.white);
 		frame.setLayout(new FlowLayout());
-		
+
 		balance = new JPanel();
 		balance.setLayout(new FlowLayout());
 		balance.setSize(100, 300);
 		frame.add(balance);
-		
+
 		withdraw = new JPanel();
 		withdraw.setLayout(new FlowLayout());
 		withdraw.setSize(100, 300);
 		frame.add(withdraw);
-		
+
 		buttons = new JPanel();
 		buttons.setLayout(new FlowLayout());
 		buttons.setSize(50, 300);
 		frame.add(buttons);
-		
+
 		incorrect = new JPanel();
 		incorrect.setBackground(Color.white);
 		incorrect.setLayout(new BoxLayout(incorrect, BoxLayout.Y_AXIS));
@@ -69,15 +69,15 @@ public class WithdrawGui {
 		frame.add(incorrect);
 	}
 
-	//This method creates and perform various actions associated with in the GUI.
+	// This method creates and perform various actions associated with in the GUI.
 	public void createGui() {
 
-		layoutManager() ;
-		
+		layoutManager();
+
 		String b = String.format("%.2f", a.getBalance());
 		balanceLabel = new JLabel("Current Balance: $" + b);
 		balance.add(balanceLabel);
-		
+
 		withdrawLabel = new JLabel("Withdrawal Amount:");
 		dollarsText = new JTextField();
 		dollarsText.setColumns(7);
@@ -85,112 +85,107 @@ public class WithdrawGui {
 		centsText = new JTextField();
 		centsText.setColumns(3);
 		centsText.setDocument(new JTextFieldLimit(2));
-		
+
 		withdraw.add(withdrawLabel);
 		withdraw.add(dollarsText);
 		withdraw.add(dot);
 		withdraw.add(centsText);
-		
+
 		withdrawButton = new JButton("Withdraw");
 		exit = new JButton("Exit");
-		
+
 		buttons.add(withdrawButton);
 		buttons.add(exit);
-		
+
 		withdrawErr = new JLabel("                                                                            ");
 		incorrect.add(withdrawErr);
 		withdrawErr.setAlignmentX(incorrect.CENTER_ALIGNMENT);
 
 		frame.setVisible(true);
-		
+
 		withdrawButton.addActionListener(new DepositMoney());
 		exit.addActionListener(new Exit());
 	}
 
-	//Internal class to perform action associated to the button.
+	// Internal class to perform action associated to the button.
 	private class DepositMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			double withdrawAmount = 0;
-			
-			
-			if(dollarsText.getText().isEmpty() == true) {
+
+			if (dollarsText.getText().isEmpty() == true) {
 				withdrawErr.setText("Withdrawal Amount Field Cannot Be Empty");
 				withdrawErr.setForeground(Color.red);
-			}
-			else if(depositPosCheck(dollarsText.getText()) == false) {
+			} else if (depositPosCheck(dollarsText.getText()) == false) {
 				withdrawErr.setText("Withdrawal Amount Must Be Positive");
 				withdrawErr.setForeground(Color.red);
-			}
-			else if(depositCheck(dollarsText.getText()) == false) {
+			} else if (depositCheck(dollarsText.getText()) == false) {
 				withdrawErr.setText("Withdrawal Amount Must Be Numerical");
 				withdrawErr.setForeground(Color.red);
-			}
-			else if(centsText.getText().isEmpty() == true) {
+			} else if (centsText.getText().isEmpty() == true) {
 				withdrawErr.setText("Withdrawal Amount Field Cannot Be Empty");
 				withdrawErr.setForeground(Color.red);
-			}
-			else if(depositPosCheck(centsText.getText()) == false) {
+			} else if (depositPosCheck(centsText.getText()) == false) {
 				withdrawErr.setText("Withdrawal Amount Must Be Positivee");
 				withdrawErr.setForeground(Color.red);
-			}
-			else if(depositCheck(centsText.getText()) == false) {
+			} else if (depositCheck(centsText.getText()) == false) {
 				withdrawErr.setText("Withdrawal Amount Must Be Numerical");
 				withdrawErr.setForeground(Color.red);
-			}
-			else {
-				if(centsText.getText().length() == 1) {
-					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/10.00;
+			} else {
+				if (centsText.getText().length() == 1) {
+					withdrawAmount = Double.parseDouble(dollarsText.getText())
+							+ Double.parseDouble(centsText.getText()) / 10.00;
+					withdrawErr.setText("                                                                            ");
+				} else {
+					withdrawAmount = Double.parseDouble(dollarsText.getText())
+							+ Double.parseDouble(centsText.getText()) / 100.00;
 					withdrawErr.setText("                                                                            ");
 				}
-				else {
-					withdrawAmount = Double.parseDouble(dollarsText.getText()) + Double.parseDouble(centsText.getText())/100.00;
-					withdrawErr.setText("                                                                            ");
-				}
 			}
-			
-			if(withdrawAmount > a.getBalance()) {
+
+			if (withdrawAmount > a.getBalance()) {
 				withdrawErr.setText("Insufficient Funds For Withdrawal");
 				withdrawErr.setForeground(Color.red);
-			}
-			else if(withdrawAmount > 0) {
+			} else if (withdrawAmount > 0) {
 				a.withdraw(withdrawAmount);
 				String bal = String.format("%.2f", a.getBalance());
+
 				balanceLabel.setText("Current Balance: $" + bal);	
 				new BankAppGui(a).balance.setText("Current Balance: $" + bal + "       ");
 				
 				String with = String.format("%.2f", withdrawAmount);
-				String date =	 Transaction.DateCaluclator();
-				String transaction = "Date: "+date +"          Transaction Type: Withdrawal       Amount: "+with+"\n";
+				String date = Transaction.DateCaluclator();
+				String transaction = "Date: " + date + "          Transaction Type: Withdrawal       Amount: " + with
+						+ "\n";
 				new BankAppGui(a).textArea.append(transaction);
 				AccountReader.updateAccountDatabase();
-				
-				String t =	new BankAppGui(a).textArea.getText();
-				
-				boolean accountNotFound =true;
-				for ( int j =0; j<TransactionReader.transactionList.size();j++) {
-					
-					if(a.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName()) 
-							&& a.getAccountNumber() == TransactionReader.transactionList.get(j).account.getAccountNumber()) {
-						
-						TransactionReader.transactionList.get(j).transaction =t;
-						accountNotFound =false;
-					}
-				
-				}
-				
-					if(accountNotFound==true)	{
-						 TransactionReader.transactionList.add(new Transaction(t,a));
+
+				String t = new BankAppGui(a).textArea.getText();
+
+				boolean accountNotFound = true;
+				for (int j = 0; j < TransactionReader.transactionList.size(); j++) {
+
+					if (a.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName())
+							&& a.getAccountNumber() == TransactionReader.transactionList.get(j).account
+									.getAccountNumber()) {
+
+						TransactionReader.transactionList.get(j).transaction = t;
+						accountNotFound = false;
 					}
 
-				
-				//new TransactionReader().transactionList.add(new Transaction(t,a));
-				 TransactionReader.updateTransactionDatabase();
+				}
+
+				if (accountNotFound == true) {
+					TransactionReader.transactionList.add(new Transaction(t, a));
+				}
+
+				// new TransactionReader().transactionList.add(new Transaction(t,a));
+				TransactionReader.updateTransactionDatabase();
 			}
 		}
 	}
 
-	//Internal class to perform action associated to the button.
+	// Internal class to perform action associated to the button.
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
@@ -199,27 +194,27 @@ public class WithdrawGui {
 			frame.dispose();
 		}
 	}
-	
+
 	public boolean userNameCheck(String s) {
-		for(int i = 0; i < s.length(); i++) {
-			if(s.charAt(i) == ' ') {
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == ' ') {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	public boolean depositCheck(String s) {
-		for(int i = 0; i < s.length(); i++) {
-			if(Character.isDigit(s.charAt(i)) == false) {
+		for (int i = 0; i < s.length(); i++) {
+			if (Character.isDigit(s.charAt(i)) == false) {
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
 	public boolean depositPosCheck(String s) {
-		if((s.substring(0,1)).equals("-")) {
+		if ((s.substring(0, 1)).equals("-")) {
 			return false;
 		}
 		return true;
