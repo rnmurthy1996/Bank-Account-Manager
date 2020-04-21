@@ -1,9 +1,11 @@
 /**
- * This is the Account Interface.
  * 
- * @author sridharvarala
+ * The Account interface is implemented by both CheckingAccount.java and SavingAccount.java.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
+
 public interface Account {
 
 	public void deposit(double amount);

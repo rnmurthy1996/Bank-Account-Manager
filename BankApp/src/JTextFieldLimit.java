@@ -7,6 +7,14 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
+/**
+ * 
+ * JTextFieldLimit.java is used to limit the number of characters in a JTextField.
+ * This was primarily used to limit the number of characters in the cents JTextField to two.
+ * @author npinti from StackOverflow (https://stackoverflow.com/questions/10136794/limiting-the-number-of-characters-in-a-jtextfield)
+ *
+ */
+
 class JTextFieldLimit extends PlainDocument {
 	private int limit;
 

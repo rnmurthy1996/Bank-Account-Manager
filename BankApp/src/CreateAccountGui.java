@@ -7,14 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * This class is for building the Gui for the Bank App.
  * 
- * @author Sridhar.Varala
+ * CreateAccountGui.java is used to create the create account GUI of our program. This GUI is accessed when the user clicks the create account button in the login GUI.
+ * This GUI allows the user to create a new account by entering the required information including username, password, account type, and initial balance.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
-public class CreateAccountGui {
 
-	// instance variables
+public class CreateAccountGui {
 
 	private JFrame frame;
 	private JPanel un;
@@ -46,7 +47,7 @@ public class CreateAccountGui {
 	private JLabel depositErr;
 
 	/**
-	 * This method is used to design the layout for the GUI.
+	 * The layoutManager method initializes all of the panels used by CreateAccountGui.java.
 	 */
 	private void layoutManager() {
 
@@ -88,8 +89,8 @@ public class CreateAccountGui {
 		frame.add(incorrect);
 	}
 
-	/*
-	 * This method creates and perform various actions associated with in the GUI.
+	/**
+	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
 	 */
 	public void createGui() {
 
@@ -112,8 +113,8 @@ public class CreateAccountGui {
 		accountType = new JComboBox(at);
 		accType.add(accountTypeText);
 		accType.add(accountType);
-
-		initialDeposit = new JLabel("Initial Deposit:");
+		
+		initialDeposit = new JLabel("Initial Deposit: $");
 		dollarsText = new JTextField();
 		dollarsText.setColumns(7);
 		dot = new JLabel(".");
@@ -147,11 +148,13 @@ public class CreateAccountGui {
 		exit.addActionListener(new Exit());
 	}
 
-	// Internal class to perform action associated to the button.
+	/**
+	 * The private class CreateAccount is called when the createAccount Jbutton is clicked and creates a new account
+	 * The required information entered by the user is also checked for validity (username contains no spaces, initial deposit is numerical, etc.).
+	 */
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			// implement the Code to handle button click goes here
-
+			
 			String name = "";
 			String pw = "";
 			double balance = 0;
@@ -237,8 +240,12 @@ public class CreateAccountGui {
 			}
 		}
 	}
-
-	// Internal class to perform action associated to the button.
+	
+	
+	/**
+	 * The private class Exit is called when the exit Jbutton is clicked and closes the create account GUI.
+	 * This class also initializes a new login GUI.
+	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			// implement the Code to handle button click goes here
@@ -246,7 +253,12 @@ public class CreateAccountGui {
 			new LoginGui().createGui();
 		}
 	}
-
+	
+	/**
+	 * The userNameCheck method checks to see if the username entered by the user contains any spaces.
+	 * @param s the username that is being checked for spaces.
+	 * @return true if the username does not contain any spaces and false otherwise.
+	 */
 	public boolean userNameCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
 			if (s.charAt(i) == ' ') {
@@ -255,7 +267,12 @@ public class CreateAccountGui {
 		}
 		return true;
 	}
-
+	
+	/**
+	 * The depositCheck method checks to see if the initial deposit entered by the user only contains numbers.
+	 * @param s the initial deposit that is being checked for non-numerical values.
+	 * @return true if the initial deposit only contains numerical values and false otherwise.
+	 */
 	public boolean depositCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
 			if (Character.isDigit(s.charAt(i)) == false) {
@@ -264,7 +281,12 @@ public class CreateAccountGui {
 		}
 		return true;
 	}
-
+	
+	/**
+	 * The depositPosCheck method checks to see if the initial deposit is positive.
+	 * @param s the initial deposit that is being checked to see if it is a positive value.
+	 * @return true if the initial deposit is positive and false otherwise.
+	 */
 	public boolean depositPosCheck(String s) {
 		if ((s.substring(0, 1)).equals("-")) {
 			return false;

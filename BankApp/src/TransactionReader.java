@@ -7,19 +7,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This Class is used to store Transactions and provides methods to read and
- * print transactions.
  * 
- * @author sridharvarala
+ * TransactionReader.java is used to maintain the database of transactions created in our program stored in Transactiondatabase.txt.
+ * Using TransactionReader.java, we are able to create a list of all existing transactions, update the list with any new transactions, and reflect those changes in the database.
+ * @author Rohan Murthy
+ * @author Sridhar Varala
  *
  */
 public class TransactionReader {
 
-	// Instant Variables
 	public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
 
-	/*
-	 * Method to add account transactions to the array list.
+
+	/**
+	 * The readTransaction method is used to add a new transaction to the transaction list.
 	 */
 	public void readTransaction(Transaction obj) {
 
@@ -28,7 +29,7 @@ public class TransactionReader {
 	}
 
 	/**
-	 * Method to read account Transactions from the file.
+	 * The readTransactioncsv method is used populate the transaction list with all transactions currently in Transactiondatabase.txt.
 	 */
 	public static void readTransactioncsv() {
 
@@ -39,7 +40,6 @@ public class TransactionReader {
 			while (fileScanner.hasNext()) {
 
 				String line = fileScanner.next();
-				System.out.println(line);
 				String[] lineArray = line.split(",");
 
 				int accountNumber = Integer.parseInt(lineArray[0]);
@@ -53,14 +53,11 @@ public class TransactionReader {
 
 				if (type.toUpperCase().contentEquals("CHECKING")) {
 
-					CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password,
-							balance);
+					CheckingAccount cAccount = new CheckingAccount(accountNumber, name, cvv, expiryDate, type, password, balance);
 
 					String t3 = " ";
 					while (fileScanner.hasNext()) {
-
-						// String t1 = fileScanner.hasNext(pattern);
-						// String t2 = fileScanner.nextLine();
+						
 						String l = fileScanner.nextLine();
 
 						if (l.contentEquals("end")) {
@@ -74,15 +71,11 @@ public class TransactionReader {
 						} else {
 							t3 = t3 + "\n" + l;
 						}
-						// fileScanner.nextLine();
-						// System.out.println(t3);
 
 					}
 
 					Transaction t = new Transaction(t3, cAccount);
 					transactionList.add(t);
-					System.out.println(t.account.getName());
-					System.out.println(t3);
 
 				}
 
@@ -110,7 +103,6 @@ public class TransactionReader {
 
 					}
 
-					System.out.println(t1);
 					Transaction t = new Transaction(t1, sAccount);
 					transactionList.add(t);
 					fileScanner.nextLine();
@@ -124,8 +116,8 @@ public class TransactionReader {
 		}
 	}
 
-	/*
-	 * Method to print monthly account transactions
+	/**
+	 * The printTransactions method is used to print a list of transactions for a specific user.
 	 */
 	public void printTransactions(Transaction obj) {
 
@@ -157,8 +149,9 @@ public class TransactionReader {
 
 	}
 
-	/*
-	 * Method to update Transactions in the database file.
+
+	/**
+	 * The updateTransactionDatabase method is used to update Transactiondatabase.txt with any new transactions that have occured.
 	 */
 	public static void updateTransactionDatabase() {
 
@@ -177,18 +170,24 @@ public class TransactionReader {
 			pr.flush();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
 	}
 
-	// getter
+	/**
+	 * Getter for the transaction list.
+	 * @return transactionlist the list of all transactions that have occured.
+	 */
 	public ArrayList<Transaction> getTransactionList() {
 		return transactionList;
 	}
 
-	// Setter
+	/**
+	 * Setter for the transaction list.
+	 * @param transactionlist the list of all transactions that have occured.
+	 */
 	public void setTransactionList(ArrayList<Transaction> transactionList) {
 		this.transactionList = transactionList;
 	}
