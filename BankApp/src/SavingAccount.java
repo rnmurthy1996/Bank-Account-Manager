@@ -46,7 +46,7 @@ public class SavingAccount extends CheckingAccount implements Account {
 	 */
 	public void interest() {
 
-		double interest = (SavingAccount.interestRate * this.balance) / 12;
+		double interest = (SavingAccount.interestRate*0.01 * this.balance) / 12;
 
 		this.balance = this.balance + interest;
 
@@ -97,6 +97,7 @@ public class SavingAccount extends CheckingAccount implements Account {
 		if (obj.getBalance() > amount) {
 			
 			this.withdraw((amount- 5 + transferFee ));
+
 			obj.deposit(amount);
 		}
 

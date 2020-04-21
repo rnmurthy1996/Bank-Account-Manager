@@ -20,7 +20,7 @@ public class CheckingAccount implements Account  {
 	public String type;
 	private String password;
 	protected double balance;
-	static final public double interestRate =2.5;
+	static final public double interestRate = 2.5;
 	static private int accountcount=0;
 	static public int transactionNum=0;
 	public ArrayList<String>transactions;
