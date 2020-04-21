@@ -18,15 +18,8 @@ public class TransactionReader {
 	// Instant Variables
 	public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
 
-	// constructor
-//	public TransactionReader() {
-//
-//		transactionList = new ArrayList<Transaction>();
-//
-//	}
-
 	/*
-	 * Method to read account transactions
+	 * Method to add account transactions to the array list.
 	 */
 	public void readTransaction(Transaction obj) {
 
@@ -34,6 +27,9 @@ public class TransactionReader {
 
 	}
 
+	/**
+	 * Method to read account Transactions from the file.
+	 */
 	public static void readTransactioncsv() {
 
 		try {
@@ -161,6 +157,9 @@ public class TransactionReader {
 
 	}
 
+	/*
+	 * Method to update Transactions in the database file.
+	 */
 	public static void updateTransactionDatabase() {
 
 		try {
