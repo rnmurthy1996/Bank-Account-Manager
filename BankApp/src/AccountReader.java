@@ -73,7 +73,7 @@ public class AccountReader {
 	
 	/**
 	 * The createAccountcsv method is used to create a new account and add it to accountdata.csv.
-	 * @param Account the account that is being created
+	 * @param account Account the account that is being created
 	 */
 	public static void createAccountcsv(Account account) {
 
