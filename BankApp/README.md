@@ -45,7 +45,7 @@ The transaction list on the home page GUI is also constanly updating with every 
 * Swing - Java graphics API used to build grapical user interface
 
 ## Authors
-Rohan Murthy
+Rohan Murthy  
 Sridhar Varala
 
 ## Acknowledgements
