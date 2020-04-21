@@ -174,7 +174,7 @@ class UnitTesting {
 		SavingAccount from = new SavingAccount("From", "Savings", "Password", 1000);
 		SavingAccount to = new SavingAccount("To", "Savings", "Password", 1000);
 		from.moneyTransfer(to, 500);
-		assertEquals(from.getBalance(), 498);
+		assertEquals(from.getBalance(), 493);
 		assertEquals(to.getBalance(), 1500);
 
 	}
