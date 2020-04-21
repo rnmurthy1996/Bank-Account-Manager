@@ -16,5 +16,5 @@ You will need a way to run the program which is written in Java. We recommend an
 
 ## Using Application
 
-When the user runs the program, the first window they will see is the login GUI.
+When the user runs the program, the first window they will see is the login GUI.  
 ![](Images/LoginScreen.PNG)
