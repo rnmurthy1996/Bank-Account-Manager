@@ -1,4 +1,4 @@
-# Banking Application
+# Banking Application - MCIT 591 Final Project
 
 ## Project Introduction
 
@@ -38,4 +38,15 @@ To transfer money from your account to another external account, click the "Tran
 ![](Images/Withdraw.PNG)
 
 The transaction list on the home page GUI is also constanly updating with every transaction you make. Since we have just completed a deposit, withdrawal, and transfer, the transaction list update with these three transactions.  
-![](Images/HomeScreen4.PNG)
+[](Images/HomeScreen4.PNG)
+
+## Built With
+* Eclipse - Java IDE used for development
+* Swing - Java graphics API used to build grapical user interface
+
+## Authors
+Rohan Murthy
+Sridhar Varala
+
+## Acknowledgements
+The user npitini from StackOverflow wrote JTextFieldLimit.java which limits the number of characters in a JTextField. This was primarily used to limit the number of characters in the cents JTextField to two.
