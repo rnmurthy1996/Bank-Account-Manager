@@ -1,6 +1,8 @@
 /**
  * 
- * The Account interface is implemented by both CheckingAccount.java and SavingAccount.java.
+ * The Account interface is implemented by both CheckingAccount.java and
+ * SavingAccount.java.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *

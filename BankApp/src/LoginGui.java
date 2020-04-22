@@ -7,8 +7,11 @@ import javax.swing.*;
 
 /**
  * 
- * LoginGui.java is used to create the login GUI of our program. This GUI is accessed when BankAppRunner.java is run.
- * This GUI allows the user to login to their account. If they do not have an account, the can click on the create account button to create a new account.
+ * LoginGui.java is used to create the login GUI of our program. This GUI is
+ * accessed when BankAppRunner.java is run. This GUI allows the user to login to
+ * their account. If they do not have an account, the can click on the create
+ * account button to create a new account.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *
@@ -36,7 +39,8 @@ public class LoginGui {
 	public static Account workingAccount;
 
 	/**
-	 * The layoutManager method initializes all of the panels used by DepositGui.java.
+	 * The layoutManager method initializes all of the panels used by
+	 * DepositGui.java.
 	 */
 	private void layoutManager() {
 
@@ -69,7 +73,8 @@ public class LoginGui {
 	}
 
 	/**
-	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 * The createGui method is used to initialize the GUI which contains the
+	 * required panels, labels, buttons, etc.
 	 */
 	public void createGui() {
 
@@ -107,13 +112,16 @@ public class LoginGui {
 	}
 
 	/**
-	 * The private class Login is called when the login Jbutton is clicked. This class logs the user into their account and opens the home page GUI.
-	 * The values entered in the username and password fields are checked for verification with the account database in this class to ensure proper credentials.
+	 * The private class Login is called when the login Jbutton is clicked. This
+	 * class logs the user into their account and opens the home page GUI. The
+	 * values entered in the username and password fields are checked for
+	 * verification with the account database in this class to ensure proper
+	 * credentials.
 	 */
 	private class Login implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			
+
 			String user = usernameText.getText();
 			String pass = passwordText.getText();
 
@@ -146,22 +154,24 @@ public class LoginGui {
 	}
 
 	/**
-	 * The private class CreateAccount is called when the createAccount Jbutton is clicked and opens the create account GUI.
+	 * The private class CreateAccount is called when the createAccount Jbutton is
+	 * clicked and opens the create account GUI.
 	 */
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			new CreateAccountGui().createGui();
 			frame.dispose();
 		}
 	}
 
 	/**
-	 * The private class Exit is called when the exit Jbutton is clicked and closes the login GUI.
+	 * The private class Exit is called when the exit Jbutton is clicked and closes
+	 * the login GUI.
 	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			frame.dispose();
 		}
 	}

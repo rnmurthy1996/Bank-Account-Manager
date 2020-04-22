@@ -3,13 +3,16 @@ import java.util.Date;
 
 /**
  * 
- * Transaction.java contains the variables and methods associated with a transaction.
+ * Transaction.java contains the variables and methods associated with a
+ * transaction.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *
  */
 public class Transaction {
 
+	// Instance variables
 	public String transaction;
 
 	public Account account;
@@ -17,8 +20,10 @@ public class Transaction {
 	/**
 	 * 
 	 * The constructor for a transaction.
-	 * @param transaction the information associated with the transaction including transaction type, amount, date, etc.
-	 * @param account the account that the transaction is for
+	 * 
+	 * @param transaction the information associated with the transaction including
+	 *                    transaction type, amount, date, etc.
+	 * @param account     the account that the transaction is for
 	 *
 	 */
 	public Transaction(String transaction, Account account) {

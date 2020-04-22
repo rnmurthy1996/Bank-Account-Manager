@@ -6,8 +6,11 @@ import javax.swing.*;
 
 /**
  * 
- * DepositGui.java is used to create the withdraw GUI of our program. This GUI is accessed when the user clicks the withdraw button in the home page GUI.
- * This GUI allows the user to withdraw money from their account. The amount is determined by the user.
+ * DepositGui.java is used to create the withdraw GUI of our program. This GUI
+ * is accessed when the user clicks the withdraw button in the home page GUI.
+ * This GUI allows the user to withdraw money from their account. The amount is
+ * determined by the user.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *
@@ -39,9 +42,9 @@ public class WithdrawGui {
 		a = acc;
 	}
 
-
 	/**
-	 * The layoutManager method initializes all of the panels used by WithdrawGui.java.
+	 * The layoutManager method initializes all of the panels used by
+	 * WithdrawGui.java.
 	 */
 	private void layoutManager() {
 
@@ -74,7 +77,8 @@ public class WithdrawGui {
 	}
 
 	/**
-	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 * The createGui method is used to initialize the GUI which contains the
+	 * required panels, labels, buttons, etc.
 	 */
 	public void createGui() {
 
@@ -113,11 +117,13 @@ public class WithdrawGui {
 		exit.addActionListener(new Exit());
 	}
 
-
 	/**
-	 * The private class DepositMoney is called when the withdrawButton Jbutton is clicked and withdraws the user determined amount from the account.
-	 * The withdrawal amount is checked in this class to ensure that it is a valid amount (no spaces, letters, negative values, etc.).
-	 * The withdrawal amount is also checked against the account balance to ensure sufficient funds are available for withdrawal.
+	 * The private class DepositMoney is called when the withdrawButton Jbutton is
+	 * clicked and withdraws the user determined amount from the account. The
+	 * withdrawal amount is checked in this class to ensure that it is a valid
+	 * amount (no spaces, letters, negative values, etc.). The withdrawal amount is
+	 * also checked against the account balance to ensure sufficient funds are
+	 * available for withdrawal.
 	 */
 	private class WithdrawMoney implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
@@ -161,9 +167,9 @@ public class WithdrawGui {
 				a.withdraw(withdrawAmount);
 				String bal = String.format("%.2f", a.getBalance());
 
-				balanceLabel.setText("Current Balance: $" + bal);	
+				balanceLabel.setText("Current Balance: $" + bal);
 				new BankAppGui(a).balance.setText("Current Balance: $" + bal + "       ");
-				
+
 				String with = String.format("%.2f", withdrawAmount);
 				String date = Transaction.DateCaluclator();
 				String transaction = "Date: " + date + "          Transaction Type: Withdrawal    Amount: " + with
@@ -196,8 +202,9 @@ public class WithdrawGui {
 	}
 
 	/**
-	 * The private class Exit is called when the exit Jbutton is clicked and closes the withdraw money GUI.
-	 * This class also initializes a new home page GUI with an updated account balance.
+	 * The private class Exit is called when the exit Jbutton is clicked and closes
+	 * the withdraw money GUI. This class also initializes a new home page GUI with
+	 * an updated account balance.
 	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
@@ -209,9 +216,12 @@ public class WithdrawGui {
 	}
 
 	/**
-	 * The withdrawCheck method checks to see if the withdrawal entered by the user only contains numbers.
+	 * The withdrawCheck method checks to see if the withdrawal entered by the user
+	 * only contains numbers.
+	 * 
 	 * @param s the withdrawal that is being checked for non-numerical values.
-	 * @return true if the withdrawal only contains numerical values and false otherwise.
+	 * @return true if the withdrawal only contains numerical values and false
+	 *         otherwise.
 	 */
 	public boolean withdrawCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
@@ -221,10 +231,12 @@ public class WithdrawGui {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * The withdrawPosCheck method checks to see if the withdrawal is positive.
-	 * @param s the withdrawal that is being checked to see if it is a positive value.
+	 * 
+	 * @param s the withdrawal that is being checked to see if it is a positive
+	 *          value.
 	 * @return true if the withdrawal is positive and false otherwise.
 	 */
 	public boolean withdrawPosCheck(String s) {

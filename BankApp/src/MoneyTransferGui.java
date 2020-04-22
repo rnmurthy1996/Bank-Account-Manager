@@ -6,8 +6,11 @@ import javax.swing.*;
 
 /**
  * 
- * MoneyTransferGui.java is used to create the money transfer GUI of our program. This GUI is accessed when the user clicks the money transfer button in the home page GUI.
- * This GUI allows the user to transfer money from their account to another external account.
+ * MoneyTransferGui.java is used to create the money transfer GUI of our
+ * program. This GUI is accessed when the user clicks the money transfer button
+ * in the home page GUI. This GUI allows the user to transfer money from their
+ * account to another external account.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *
@@ -43,7 +46,8 @@ public class MoneyTransferGui {
 	private JLabel fundsErr;
 
 	/**
-	 * The layoutManager method initializes all of the panels used by DepositGui.java.
+	 * The layoutManager method initializes all of the panels used by
+	 * DepositGui.java.
 	 */
 	private void layoutManager() {
 
@@ -87,7 +91,8 @@ public class MoneyTransferGui {
 	}
 
 	/**
-	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 * The createGui method is used to initialize the GUI which contains the
+	 * required panels, labels, buttons, etc.
 	 */
 	public void createGui() {
 
@@ -147,9 +152,12 @@ public class MoneyTransferGui {
 	}
 
 	/**
-	 * The private class transfer is called when the send Jbutton is clicked. This class transfers money from theor account to a seprate external account.
-	 * The account number is checked in this class for validity with the account database. 
-	 * The transfer amount is a checked in this class to ensure that it is a valid amount (no spaces, letters, negative values, etc.) and that sufficient funds are available for transfer.
+	 * The private class transfer is called when the send Jbutton is clicked. This
+	 * class transfers money from theor account to a seprate external account. The
+	 * account number is checked in this class for validity with the account
+	 * database. The transfer amount is a checked in this class to ensure that it is
+	 * a valid amount (no spaces, letters, negative values, etc.) and that
+	 * sufficient funds are available for transfer.
 	 */
 	private class transfer implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
@@ -272,13 +280,14 @@ public class MoneyTransferGui {
 				}
 
 				TransactionReader.updateTransactionDatabase();
-			}	
+			}
 
 		}
 	}
 
 	/**
-	 * The private class Exit is called when the exit Jbutton is clicked and closes the money transfer GUI.
+	 * The private class Exit is called when the exit Jbutton is clicked and closes
+	 * the money transfer GUI.
 	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
@@ -288,9 +297,12 @@ public class MoneyTransferGui {
 	}
 
 	/**
-	 * The transferCheck method checks to see if the transfer amount entered by the user only contains numbers.
+	 * The transferCheck method checks to see if the transfer amount entered by the
+	 * user only contains numbers.
+	 * 
 	 * @param s the transfer amount that is being checked for non-numerical values.
-	 * @return true if the transfer amount only contains numerical values and false otherwise.
+	 * @return true if the transfer amount only contains numerical values and false
+	 *         otherwise.
 	 */
 	public boolean transferCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
@@ -303,7 +315,9 @@ public class MoneyTransferGui {
 
 	/**
 	 * The transferPosCheck method checks to see if the transfer amount is positive.
-	 * @param s the transfer amount that is being checked to see if it is a positive value.
+	 * 
+	 * @param s the transfer amount that is being checked to see if it is a positive
+	 *          value.
 	 * @return true if the transfer amount is positive and false otherwise.
 	 */
 	public boolean transferPosCheck(String s) {

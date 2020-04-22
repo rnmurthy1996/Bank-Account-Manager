@@ -7,8 +7,8 @@ Date: 3/16/2020          Transaction Type: Deposit       Amount: 100.00
 Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
 Date: 3/17/2020          Transaction Type: Deposit       Amount: 1.00
 Date: 3/17/2020          Transaction Type: Withdrawal    Amount: 100.00
-Date: 3/17/2020          Transaction Type: Transfer      Amount: 10.00       Destination Account: Rohan2
-Date: 3/17/2020          Transaction Type: Transfer      Amount: 100.00       Destination Account: Rohan2
+Date: 3/17/2020          Transaction Type: Transfer      Amount: 10.00      Destination Account: Rohan2
+Date: 3/17/2020          Transaction Type: Transfer      Amount: 100.00     Destination Account: Rohan2
 Date: 3/18/2020          Transaction Type: Deposit       Amount: 1.10
 Date: 3/18/2020          Transaction Type: Withdrawal    Amount: 1.10
 Date: 3/18/2020          Transaction Type: Transfer      Amount: 1.10       Destination Account: Rohan2

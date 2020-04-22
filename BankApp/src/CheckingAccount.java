@@ -5,14 +5,17 @@ import java.util.Random;
 
 /**
  * 
- * CheckingAccount.java implements the Account interface and contains the variables and methods associated with a checking account.
+ * CheckingAccount.java implements the Account interface and contains the
+ * variables and methods associated with a checking account.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *
  */
 
-public class CheckingAccount implements Account  {
+public class CheckingAccount implements Account {
 
+	// Instance variables.
 	private int accountNumber;
 	private String name;
 	private int cvv;
@@ -21,22 +24,21 @@ public class CheckingAccount implements Account  {
 	private String password;
 	protected double balance;
 	static final public double interestRate = 2.5;
-	static private int accountcount=0;
-	static public int transactionNum=0;
-	public ArrayList<String>transactions;
-	
-	
-	
+	static private int accountcount = 0;
+	static public int transactionNum = 0;
+	public ArrayList<String> transactions;
+
 	/**
 	 * 
 	 * The primary constructor for a checking account.
+	 * 
 	 * @param accountNumber the account number associated with the account
-	 * @param name the username for the account
-	 * @param cvv the card verification value for the account
-	 * @param expiryDate the expiration date of the account
-	 * @param type the account type (chekcing or savings)
-	 * @param password the password for the account
-	 * @param balance the balance of the account
+	 * @param name          the username for the account
+	 * @param cvv           the card verification value for the account
+	 * @param expiryDate    the expiration date of the account
+	 * @param type          the account type (chekcing or savings)
+	 * @param password      the password for the account
+	 * @param balance       the balance of the account
 	 *
 	 */
 	public CheckingAccount(int accountNumber, String name, int cvv, String expiryDate, String type, String password,
@@ -51,14 +53,17 @@ public class CheckingAccount implements Account  {
 		this.balance = balance;
 		transactions = new ArrayList<String>();
 	}
-	
+
 	/**
 	 * 
-	 * The secondary constructor for a checking account. This is the constructor normally called in CreateAccountGui.java when a new checking account is created.
-	 * @param name username for the account
-	 * @param type the account type (chekcing or savings)
+	 * The secondary constructor for a checking account. This is the constructor
+	 * normally called in CreateAccountGui.java when a new checking account is
+	 * created.
+	 * 
+	 * @param name     username for the account
+	 * @param type     the account type (chekcing or savings)
 	 * @param password the password for the account
-	 * @param balance the balance of the account
+	 * @param balance  the balance of the account
 	 */
 	public CheckingAccount(String name, String type, String password, double balance) {
 
@@ -73,15 +78,15 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * The deposit method is called to deposit money into the account.
-	 * This method also adds a deposit transaction to the transaction list.
+	 * The deposit method is called to deposit money into the account. This method
+	 * also adds a deposit transaction to the transaction list.
+	 * 
 	 * @param amount amount of money that should be deposited.
 	 */
 	public void deposit(double amount) {
 
 		this.balance = this.balance + amount;
 		transactionNum++;
-
 		String transaction = "No." + transactionNum + " " + " Deposit" + " - " + "amount-" + amount
 				+ "Available balance-" + balance;
 
@@ -90,8 +95,9 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * The withdraw method is called to withdraw money from the account.
-	 * This method also adds a withdrawal transaction to the transaction list.
+	 * The withdraw method is called to withdraw money from the account. This method
+	 * also adds a withdrawal transaction to the transaction list.
+	 * 
 	 * @param amount the amount of money that should be withdrawn.
 	 */
 	public void withdraw(double amount) {
@@ -108,17 +114,24 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * The moneyTransfer method is called to transfer money from the account to another external account.
-	 * This method also adds a money transfer transaction to the transaction list.
-	 * @param obj the external account that money should be transferred to.
-	 * @param amount the amount of money that should be transferred.ey in dollars of type double.
+	 * The moneyTransfer method is called to transfer money from the account to
+	 * another external account. This method also adds a money transfer transaction
+	 * to the transaction list.
+	 * 
+	 * @param obj    the external account that money should be transferred to.
+	 * @param amount the amount of money that should be transferred.ey in dollars of
+	 *               type double.
 	 */
 	public void moneyTransfer(Account obj, double amount) {
-		
+
 		if (obj.getBalance() > amount) {
 
+			// withdrawing money from this account.
 			this.withdraw(amount);
+
+			// Calling deposit method to transfer money to other account.
 			obj.deposit(amount);
+
 			transactionNum++;
 			String transaction = "No." + transactionNum + " " + " moneyTransfer" + "to account-" + obj.getName() + "- "
 					+ "amount-" + amount + "Available balance-" + balance;
@@ -129,13 +142,16 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * The loginAuthentication method is used to verify login credentials for the account.
-	 * @param name the username that is being checked for authentication.
+	 * The loginAuthentication method is used to verify login credentials for the
+	 * account.
+	 * 
+	 * @param name     the username that is being checked for authentication.
 	 * @param password the password that is being checked for authentication.
 	 * @return returns true if login credentials are good and false otherwise.
 	 */
 	public boolean loginAuthentication(String name, String password) {
 
+		// Checking the name and password of the account.
 		if (this.name.contentEquals(name) && this.password.contentEquals(password)) {
 			return true;
 		} else {
@@ -144,8 +160,10 @@ public class CheckingAccount implements Account  {
 	}
 
 	/**
-	 * The loginAuthentication method is used to verify login credentials for the account.
-	 * @param name the username that is being checked for authentication
+	 * The loginAuthentication method is used to verify login credentials for the
+	 * account.
+	 * 
+	 * @param name     the username that is being checked for authentication
 	 * @param password the password that is being checked for authentication
 	 */
 	public String expiryDateCaluclator() {
@@ -160,33 +178,39 @@ public class CheckingAccount implements Account  {
 		return expiryDate;
 	}
 
-	
 	/**
-	 *  This method is used to calculate cvv of the account.
-	 *  @return cvv.
+	 * This method is used to calculate cvv of the account.
+	 * 
+	 * @return cvv.
 	 */
 	public int cvvcaluclator() {
 
 		Random random = new Random();
-		//Cvv is made of 3 digit number form 0 to 1000 range.
+		// Cvv is made of 3 digit number form 0 to 1000 range.
 		int cvv = (random.nextInt(900) + 100);
 		return cvv;
 	}
 
 	/**
-	 * The accountNumGenerator method is used to generate an account number upon creation of a new account. The account number formula is 500001+number of current checking accounts.
-	 *@return accountNum the account number that has been generated.
+	 * The accountNumGenerator method is used to generate an account number upon
+	 * creation of a new account. The account number formula is 500001+number of
+	 * current checking accounts.
+	 * 
+	 * @return accountNum the account number that has been generated.
 	 */
 	public int accountNumGenerator() {
 
 		AccountReader ar = new AccountReader();
 		ar.readAccountcsv();
+
+		// Looping through account list to count number of checking accounts already
+		// created.
 		for (int i = 0; i < ar.accountlist.size(); i++) {
 			if (ar.accountlist.get(i).getType().equals("Checking")) {
 				accountcount++;
 			}
 		}
-		//Checking account number is a 6 digit and starts from 500001.
+		// Checking account number is a 6 digit and starts from 500001.
 		int accountNum = accountcount + 500001;
 
 		return accountNum;
@@ -194,6 +218,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the account number.
+	 * 
 	 * @return accountNumber the account number associated with the account.
 	 */
 	public int getAccountNumber() {
@@ -202,6 +227,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the username.
+	 * 
 	 * @return name the username for the account.
 	 */
 	public String getName() {
@@ -210,6 +236,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the card verification value.
+	 * 
 	 * @return cvv the card verification value for the account
 	 */
 	public int getCvv() {
@@ -218,6 +245,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the account expiration date.
+	 * 
 	 * @return expiryDate the expiration date of the account
 	 */
 	public String getExpiryDate() {
@@ -226,6 +254,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the account type.
+	 * 
 	 * @return type the account type (checking or savings)
 	 */
 	public String getType() {
@@ -234,6 +263,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the password.
+	 * 
 	 * @return password the password for the account
 	 */
 	public String getPassword() {
@@ -242,6 +272,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the account balance.
+	 * 
 	 * @return balance the balance of the account.
 	 */
 	public double getBalance() {
@@ -250,6 +281,7 @@ public class CheckingAccount implements Account  {
 
 	/**
 	 * Getter for the interest rate. Set at 2.5% for checking accounts.
+	 * 
 	 * @return interestRate the interest rate of the account.
 	 */
 	public double getInterestRate() {
