@@ -8,8 +8,12 @@ import javax.swing.*;
 
 /**
  * 
- * CreateAccountGui.java is used to create the create account GUI of our program. This GUI is accessed when the user clicks the create account button in the login GUI.
- * This GUI allows the user to create a new account by entering the required information including username, password, account type, and initial balance.
+ * CreateAccountGui.java is used to create the create account GUI of our
+ * program. This GUI is accessed when the user clicks the create account button
+ * in the login GUI. This GUI allows the user to create a new account by
+ * entering the required information including username, password, account type,
+ * and initial balance.
+ * 
  * @author Rohan Murthy
  * @author Sridhar Varala
  *
@@ -47,7 +51,8 @@ public class CreateAccountGui {
 	private JLabel depositErr;
 
 	/**
-	 * The layoutManager method initializes all of the panels used by CreateAccountGui.java.
+	 * The layoutManager method initializes all of the panels used by
+	 * CreateAccountGui.java.
 	 */
 	private void layoutManager() {
 
@@ -90,7 +95,8 @@ public class CreateAccountGui {
 	}
 
 	/**
-	 * The createGui method is used to initialize the GUI which contains the required panels, labels, buttons, etc.
+	 * The createGui method is used to initialize the GUI which contains the
+	 * required panels, labels, buttons, etc.
 	 */
 	public void createGui() {
 
@@ -113,7 +119,7 @@ public class CreateAccountGui {
 		accountType = new JComboBox(at);
 		accType.add(accountTypeText);
 		accType.add(accountType);
-		
+
 		initialDeposit = new JLabel("Initial Deposit: $");
 		dollarsText = new JTextField();
 		dollarsText.setColumns(7);
@@ -149,12 +155,14 @@ public class CreateAccountGui {
 	}
 
 	/**
-	 * The private class CreateAccount is called when the createAccount Jbutton is clicked and creates a new account
-	 * The required information entered by the user is also checked for validity (username contains no spaces, initial deposit is numerical, etc.).
+	 * The private class CreateAccount is called when the createAccount Jbutton is
+	 * clicked and creates a new account The required information entered by the
+	 * user is also checked for validity (username contains no spaces, initial
+	 * deposit is numerical, etc.).
 	 */
 	private class CreateAccount implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+
 			String name = "";
 			String pw = "";
 			double balance = 0;
@@ -240,11 +248,10 @@ public class CreateAccountGui {
 			}
 		}
 	}
-	
-	
+
 	/**
-	 * The private class Exit is called when the exit Jbutton is clicked and closes the create account GUI.
-	 * This class also initializes a new login GUI.
+	 * The private class Exit is called when the exit Jbutton is clicked and closes
+	 * the create account GUI. This class also initializes a new login GUI.
 	 */
 	private class Exit implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
@@ -253,9 +260,11 @@ public class CreateAccountGui {
 			new LoginGui().createGui();
 		}
 	}
-	
+
 	/**
-	 * The userNameCheck method checks to see if the username entered by the user contains any spaces.
+	 * The userNameCheck method checks to see if the username entered by the user
+	 * contains any spaces.
+	 * 
 	 * @param s the username that is being checked for spaces.
 	 * @return true if the username does not contain any spaces and false otherwise.
 	 */
@@ -267,11 +276,14 @@ public class CreateAccountGui {
 		}
 		return true;
 	}
-	
+
 	/**
-	 * The depositCheck method checks to see if the initial deposit entered by the user only contains numbers.
+	 * The depositCheck method checks to see if the initial deposit entered by the
+	 * user only contains numbers.
+	 * 
 	 * @param s the initial deposit that is being checked for non-numerical values.
-	 * @return true if the initial deposit only contains numerical values and false otherwise.
+	 * @return true if the initial deposit only contains numerical values and false
+	 *         otherwise.
 	 */
 	public boolean depositCheck(String s) {
 		for (int i = 0; i < s.length(); i++) {
@@ -281,10 +293,12 @@ public class CreateAccountGui {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * The depositPosCheck method checks to see if the initial deposit is positive.
-	 * @param s the initial deposit that is being checked to see if it is a positive value.
+	 * 
+	 * @param s the initial deposit that is being checked to see if it is a positive
+	 *          value.
 	 * @return true if the initial deposit is positive and false otherwise.
 	 */
 	public boolean depositPosCheck(String s) {

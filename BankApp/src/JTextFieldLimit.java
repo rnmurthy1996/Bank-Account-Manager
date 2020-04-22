@@ -1,5 +1,4 @@
 import java.awt.FlowLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -9,10 +8,9 @@ import javax.swing.text.PlainDocument;
 
 /**
  * 
- * JTextFieldLimit.java is used to limit the number of characters in a JTextField.
- * This was primarily used to limit the number of characters in the cents JTextField to two.
- * @author npinti from StackOverflow (https://stackoverflow.com/questions/10136794/limiting-the-number-of-characters-in-a-jtextfield)
- *
+ * JTextFieldLimit.java is used to limit the number of characters in a
+ * JTextField. This was primarily used to limit the number of characters in the
+ * cents JTextField to two.
  */
 
 class JTextFieldLimit extends PlainDocument {

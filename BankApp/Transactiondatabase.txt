@@ -1,50 +1,151 @@
 500001,Rohan,153,3/16/2022,Checking,PW,100.0
+ 
 
-
-
-
-
-
-
-
-
-
-
-Date-16/3/2020, Type- Deposit, Amount-1.1
-Date-16/3/2020, Type- Withdraw, Amount-1.1
-Date-16/3/2020, Type- Deposit, Amount-1.1
-Date-16/3/2020, Type- Withdraw, Amount-1.1
-Date-16/3/2020, Type- transfer, Amount-1.1, To Account - Rohan2
-Date: 16/3/2020          Transaction Type: Deposit       Amount: 100.0
-Date: 16/3/2020          Transaction Type: Deposit       Amount: 100.00
-Date: 16/3/2020          Transaction Type: Withdrawal       Amount: 1.10
-Date: 16/3/2020          Transaction Type: Transfer       Amount: 1.10       Destination Account: Rohan2
+Date: 16/3/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 16/3/2020          Transaction Type: Transfer      Amount: 1.10       Destination Account: Rohan2
 Date: 3/16/2020          Transaction Type: Deposit       Amount: 100.00
 Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
 Date: 3/17/2020          Transaction Type: Deposit       Amount: 1.00
-Date: 3/17/2020          Transaction Type: Withdrawal       Amount: 100.00
-Date: 3/17/2020          Transaction Type: Transfer       Amount: 10.00       Destination Account: Rohan2
-Date: 3/17/2020          Transaction Type: Transfer       Amount: 100.00       Destination Account: Rohan2
+Date: 3/17/2020          Transaction Type: Withdrawal    Amount: 100.00
+Date: 3/17/2020          Transaction Type: Transfer      Amount: 10.00      Destination Account: Rohan2
+Date: 3/17/2020          Transaction Type: Transfer      Amount: 100.00     Destination Account: Rohan2
 Date: 3/18/2020          Transaction Type: Deposit       Amount: 1.10
-Date: 3/18/2020          Transaction Type: Withdrawal       Amount: 1.10
-Date: 3/18/2020          Transaction Type: Transfer       Amount: 1.10       Destination Account: Rohan2
-Date: 3/21/2020          Transaction Type: Transfer       Amount: 1.10       Destination Account: Rohan
+Date: 3/18/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/18/2020          Transaction Type: Transfer      Amount: 1.10       Destination Account: Rohan2
+Date: 3/21/2020          Transaction Type: Transfer      Amount: 1.10       Destination Account: Rohan
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 10.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 10.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 10.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 10.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 11.11
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 2.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 2.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 2.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 2.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 2.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 5.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 5.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 5.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.12
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 11.11
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 123.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 16.40
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 16.40
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 122.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 122.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 122.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.13
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.13
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.13
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.13
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 23.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 23.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 23.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 23.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 10.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 34.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 34.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 34.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 34.20
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 34.20
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.12
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.12
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.12
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.12
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.12
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 45.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 15.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 15.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 15.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 15.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 15.50
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 15.50
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
 
 end
-500002,Rohan2,702,3/16/2022,Checking,PW,104.39999999999998
+500020,rahul,891,3/21/2022,Checking,rahul,207.75000000000006
+ 
 
-
-
-
-
-Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
-Date: 3/16/2020          Transaction Type: Deposit       Amount: 1.10
-
-end
-500003,Test,807,3/20/2022,Checking,Password,50.0
-
-Date: 3/20/2020          Transaction Type: Deposit       Amount: 50.00
-Date: 3/20/2020          Transaction Type: Withdrawal       Amount: 75.00
-Date: 3/20/2020          Transaction Type: Transfer       Amount: 25.00       Destination Account: Rohan
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 1.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 11.11
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 18.18
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 18.18
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 18.18
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 18.18
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
 
 end
