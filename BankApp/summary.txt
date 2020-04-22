@@ -14,9 +14,12 @@ Rohan Murthy:
 - I built the README file and helped write the unit tests for the program.
 
 Sridhar Varala:
--
--
--
+- Designed overall project - Initial layout of methods and Classes.
+- Designed Account Class , CheckingAccount class , SavingAccount Class , BankAPPGUI and BankAppRunner Classes.
+- Designed Transaction and TransactionReader Classes 
+- Few Unit Test cases ,bug fixes and worked on some areas where coupling is needed.
+
+
 
 Github Repository:
-https://github.com/UPenn-CIT599/final-project-team-217.git
+https://github.com/UPenn-CIT599/final-project-team-217.gits
