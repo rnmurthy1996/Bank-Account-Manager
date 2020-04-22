@@ -159,6 +159,8 @@ public class DepositGui {
 				
 				String dep = String.format("%.2f", depositAmount);
 				String date = Transaction.DateCaluclator();
+				//String firstTime = "\n";
+				
 				String transaction = "Date: " + date + "          Transaction Type: Deposit       Amount: " + dep
 						+ "\n";
 				new BankAppGui(a).textArea.append(transaction);

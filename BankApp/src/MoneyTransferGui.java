@@ -242,7 +242,7 @@ public class MoneyTransferGui {
 
 				String ta = String.format("%.2f", transferAmount);
 				String date = Transaction.DateCaluclator();
-				String transaction = "Date: " + date + "          Transaction Type: Transfer       Amount: " + ta
+				String transaction = "Date: " + date + "          Transaction Type: Transfer      Amount: " + ta
 						+ "       Destination Account: " + toAccount.getName() + "\n";
 				new BankAppGui(fromAccount).textArea.append(transaction);
 

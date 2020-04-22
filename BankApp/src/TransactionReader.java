@@ -65,9 +65,11 @@ public class TransactionReader {
 							break;
 						}
 
-						if (t3.contentEquals(" ")) {
-
-							t3 = l;
+						if (l.contentEquals(" ")) {
+							fileScanner.nextLine();
+							continue;
+							//t3 = l;
+							
 						} else {
 							t3 = t3 + "\n" + l;
 						}
@@ -95,8 +97,9 @@ public class TransactionReader {
 						}
 
 						if (t1.contentEquals(" ")) {
-
-							t1 = l;
+							fileScanner.nextLine();
+							continue;
+							//t1 = l;
 						} else {
 							t1 = t1 + "\n" + l;
 						}

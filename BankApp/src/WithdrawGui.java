@@ -166,7 +166,7 @@ public class WithdrawGui {
 				
 				String with = String.format("%.2f", withdrawAmount);
 				String date = Transaction.DateCaluclator();
-				String transaction = "Date: " + date + "          Transaction Type: Withdrawal       Amount: " + with
+				String transaction = "Date: " + date + "          Transaction Type: Withdrawal    Amount: " + with
 						+ "\n";
 				new BankAppGui(a).textArea.append(transaction);
 				AccountReader.updateAccountDatabase();
