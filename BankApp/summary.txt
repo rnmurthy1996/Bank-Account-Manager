@@ -1,0 +1,22 @@
+Banking Application
+
+Project Description:
+Our project is a banking application that allows users to create either a checking or savings account to handle their baking needs. 
+Users create their account by choosing a unique username and password and making an initial deposit into their account. 
+Once they have done this, they have the ability to log in and deposit additional funds into their account, withdraw funds from their account, or transfer money to an external account of their choosing.
+The project is coded in Java and utilizes the Swing API to deliver the application in an easy to use graphical user interface (GUI).
+
+Work Breakdown:
+Rohan Murthy:
+- I focused primarily on creating the GUI for the program and ensuring that it functions properly.
+- I built the GUI java files for the login GUI, the create account GUI, the home page GUI, the deposit GUI, and the withdrawal GUI.
+- I also coded the checks for potential user errors with input such as invalid usernames, negative deposit amounts, etc.
+- I built the README file and helped write the unit tests for the program.
+
+Sridhar Varala:
+-
+-
+-
+
+Github Repository:
+https://github.com/UPenn-CIT599/final-project-team-217.git
