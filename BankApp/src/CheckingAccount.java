@@ -215,6 +215,18 @@ public class CheckingAccount implements Account {
 
 		return accountNum;
 	}
+	
+	/**
+	 * The interest method is used to calculate the interest rate for the savings
+	 * account.
+	 */
+	public void interest() {
+
+		double interest = (SavingAccount.interestRate * 0.01 * 0.1 * this.balance) / 12;
+
+		this.balance = this.balance + interest;
+
+	}
 
 	/**
 	 * Getter for the account number.
