@@ -140,7 +140,7 @@ public class LoginGui {
 								&& workingAccount.getAccountNumber() == TransactionReader.transactionList.get(j).account
 										.getAccountNumber()) {
 							new BankAppGui(workingAccount).textArea
-									.append(TransactionReader.transactionList.get(j).transaction);
+									.append(blankLineRemove(TransactionReader.transactionList.get(j).transaction));
 						}
 
 					}
@@ -174,5 +174,12 @@ public class LoginGui {
 
 			frame.dispose();
 		}
+	}
+	
+	public String blankLineRemove(String s) {
+		String out = s.replace(" \n", "");
+		out = out.replace("\n\n", "");
+		out = out.replace("\n Date", "Date");
+		return out;
 	}
 }
