@@ -1,7 +1,4 @@
 500001,Rohan,153,3/16/2022,Checking,PW,100.0
- 
-
-
 Date: 16/3/2020          Transaction Type: Withdrawal    Amount: 1.10
 Date: 16/3/2020          Transaction Type: Transfer      Amount: 1.10       Destination Account: Rohan2
 Date: 3/16/2020          Transaction Type: Deposit       Amount: 100.00
@@ -117,6 +114,24 @@ Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
 Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
 Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
 Date: 3/21/2020          Transaction Type: Withdrawal    Amount: 12.15
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 17.17
+Date: 3/24/2020          Transaction Type: Withdrawal    Amount: 12.19
+Date: 3/24/2020          Transaction Type: Withdrawal    Amount: 12.19
+Date: 3/24/2020          Transaction Type: Withdrawal    Amount: 12.19
+Date: 3/24/2020          Transaction Type: Withdrawal    Amount: 12.19
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 34.12
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 34.12
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 34.12
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 34.12
+Date: 3/24/2020          Transaction Type: Deposit       Amount: 34.12
+Date: 3/24/2020          Transaction Type: Transfer      Amount: 15.15       Destination Account: rahul
+
 end
 500020,rahul,891,3/21/2022,Checking,rahul,207.75000000000006
  
@@ -148,6 +163,8 @@ Date: 3/21/2020          Transaction Type: Deposit       Amount: 18.18
 Date: 3/21/2020          Transaction Type: Deposit       Amount: 18.18
 Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
 Date: 3/21/2020          Transaction Type: Deposit       Amount: 12.10
+Date: 3/24/2020          Transaction Type: Received Transfer      Amount: 15.15       From Account: Rohan
+
 end
 500021,FinalTest1,913,3/23/2022,Checking,Password,60.0
  
@@ -162,6 +179,8 @@ Date: 3/23/2020          Transaction Type: Deposit       Amount: 10.00
 
 end
 500062,Account1,315,3/24/2022,Checking,Password,150.0
+ 
+
 
 Date: 3/24/2020          Transaction Type: Deposit       Amount: 100.00
 Date: 3/24/2020          Transaction Type: Withdrawal    Amount: 50.00

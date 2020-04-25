@@ -261,8 +261,11 @@ public class MoneyTransferGui {
 				AccountReader.updateAccountDatabase();
 
 				String t = new BankAppGui(fromAccount).textArea.getText();
+				String receiver ="Date: " + date + "          Transaction Type: Received Transfer      Amount: " + ta
+						+ "       From Account: " + fromAccount.getName() + "\n";
 
-				boolean accountNotFound = true;
+				boolean fromAccountNotFound = true;
+				boolean toAccountNotFound = true;
 				for (int j = 0; j < TransactionReader.transactionList.size(); j++) {
 
 					if (fromAccount.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName())
@@ -270,15 +273,27 @@ public class MoneyTransferGui {
 									.getAccountNumber()) {
 
 						TransactionReader.transactionList.get(j).transaction = t;
-						accountNotFound = false;
+						fromAccountNotFound = false;
 					}
+					
+					if (toAccount.getName().contentEquals(TransactionReader.transactionList.get(j).account.getName())
+							&& toAccount.getAccountNumber() == TransactionReader.transactionList.get(j).account
+									.getAccountNumber()) {
+
+						TransactionReader.transactionList.get(j).transaction = TransactionReader.transactionList.get(j).transaction+"\n"+receiver;
+						toAccountNotFound = false;
+					}
+					
 
 				}
 
-				if (accountNotFound == true) {
+				if (fromAccountNotFound == true) {
 					TransactionReader.transactionList.add(new Transaction(t, fromAccount));
 				}
 
+				if (toAccountNotFound == true) {
+					TransactionReader.transactionList.add(new Transaction(receiver, toAccount));
+				}
 				TransactionReader.updateTransactionDatabase();
 			}
 
