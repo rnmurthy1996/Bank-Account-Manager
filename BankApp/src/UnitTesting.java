@@ -155,7 +155,7 @@ class UnitTesting {
 	 */
 	void test12() {
 
-		CheckingAccount ca = new CheckingAccount("Test14", "Checking", "Password", 1000);
+		CheckingAccount ca = new CheckingAccount("Test12", "Checking", "Password", 1000);
 		AccountReader ar = new AccountReader();
 		ar.createAccountcsv(ca);
 		ar.readAccountcsv();
@@ -179,7 +179,7 @@ class UnitTesting {
 	 */
 	void test14() {
 
-		CheckingAccount ca = new CheckingAccount("Test15", "Checking", "Password", 1000);
+		CheckingAccount ca = new CheckingAccount("Test14", "Checking", "Password", 1000);
 		AccountReader ar = new AccountReader();
 		ar.createAccountcsv(ca);
 		ar.readAccountcsv();
@@ -189,8 +189,8 @@ class UnitTesting {
 		AccountReader ar2 = new AccountReader();
 		ar2.readAccountcsv();
 		double balance = 0;
-		for (int i = 0; i < ar2.accountlist.size() - 1; i++) {
-			if (ar2.accountlist.get(i).getName().equals("Test15")) {
+		for (int i = 0; i < ar2.accountlist.size(); i++) {
+			if (ar2.accountlist.get(i).getName().equals("Test14")) {
 				balance = ar2.accountlist.get(i).getBalance();
 			}
 		}

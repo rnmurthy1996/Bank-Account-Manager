@@ -178,7 +178,7 @@ public class LoginGui {
 	
 	public String blankLineRemove(String s) {
 		String out = s.replace(" \n", "");
-		out = out.replace("\n\n", "");
+		out = out.replace("\n\n", "\n");
 		out = out.replace("\n Date", "Date");
 		return out;
 	}
