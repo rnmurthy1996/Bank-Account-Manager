@@ -1,5 +1,4 @@
-# Banking Application - MCIT 591 Final Project
-
+# BankApp
 ## Project Introduction
 
 Our project is a banking application that allows users to create an account from which they can deposit and withdraw money, transfer money to a different account, and view their transactions.
