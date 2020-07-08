@@ -41,7 +41,7 @@ The transaction list on the home page GUI is also constanly updating with every 
 
 ## Built With
 * Eclipse - Java IDE used for development
-* Swing - Java graphics API used to build grapical user interface
+* Swing - Java graphics library used to build grapical user interface
 
 ## Authors
 Rohan Murthy  
