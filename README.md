@@ -1,4 +1,4 @@
-# Bank Account Manager
+# Bank Account Manager - CIT 591 Final Project
 ## Project Introduction
 
 Our project is a banking application that allows users to create an account from which they can deposit and withdraw money, transfer money to a different account, and view their transactions.
